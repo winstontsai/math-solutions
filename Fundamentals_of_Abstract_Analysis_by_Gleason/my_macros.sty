@@ -1,0 +1,123 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{my_macros}
+
+\RequirePackage{amsmath,amsthm,amssymb,mathtools}
+\RequirePackage{mathrsfs,bm,stmaryrd}
+\RequirePackage{interval,siunitx}
+
+\RequirePackage{xifthen,xparse,xhfill}
+
+%----------------------------------------------------------------------------------
+% LETTERS/WORDS/PHRASES
+%----------------------------------------------------------------------------------
+\newcommand*{\eps}{\epsilon}
+
+\newcommand*{\qand}{\quad\text{and}\quad}
+
+%----------------------------------------------------------------------------------
+% FONTS
+%----------------------------------------------------------------------------------
+\newcommand*{\mc}[1]{\mathcal{#1}}
+\newcommand*{\mbb}[1]{\mathbb{#1}}
+\newcommand*{\mbf}[1]{\mathbf{#1}}
+\newcommand*{\mf}[1]{\mathfrak{#1}}
+\newcommand*{\ms}[1]{\mathscr{#1}}
+\newcommand*{\msf}[1]{\mathsf{#1}}
+
+
+%----------------------------------------------------------------------------------
+% PARENTHESIS, BRACKETS, ETC
+%----------------------------------------------------------------------------------
+\DeclarePairedDelimiter\paren{(}{)}
+\DeclarePairedDelimiter\sparen{[}{]}
+\DeclarePairedDelimiter\cparen{\{}{\}}
+\DeclarePairedDelimiter\vparen{\lvert}{\rvert}
+\DeclarePairedDelimiter\Vparen{\lVert}{\rVert}
+\DeclarePairedDelimiter\aparen{\langle}{\rangle}
+\DeclarePairedDelimiter\ceilparen{\lceil}{\rceil}
+\DeclarePairedDelimiter\floorparen{\lfloor}{\rfloor}
+
+\newcommand*{\prn}[1]{\paren*{#1}}
+\newcommand*{\sprn}[1]{\sparen*{#1}}
+\newcommand*{\cprn}[1]{\cparen*{#1}}
+\newcommand*{\vprn}[1]{\vparen*{#1}}
+\newcommand*{\Vprn}[1]{\Vparen*{#1}}
+\newcommand*{\aprn}[1]{\aparen*{#1}}
+\newcommand*{\ceil}[1]{\ceilparen*{#1}}
+\newcommand*{\floor}[1]{\floorparen*{#1}}
+\newcommand*{\abs}[1]{\vparen*{#1}}
+
+\newcommand*{\mtrx}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+
+
+
+
+
+
+%----------------------------------------------------------------------------------
+% SETS
+%----------------------------------------------------------------------------------
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\Zp}{\mathbb{Z}_{>0}}
+\newcommand*{\Znn}{\mathbb{Z}_{\geq0}}
+\newcommand*{\Zn}{\mathbb{Z}_{<0}}
+\newcommand*{\Znz}{\mathbb{Z}_{\neq0}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\Qp}{\mathbb{Q}_{>0}}
+\newcommand*{\Qnn}{\mathbb{Q}_{\geq0}}
+\newcommand*{\Qn}{\mathbb{Q}_{<0}}
+\newcommand*{\Qnz}{\mathbb{Q}_{\neq0}}
+\newcommand*{\R}{\mathbb{R}}
+\newcommand*{\Rp}{\mathbb{R}_{>0}}
+\newcommand*{\Rnn}{\mathbb{R}_{\geq0}}
+\newcommand*{\Rn}{\mathbb{R}_{<0}}
+\newcommand*{\Rnz}{\mathbb{R}_{\neq0}}
+\newcommand*{\C}{\mathbb{C}}
+\newcommand*{\Cnz}{\mathbb{C}_{\neq0}}
+\newcommand*{\F}{\mathbb{F}}
+\newcommand*{\Primes}{\mathbb{P}}
+
+\newcommand*{\nin}{\notin}
+\newcommand*{\set}[1]{\cprn{#1}} % simple set
+\newcommand*{\setb}[2]{\cprn{ #1 : #2 }} % set
+\newcommand*{\sse}{\subseteq}  % subset equal
+\newcommand*{\sss}{\subsetneq} % subset strict
+\newcommand*{\Sse}{\supseteq}
+\newcommand*{\Sss}{\supsetneq}
+\newcommand*{\nsse}{\nsubseteq}
+\newcommand*{\eset}{\emptyset}
+
+%----------------------------------------------------------------------------------
+% FUNCTIONS/RELATIONS
+%----------------------------------------------------------------------------------
+\newcommand*{\fn}[3][f]{#1\colon#2\to#3}
+\DeclareMathOperator{\dom}{dom} % domain
+\DeclareMathOperator{\ran}{ran} % range
+\DeclareMathOperator{\fld}{fld} % field
+\DeclareMathOperator{\graph}{graph} % graph
+\DeclareMathOperator{\image}{im} % image
+\DeclareMathOperator{\id}{id} % identity function
+\DeclareMathOperator{\power}{\mc{P}} % power set
+
+\DeclareMathOperator{\lcm}{lcm}
+
+\newcommand*{\leqs}{\leqslant}
+\newcommand*{\geqs}{\geqslant}
+\newcommand*{\nleqs}{\nleqslant}
+\newcommand*{\ngeqs}{\ngeqslant}
+
+\newcommand*{\divides}{\mid}
+\newcommand*{\ndivides}{\nmid}
+
+%----------------------------------------------------------------------------------
+% OTHER SYMBOLS
+%----------------------------------------------------------------------------------
+\newcommand*{\ceq}{\coloneqq}
+
+\newcommand*{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\newcommand*{\oline}[1]{\overline{#1}}
+\newcommand*{\uline}[1]{\underline{#1}}
+
+\newcommand*{\conj}[1]{\overbar{#1}}
+
