@@ -6,6 +6,32 @@
 \RequirePackage{interval,siunitx}
 
 \RequirePackage{xifthen,xparse,xhfill}
+\RequirePackage{xsim}
+\RequirePackage{tcolorbox}
+
+%----------------------------------------------------------------------------------
+% XSIM
+%----------------------------------------------------------------------------------
+\xsimsetup{
+    exercise/within = {section},
+    exercise/template = tcolorbox,
+    solution/template = tcolorbox,
+    solution/print = true,
+}
+\tcbuselibrary{breakable}
+\DeclareExerciseEnvironmentTemplate{tcolorbox}
+{
+    \begin{tcolorbox}[
+        breakable,
+        parbox = false,
+        width = \textwidth,
+        colbacktitle = \IfInsideSolutionTF{blue!35!white}{red!35!white},
+        colframe = \IfInsideSolutionTF{blue!50!white}{red!50!white},
+        coltitle = black,
+        title = {\XSIMmixedcase{\GetExerciseName}~\GetExerciseProperty{counter}}
+    ]
+}
+{\end{tcolorbox}}
 
 %----------------------------------------------------------------------------------
 % LETTERS/WORDS/PHRASES
@@ -82,9 +108,9 @@
 \newcommand*{\set}[1]{\cprn{#1}} % simple set
 \newcommand*{\setb}[2]{\cprn{ #1 : #2 }} % set
 \newcommand*{\sse}{\subseteq}  % subset equal
-\newcommand*{\sss}{\subsetneq} % subset strict
+\newcommand*{\sss}{\subset} % subset strict
 \newcommand*{\Sse}{\supseteq}
-\newcommand*{\Sss}{\supsetneq}
+\newcommand*{\Sss}{\supset}
 \newcommand*{\nsse}{\nsubseteq}
 \newcommand*{\eset}{\emptyset}
 
