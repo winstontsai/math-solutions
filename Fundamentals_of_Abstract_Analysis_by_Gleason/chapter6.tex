@@ -1,0 +1,581 @@
+\chapter{Order}
+\section{Order relations}
+\begin{exercise}
+Prove that the diagonal of $A\times A$ is the only relation in $A$ which is both
+an equivalence relation and an order relation.
+\end{exercise}
+
+\begin{solution}
+It is trivial to show that the diagonal $D$ of $A\times A$ is an equivalence relation
+and a weak order relation using the fact that $a\mathrel D b$ if and only if $a=b$.
+
+Suppose $E$ is also an equivalence relation and an order relation in $A$.
+Then $E$ cannot be a strong order relation since it is an equivalence relation and therefore reflexive.
+Since $E$ is reflexive, $D\sse E$.
+Conversely, suppose $a\Erel b$.
+Since $E$ is symmetric, we have $b\Erel a$.
+Since $E$ is a weak order relation, it is antisymmetric, so
+we have $a=b$. Hence $a\mathrel D b$. Therefore $E = D$.
+\end{solution}
+
+\begin{exercise}
+Suppose that $S$ and $W$ are corresponding strong and weak order relations in a set $A$.
+Prove that if $a\mathrel S b$ and $b\mathrel W c$, then $a\mathrel S c$.
+\end{exercise}
+
+\begin{solution}
+Suppose $a\mathrel S b$ and $b\mathrel W c$. Since $b\mathrel W c$, either $b=c$ or $b\mathrel S c$.
+If $b=c$, then since $a\mathrel S b=c$.
+If $b\mathrel S c$, then $a\mathrel S b$ by transitivity.
+\end{solution}
+
+\begin{exercise}
+Show that in the notation of Exercise 1, p. 50 the transitive law can be expressed
+$S\circ S\sse S$. If $S^{-1}$ denotes the relation obtained by reversing all the ordered pairs of $S$,
+then 6-1.1(i) can be expressed as $S\circ S^{-1}=\eset$. What is the corresponding expression
+of 6-1.2(iii) and (iv)?
+\end{exercise}
+
+\begin{solution}
+Let $S$ be a relation in a set $A$.
+
+We show that $S\circ S\sse S$ if and only if
+$(\forall x,y,z\in A) x\mathrel S y\land y\mathrel S z \implies x\mathrel S z$.
+Suppose $S\circ S\sse S$. Let $x,y,z\in A$ be given, and assume $x\mathrel S y\land y\mathrel S z$.
+Then $\aprn{x,y},\aprn{y,z}\in S$.
+Then by definition of $S\circ S$, we have $x\mathrel S z$.
+Conversely, suppose $(\forall x,y,z\in A) x\mathrel S y\land y\mathrel S z \implies x\mathrel S z$.
+Let $\aprn{a_1,a_2}\in S\circ S$. Then there exists $p\in A$ such that $\aprn{a_1,p},\aprn{p,a_2}\in S$.
+That is, $a_1\mathrel S p$ and $p\mathrel S a_2$.
+Hence $a_1 \mathrel S a_2$, which means $\aprn{a_1,a_2}\in S$. Therefore $S\circ S\sse S$.
+
+The corresponding expression for the reflexive law 6-1.3(iii) is $D\sse S$, where $D$ is the diagonal of $A\times A$.
+This is easy to prove.
+
+The corresponding expression for the law of antisymmetry 6-1.3(iv) is $S\cap S^{-1}\sse D$,
+where $D$ is the diagonal of $A\times A$. We prove this. Suppose $S\cap S^{-1}\sse D$. Assume $a\mathrel S b$
+and $b\mathrel S a$.
+Then $\aprn{a,b}\in S$ and $\aprn{b,a}\in S$.
+Since $\aprn{a,b}\in S$ we also have $\aprn{b,a}\in S^{-1}$.
+Then $\aprn{b,a}\in S\cap S^{-1}\sse D$, so $b=a$.
+Conversely, suppose the law of antisymmetry holds.
+Suppose $\aprn{a,b}\in S\cap S^{-1}$.
+Since $\aprn{a,b}\in S^{-1}$, we have $\aprn{b,a}\in S$.
+Then $\aprn{b,a},\aprn{a,b}\in S$ so by antisymmetry we have $a=b$.
+Therefore $\aprn{a,b}=\aprn{a,a}\in D$ and $S\cap S^{-1}\sse D$.
+\end{solution}
+
+\begin{exercise}
+Suppose that $R$ is a relation in the set $A$ which satisfies (iv) and (v). Prove that there
+is a unique pair of corresponding order relations $S$ and $W$ for which $S\sse R\sse W$.
+\end{exercise}
+
+\begin{solution}
+Let $D$ be the diagonal of $A\times A$. Suppose $S$ and $W$ are corresponding order relations
+such that $S\sse R \sse W$.
+Since $S$ is a strong order relation, we have $S=S-D\sse R-D\sse W-D = S$.
+Thus $S=R-D$ and $W=S\cup D=R\cup D$.
+Therefore there is at most one such pair of order relations.
+
+We show that $R-D$ is a strong order relation. Clearly $\aprn{a,a}\nin R-D$ for all $a\in A$,
+so $R-D$ is strictly nonreflexive.
+Suppose $\aprn{a,b}\in R-D$ and $\aprn{b,c}\in R-D$.
+Since $R$ is transitive, we have $\aprn{a,c}\in R$.
+Assume for contradiction that $\aprn{a,c}\in D$, that is, $a=c$.
+Then $\aprn{a,b}\in R-D$ and $\aprn{b,a}=\aprn{b,c}\in R-D$,
+so by antisymmetry of $R$ we have $a=b$. But that means $\aprn{a,b}\in D$, a contradiction.
+Therefore $\aprn{a,c}\in R-D$.
+
+Now the corresponding weak order relation is $(R-D)\cup D=R\cup D$, and $R-D\sse R\sse R\cup D$.
+hence such a pair of order relations exists.
+\end{solution}
+
+\section{Maps of ordered sets}
+\begin{exercise}
+Let $\phi$ be a weakly order-preserving, injective map of one ordered set into another,
+Prove that $\phi$ is strongly order-preserving.
+\end{exercise}
+
+\begin{solution}
+Let $\aprn{A,S,W}$ and $\aprn{B,T,X}$ be ordered sets, assume $\phi$ is an injective map
+from $A$ to $B$ which is weakly order-preserving.
+Let $a_1,a_2\in A$ be given and assume $a_1\mathrel S a_2$.
+Then $a_1\mathrel W a_2$, and since $\phi$ is weakly order-preserving we have
+$\phi(a_1)\mathrel X \phi(a_2)$.
+Since $a_1\mathrel S a_2$, we have $a_1\neq a_2$.
+Since $\phi$ is injective this means $\phi(a_1)\neq \phi(a_2)$.
+Therefore $\phi(a_1)\mathrel T \phi(a_2)$ and $\phi$ is strongly order-preserving.
+\end{solution}
+
+\begin{exercise}
+Let $\phi$ be a bijective order-preserving map from one ordered set to another. Must
+$\phi$ be an isomorphism?
+\end{exercise}
+
+\begin{solution}
+No. From Proposition 6-2.2, the inverse of $\phi$ must also be order-preserving.
+
+For example, let $A=\set{1,2}$ and $B=\set{3,4}$.
+Let $S=\eset$ be a strong order relation in $A$, and let $T=\set{\aprn{3,4}}$ be a strong
+order relation in $B$.
+Then $\phi$ from $A$ to $B$ defined by $\phi(n)=n+2$ is a bijective strongly order-preserving map,
+but it is not an isomorphism.
+\end{solution}
+
+\begin{exercise}
+Let $\leq$ be the usual weak order relation in the set $\N$ of positive integers.
+Let $X=\leq \cup \set{\aprn{6,5}}$. Show that $X$ satisfies the hypotheses of 6-2.3 and describe
+explicitly the quotient set and its order relation $W$. Show that the resulting ordered set
+is isomorphic to $\N$.
+\end{exercise}
+
+\begin{solution}
+Clearly $X$ is reflexive. To show that $X$ is transitive, assume $a\mathrel X b$
+and $b\mathrel X c$.
+Then $a\leq b$ or $\aprn{a,b}=\aprn{6,5}$, and $b\leq c$ or $\aprn{b,c}=\aprn{6,5}$.
+There are four cases to check.
+\begin{enumerate}
+    \item $a\leq b$ and $b\leq c$. Then obviously then $a\leq c$ and so $a\mathrel X c$.
+    \item $a\leq b$ and $\aprn{b,c}=\aprn{6,5}$. Then $a\leq 6$ and $c=5$. If $a=6$,
+    then $\aprn{a,c}=\aprn{6,5}\in X$. Otherwise, $a\leq 5 =c$, so $a\mathrel X c$.
+    \item $\aprn{a,b}=\aprn{6,5}$ and $b\leq c$. Then $a=6$ and $5\leq c$. If $c=5$,
+    then $\aprn{a,c}=\aprn{6,5}\in X$. Otherwise, $a= 6 \leq c$, so $a\mathrel X c$.
+    \item $\aprn{a,b}=\aprn{6,5}$ and $\aprn{b,c}=\aprn{6,5}$. Then $\aprn{a,c}=\aprn{6,5}\in X$.
+\end{enumerate}
+Thus $X$ is transitive.
+
+The quotient set is $\set{\set{5,6}}\cup\setb{\set{n}}{n\in\N - \set{5,6}}$.
+The order relation $W$ is $\setb{\aprn{\phi(a),\phi(b)}}{a\leq b}$.
+
+Define $h$ from the quotient set to $\N$ by $h(\set{5,6})=5$ and $h(\set{n})=n$ for $n\leq 4$
+and $h(\set{n})=n-1$ for $n\geq 7$. Then $h$ is an isomorphism from the quotient set
+with the order relation $W$ to $\N$ with the order relation $\leq$. $\leqslant$
+\end{solution}
+
+
+\section{Linear order}
+\begin{exercise}
+Let $\phi$ be an injective order-preserving map from an ordered set $A$ to a linearly
+ordered set $B$. Must $A$ be linearly ordered?
+\end{exercise}
+
+\begin{solution}
+No. For example, if $A=\set{1,2}$ with the trivial strong order relation, i.e. $S=\eset$,
+and $B=\set{1,2}$ with the strong order relation $\set{\aprn{1,2}}$, then the identity map on $A$
+is an injective order-preserving map from an ordered set $A$ to a linearly
+ordered set $B$, but $A$ is not linearly ordered.
+\end{solution}
+
+\begin{exercise}
+Let $\phi$ be a bijective order-preserving map from one linearly ordered set to another.
+Must $\phi$ be an isomorphism?
+\end{exercise}
+
+\begin{solution}
+Yes. Let $\phi$ be a bijective order-preserving map from a linearly ordered set $A$ to
+an ordered set $B$.
+From Proposition 6-2.2, we just need to show that $\phi^{-1}$ is order preserving.
+If $b_1 < b_2$, then since $A$ is linearly ordered we must have either $\phi^{-1}(b_1)<\phi^{-1}(b_2)$
+or $\phi^{-1}(b_1)\geq \phi^{-1}(b_2)$. The latter leads to $b_1=\phi(\phi^{-1}(b_1))\geq \phi(\phi^{-1}(b_2))=b_2$,
+which is false. Thus $\phi^{-1}(b_1)<\phi^{-1}(b_2)$ and $\phi^{-1}$ is order-preserving.
+\end{solution}
+
+\begin{exercise}
+Let $\phi$ be a surjective weakly order-preserving map from a linearly ordered set $A$
+to an ordered set $B$. Must $B$ be linearly ordered?
+\end{exercise}
+
+\begin{solution}
+Yes. Let $b_1$ and $b_2$ be elements of $B$. Then since $\phi$ is surjective, there exist
+$a_1,a_2\in A$ such that $\phi(a_1)=b_1$ and $\phi(a_2)=b_2$.
+Since $A$ is linearly ordered, either $a_1\leq a_2$ or $a_2\leq a_1$.
+If $a_1\leq a_2$, then $b_1=\phi(a_1)\leq \phi(a_2)=b_2$.
+If $a_2\leq a_1$, then $b_2\phi(a_2)\leq \phi(a_1)=b_1$.
+Therefore $B$ is linearly ordered.
+\end{solution}
+
+\section{Bounds}
+\begin{exercise}
+Let $A$ be an ordered set with weak order relation $\prec$. Let $B$ be a subset of $A$ for
+which both $\inf B$ and $\sup B$ exist. At first glance, it appears that necessarily
+\[\inf B \prec \sup B.\tag{(3)}\]
+But this is not true. Give a counterexample and state the additional hypothesis that
+is necessary to ensure (3).
+\end{exercise}
+
+\begin{solution}
+If $A=\set{1,2}$ with the usual order and $B=\eset$, then $\inf B=2$ and $\sup B=1$.
+The additional hypothesis needed is that $B\neq\eset$.
+If $B\neq\eset$, we can choose $b\in B$, in which case $\inf B\prec b\prec \sup B$.
+\end{solution}
+
+\begin{exercise}
+Let $X$ be any set and consider $\power(X)$ ordered by inclusion. If $B\sse\power(X)$, show that
+$\sup B$ and $\inf B$ exist.
+\end{exercise}
+
+\begin{solution}
+We show that $\sup B = \bigcup_{Y\in B} Y$. Let $P=\bigcup_{Y\in B} Y$.
+Clearly $P$ is an upper bound of $B$ since $Y\sse P$ for all $Y\in B$.
+Suppose $P_2$ is also an upper bound of $B$. We show that $P\sse P_2$.
+Let $p\in P$. Then $p\in Z$ for some
+$Z\in B$. Since $Z\sse P_2$, we have $p\in P_2$. Hence $P_2\sse P$.
+Therefore $P$ is the least upper bound of $B$.
+
+We show that $\inf B = \bigcap_{Y\in B}Y$ (which is $X$ when $B=\eset$).
+Let $P=\bigcap_{Y\in B} Y$.
+Clearly $P$ is a lower bound of $B$ since $P\sse Y$ for all $Y\in B$.
+Suppose $P_2$ is also a lower bound of $B$. We show that $P_2\sse P$.
+Let $p\in P_2$. Let $Z\in B$ be given. Since $P_2\sse Z$, we have $p\in Z$.
+Hence $P_2\sse Z$ for all $Z\in B$, which means $P_2\sse P$.
+Therefore $P$ is the greatest lower bound of $B$.
+\end{solution}
+
+\begin{exercise}
+Consider the set of positive integers $\N$ with the usual order. For which subsets
+$A$ of $\N$ does $\inf A$ exist? For which subsets $A$ does $\sup A$ exist?
+\end{exercise}
+
+\begin{solution}
+Any nonempty subset has an infimum, namely the minimum of the subset.
+
+Any finite (or equivalently, bounded) subset has a supremum, namely the maximum of the subset.
+\end{solution}
+
+\begin{exercise}
+Prove the following theorem which is frequently invoked tacitly:
+
+Let $A$ be an ordered set with weak order relation $\prec$. Let $B$ and $C$ be subsets of $A$
+having least upper bounds. Then
+\begin{enumerate}[label=(\roman*)]
+    \item if $B\sse C$, then $\sup B \prec \sup C$;
+    \item if $(\forall b\in B)(\exists c\in C)b\prec c$, then $\sup B\prec\sup C$.
+\end{enumerate}
+\end{exercise}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+    \item Suppose $B\sse C$. To show that $\sup B \prec \sup C$, it suffices to show that $\sup C$
+    is an upper bound of $B$. Let $b\in B$ be given. Then $b\in C$, so $b\prec \sup C$.
+    Therefore $\sup C$ is an upper bound of $B$.
+
+    \item Suppose $(\forall b\in B)(\exists c\in C)b\prec c$. Once again we need
+    to show that $\sup C$ is an upper bound of $B$. Let $b\in B$ be given.
+    Choose $c\in C$ such that $b\prec c$. Then $b\prec c\prec \sup C$.
+    Therefore $\sup C$ is an upper bound of $B$.
+\end{enumerate}
+\end{solution}
+
+\begin{exercise}
+An ordered set $\aprn{A, <, \leq}$ is called a \textit{lattice} if and only if each two-element subset
+of $A$ has both a supremum and an infimum. In lattices, $\sup\set{a,b}$ is often denoted by
+$a\vee b$ while $\inf\set{a, b}$ is denoted by $a\wedge b$. (The author reads these symbols as ``jug''
+and ``jag'', respectively.) Prove that the associative and commutative laws hold in any
+lattice $A$; that is, $(\forall a,b,c\in A)$
+\begin{gather*}
+    a\vee (b\vee c) = (a\vee b)\vee c,\qquad a\wedge (b\wedge c) = (a\wedge b)\wedge c,\\
+    a\vee b = b\vee a,\qquad a\wedge b = b \wedge a
+\end{gather*}
+The distributive laws
+\begin{align*}
+    (\forall a,b,c) a\wedge (b\vee c) &= (a\wedge b) \vee (a\wedge c),\tag{4}\\
+    (\forall a,b,c) a\vee (b\wedge c) &= (a\vee b) \wedge (a\vee c) \tag{5}
+\end{align*}
+may fail, but prove the weaker laws:
+\begin{align*}
+    (\forall a,b,c) a\wedge (b\vee c) &\geq (a\wedge b) \vee (a\wedge c),\\
+    (\forall a,b,c) a\vee (b\wedge c) &\leq (a\vee b) \wedge (a\vee c).
+\end{align*}
+Assuming that the distributive law (4) holds, prove that the other distributive law (5)
+also holds, and vice versa. A lattice in which these laws hold is called a distributive lattice.
+\end{exercise}
+
+\begin{solution}
+The commutative laws are trivial, as $a\vee b = \sup\set{a,b}=\sup\set{b,a}= b\vee a$,
+and similarly for $\inf$.
+
+We prove the associative law for $\vee$. By definition of $\vee$, we have $x\leq x\vee y$ and $y\leq x\vee y$
+for all $x$ and $y$.
+So we have
+\begin{gather*}
+    a\leq a\vee b\leq (a\vee b)\vee c\\
+    b\leq a\vee b\leq (a\vee b)\vee c\\
+    c\leq (a\vee b)\vee c
+\end{gather*}
+From the first two we get $a\vee b\leq (a\vee b)\vee c$. Conbined with the third, we get
+$a\vee (b\vee c) \leq (a\vee b)\vee c$. The opposite inequality is proved similarly.
+Hence $a\vee (b\vee c) = (a\vee b)\vee c$.
+
+We prove the associative law for $\wedge$.
+By definition of $\wedge$, we have $x\wedge y\leq x$ and $x\wedge y\leq y$
+for all $x$ and $y$.
+So we have
+\begin{gather*}
+    a\wedge (b\wedge c) \leq a\\
+    a\wedge (b\wedge c) \leq b\wedge c \leq b\\
+    a\wedge (b\wedge c) \leq b\wedge c \leq c
+\end{gather*}
+From the first two we get $a\wedge (b\wedge c)\leq a\wedge b$.
+Combined with the third, we get $a\wedge (b\wedge c)\leq (a\wedge b)\wedge c$.
+The opposite inequality is proved similarly.
+Hence $a\wedge (b\wedge c) = (a\wedge b)\wedge c$.
+
+We have $a\wedge b\leq a$ and $a\wedge b \leq b \leq b\vee c$.
+Hence $a\wedge b\leq a\wedge (b\vee c)$. Similarly, $a\wedge c\leq a\wedge (b\vee c)$.
+Therefore $(a\wedge c)\vee (a\wedge c)\leq a\wedge (b\vee c)$.
+
+We have $a\leq a\vee b$ and $b\wedge c\leq b\leq a\vee b$. Hence $a\vee (b\wedge c) \leq a\vee b$.
+Similarly, $a\vee (b\wedge c) \leq a\vee c$.
+Therefore $a\vee (b\wedge c)\leq a\vee b\wedge a\vee c$.
+
+Before proving (4) implies (5), note that $x\leq x\vee y$ and $x\leq x$, so $x\leq (x\vee y)\wedge x$.
+Since $(x\vee y)\wedge x\leq x$, we have $(x\vee y)\wedge x = x$.
+Also, $x\wedge z\leq x$ and $x\leq x$, so $x\vee (x\wedge z)\leq x$.
+Since $x\leq x\vee (x\wedge z)$, we have $x\vee (x\wedge z) = x$.
+
+Assume the distributive law (4) holds. Then applying (4) with $a=x\vee y$, $b=x$, and $c=z$ gives
+\[
+\begin{aligned}
+    (x\vee y)\wedge (x\vee z) &=  ((x\vee y)\wedge x) \vee ((x\vee y)\wedge z)\\
+    &= x \vee (z\wedge (x\vee y))\\
+    &= x \vee ((z\wedge x)\vee (z\wedge y))\\
+    &= (x \vee (z\wedge x)) \vee (z\wedge y)\\
+    &= x \vee (y\wedge z).
+\end{aligned}
+\]
+Thus (5) holds.
+
+Conversely, suppose the distributive law (5) holds. Then applying (5) with $a=x\wedge y$, $b=x$,
+and $c=z$ gives
+\[
+\begin{aligned}
+    (x\wedge y)\vee (x\wedge z) &=  ((x\wedge y)\vee x) \wedge ((x\wedge y)\vee z)\\
+    &= x \wedge (z\vee (x\wedge y))\\
+    &= x \wedge ((z\vee x)\wedge (z\vee y))\\
+    &= (x \wedge (z\vee x)) \wedge (z\vee y)\\
+    &= x \wedge (y\vee z).
+\end{aligned}
+\]
+Thus (4) holds.
+\end{solution}
+
+\section{Complete ordered sets}
+\begin{exercise}
+Is every subset of a complete ordered set complete?
+\end{exercise}
+
+\begin{solution}
+No. For example, $\R$ is complete, but $\R-\set{0}$ is not complete because the set of negative numbers
+is bounded above but does not have a supremum in $\R-\set{0}$.
+\end{solution}
+
+\begin{exercise}
+Show that the set of all subsets of some fixed set, ordered by inclusion, is complete.
+\end{exercise}
+
+\begin{solution}
+Every subset $B$ of $\power(X)$ has a supremum of $\bigcup_{Y\in B} Y$.
+See \hyperref[ex:6-4.2]{Exercise 6-4.2}.
+\end{solution}
+
+\begin{exercise}
+Show that the set of all equivalence relations in some fixed set, ordered by inclusion,
+is complete.
+\end{exercise}
+
+\begin{solution}
+First we show that the intersection of any family of equivalence relations in $A$ is also an equivalence
+relation. Let $B$ be a set of equivalence relations in $A$, and let $P=\bigcap_{Y\in B}, Y$,
+where $P=A\times A$ if $B$ is empty.
+Then by reflexivity $\aprn{a,a}\in Y$ for all $Y\in B$ and $a\in A$. But that means $\aprn{a,a}\in P$ for all $a\in A$,
+so $P$ is reflexive.
+If $\aprn{a_1,a_2}\in P$, then $\aprn{a_1,a_2}\in Y$ for all $Y\in B$. Then by symmetry
+we have $\aprn{a_2,a_1}\in Y$ for all $Y\in B$, so $\aprn{a_2,a_1}\in P$ and $P$ is symmetric.
+Finally, if $\aprn{a_1,a_2},\aprn{a_2,a_3}\in P$, then $\aprn{a_1,a_2},\aprn{a_2,a_3}\in Y$ for all $Y\in B$.
+Then by transitivity we have $\aprn{a_1,a_3}\in Y$ for all $Y\in B$, so $\aprn{a_1,a_3}\in P$.
+Thus $P$ is transitive.
+Therefore $P$ is an equivalence relation.
+
+Now combined with \hyperref[ex:6-4.2]{Exercise 6-4.2}, this shows that $\inf B=P$ for any set $B$
+of equivalence relations in $A$.
+By Proposition 6-5.1, the set of all equivalence relations in $A$, ordered by inclusion, is complete.
+\end{solution}
+
+\begin{exercise}
+Let $A$ and $B$ satisfy the hypothesis of 6-5.3. Prove that if $B$ is linear, so is $A$. Show,
+however, that this is false if $A$ is not assumed to be complete.
+\end{exercise}
+
+\begin{solution}
+Let $\aprn{A,<,\leq}$ be a complete ordered set which does not
+contain a maximal or minimal element. Suppose that $B$ is a subset of $A$ which meets
+every interval in $A$, and suppose $B$ is linear. We prove that $A$ is linear.
+
+Let $a_1,a_2\in A$ be given. We must show that $a_1\leq a_2$ or $a_2\leq a_1$.
+
+Let $S(a_1)=\setb{b\in B}{b < a_1}$ and $S(a_2)=\setb{b\in B}{b < a_2}$.
+As in the proof of Lemma 6-5.4, assuming completeness, we have $a_1=\sup{S(a_1)}$ and $a_2=\sup{S(a_2)}$.
+If $(\forall b\in S(a_1))(\exists c\in S(a_2)) b\leq c$, then $a_1=\sup{S(a_1)}\leq\sup{S(a_2)}=a_2$
+by \hyperref[ex:6-4.4]{Exercise 6-4.4}.
+Otherwise, suppose there exists $b\in S(a_1)$ such that for all $c\in S(a_2)$,
+it is not the case that $b\leq c$. Then since $B$ is linear, this means $c\leq b\leq\sup{S(a_1)}=a_1$ for all
+$c\in S(a_2)$.
+Then $a_1$ is an upper bound for $S(a_2)$, so $a_2=\sup{S(a_2)}\leq a_1$.
+Therefore $a_1\leq a_2$ or $a_2\leq a_1$.
+
+The counter-example if $A$ is not complete: Let $A = \R\cup\set{\theta}$, where $\theta\nin \R$. 
+Order $\R$
+as usual and define $x<\theta\iff x<0$ and $x>\theta\iff x>0$ for $x\in\R$.
+(We have thus put a twin of 0 in $\R$ which is incomparable with 0.) Take $B = R$. Then $B$ is linearly
+ordered but $A$ is not, yet $B$ meets every interval in $A$. Indeed, $A$ is not complete because
+the nonempty subset $\set{\theta}$ is bounded above by any positive real number but does not have
+a least upper bound.
+\end{solution}
+
+\begin{exercise}
+Let $A$ be any set and let $\mc W$ be the set of all weak order relations in $A$. Inclusion
+defines an order relation in $\mc W$. Prove the following facts:
+\begin{enumerate}[label=(\alph*)]
+    \item The intersection of any nonvoid set of weak order relations is a weak order relation.
+    \item $\mc W$ is a complete ordered set.
+    \item An element $W \in\mc W$ is maximal (in the ordering of $\mc W$) if and only if it is a linear ordering of $A$.
+    \item Suppose $\mc X$ is a nonvoid subset of $\mc W$ which is linearly ordered by inclusion.
+    Then $\bigcup_{X\in\mc X} X\in\mc W$.
+\end{enumerate}
+\end{exercise}
+
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+    \item Let $\mc X$ be a nonvoid subset of $\mc W$. Let $V=\bigcap_{X\in\mc X}X$. We show that $V$
+    is a weak order relation. Let $a,b,c\in A$.
+    For all $X\in\mc X$, we have $\aprn{a,a}\in X$ so $\aprn{a,a}\in V$. Therefore $V$ is reflexive.
+    If $\aprn{a,b},\aprn{b,a}\in V$, then $\aprn{a,b},\aprn{b,a}\in X$ for all $X\in\mc X$. Choose
+    $X_0\in\mc X$ so that $\aprn{a,b},\aprn{b,a}\in X_0$. Then $a=b$ since $X_0$ is antisymmetric.
+    Therefore $V$ is antisymmetric.
+    If $\aprn{a,b},\aprn{b,c}\in V$, then $\aprn{a,b},\aprn{b,c}\in X$ for all $X\in\mc X$.
+    Then $\aprn{a,c}\in X$ for all $X\in\mc X$. Hence $\aprn{a,c}\in V$, so $V$ is transitive.
+    This proves $V\in\mc W$.
+
+    \item Let $\mc X$ be any nonvoid subset of $\mc W$. From (a), $V=\bigcap_{X\in\mc X}X$ is in $\mc W$
+    and from \hyperref[ex:6-4.2]{Exercise 6-4.2} it is the infimum of $\mc X$.
+
+    \item Suppose $W\in\mc W$ is not linear.
+    Then there exists $u,v\in A$ such that $\aprn{u,v}\nin W$ and $\aprn{v,u}\nin W$.
+    Let $X=W\cup\setb{\aprn{x,y}}{\aprn{x,u}\in W\land \aprn{v,y} \in W}$. Then $X$ is reflexive
+    since $W$ is reflexive. We show that $X$ is antisymmetric.
+    Suppose $\aprn{a,b}\in X$ and $\aprn{b,a}\in X$.
+    There are four cases to check:
+    \begin{enumerate}[label=(\roman*)]
+        \item $\aprn{a,b}\in W$ and $\aprn{b,a}\in W$. Then $a=b$ since $W$ is antisymmetric.
+        \item $\aprn{a,b}\in W$ and $\aprn{b,u}\in W$ and $\aprn{v,a}\in W$. Then $\aprn{v,u}\in W$ by transitivity.
+        Contradiction.
+        \item $\aprn{a,u}\in W$ and $\aprn{v,b}\in W$ and $\aprn{b,a}\in W$. Then $\aprn{v,u}\in W$ by transitivity.
+        Contradiction.
+        \item $\aprn{a,u}\in W$ and $\aprn{v,b}\in W$ and $\aprn{b,u}\in W$ and $\aprn{v,a}\in W$.
+        Then $\aprn{v,u}\in W$ by transitivity. Contradiction.
+    \end{enumerate}
+    Finally, we show that $X$ is transitive.
+    Suppose $\aprn{a,b}\in X$ and $\aprn{b,c}\in X$.
+    There are four cases to check:
+    \begin{enumerate}[label=(\roman*)]
+        \item $\aprn{a,b}\in W$ and $\aprn{b,c}\in W$. Then $\aprn{a,c}\in W$ since $W$ is transitive.
+        \item $\aprn{a,b}\in W$ and $\aprn{b,u}\in W$ and $\aprn{v,c}\in W$. Then $\aprn{a,u}\in W$ by transitivity.
+        Since $\aprn{a,u}\in W$ and $\aprn{v,c}\in W$, we have $\aprn{a,c}\in X$.
+        \item $\aprn{a,u}\in W$ and $\aprn{v,b}\in W$ and $\aprn{b,c}\in W$. Then $\aprn{v,c}\in W$ by transitivity.
+        Since $\aprn{a,u}\in W$ and $\aprn{v,c}\in W$, we have $\aprn{a,c}\in X$.
+        \item $\aprn{a,u}\in W$ and $\aprn{v,b}\in W$ and $\aprn{b,u}\in W$ and $\aprn{v,c}\in W$.
+        Since $\aprn{a,u}\in W$ and $\aprn{v,c}\in W$, we have $\aprn{a,c}\in X$.
+    \end{enumerate}
+    Therefore $X\in\mc W$. Since $\aprn{u,v}\in X-W$ and $W\sse X$, this shows that $W$ is not maximal.
+
+    Conversely, suppose $W\in \mc W$ is not maximal. Then there exists $X\in\mc W$ such that $W\sss X$.
+    Choose $\aprn{u,v}\in X-W$. In particular, $u\neq v$ since $W$ is reflexive.
+    If $\aprn{v,u}\in W\sss X$, then by antisymmetry of $X$ we have $u=v$, a contradiction.
+    Hence $\aprn{v,u}\nin W$. Therefore $u$ and $v$ are not comparable in $W$, so $W$ is not linear.
+
+    \item Suppose $\mc X$ is a nonvoid subset of $\mc W$ which is linearly ordered by inclusion.
+    Let $V=\bigcup_{X\in\mc X} X$. We show that $V$ is a weak order relation in $A$.
+    Choose $X_0\in \mc X$. Then $\aprn{a,a}\in X_0\sse V$ for all $a\in A$, so $V$ is reflexive.
+    Suppose $\aprn{a,b},\aprn{b,a}\in V$. Choose $X_1,X_2\in\mc X$ such that $\aprn{a,b}\in X_1$ and $\aprn{b,a}\in X_2$.
+    Since $\mc X$ is linearly ordered by inclusion, either $X_1\sse X_2$ or $X_2\sse X_1$.
+    If $X_1\sse X_2$, then $\aprn{a,b},\aprn{b,a}\in X_2$, whence $a=b$. The case $X_2\sse X_1$ is similar.
+    So $V$ is antisymmetric.
+    Finally, suppose $\aprn{a,b},\aprn{b,c}\in V$.
+    Choose $X_1,X_2\in\mc X$ such that $\aprn{a,b}\in X_1$ and $\aprn{b,c}\in X_2$.
+    Again, either $X_1\sse X_2$ or $X_2\sse X_1$.
+    If $X_1\sse X_2$, then $\aprn{a,b},\aprn{b,c}\in X_2$, whence $\aprn{a,c}\in X_2\sse V$.
+    The case $X_2\sse X_1$ is similar. So $V$ is transitive.
+    Therefore $V\in\mc W$.
+\end{enumerate}
+\end{solution}
+
+
+\section{Well-ordering}
+\begin{exercise}
+Suppose that $A$ is an ordered set such that every nonempty subset of $A$ contains a
+least element. Prove that $A$ is well-ordered.
+\end{exercise}
+
+\begin{solution}
+We must prove that $A$ is linearly ordered to meet the definition of a well-ordered set.
+Let $\prec$ denote the weak order relation.
+Suppose for contradiction that $\prec$ is not linear.
+Then the set $B=\setb{x\in A}{(\exists y\in A)x\nprec y\land y\nprec x}$ is nonempty.
+Let $l$ be the least element of $B$. Then there exists $y_0\in A$ such that $l\nprec y_0$ and $y_0\nprec l$.
+But then $y_0$ is also in $B$, so $l\prec y_0$, a contradiction.
+
+A more direct proof is that for any $a_1,a_2\in A$, the nonempty set $\set{a_1,a_2}$ has a least
+element, which means $a_1$ and $a_2$ are comparable.
+\end{solution}
+
+\begin{exercise}
+Is every subset of a well-ordered set well-ordered?
+\end{exercise}
+
+\begin{solution}
+Yes. If $A$ is a well-ordered set and $B$ is a subset of $A$, then every nonempty subset $C$ of $B$ is also a nonempty
+subset of $A$, so $C$ contains a least element.
+\end{solution}
+
+\begin{exercise}
+Let $\aprn{X,S,W}$ be a well-ordered set. Let $F$ be a function defined on $X$ such that,
+for each $x\in X$, $F(x)$ is a linearly ordered set. We denote the strong order relations in each of
+the sets $F(x)$ by $<$. Consider $P=\prod_{x\in X}F(x)$. If $g,h\in P$, let $g\prec h$ if and only if
+\[(\exists x\in X)\quad \prn{g(x) < h(x)\land (\forall y\in X) y\mathrel S x \implies g(y)=h(y)}.\]
+Prove that $\prec$ is a strong linear order relation for $P$.
+This is called the \textit{lexicographic} ordering of $P$.
+\end{exercise}
+
+\begin{solution}
+First we prove that $\prec$ is a strong order relation for $P$.
+
+We show that $\prec$ is strongly irreflexive. Let $g\in P$ be given. Then for all $x\in X$, we have
+$g(x)\nless g(x)$ since $g(x)=g(x)$. Therefore $g\nprec g$.
+
+We show that $\prec$ is transitive. Suppose $f\prec g$ and $g\prec h$.
+Then there exists $x_0\in X$ such that $f(x_0)<g(x_0)$ and $(\forall y\in X)y\mathrel S x_0\implies f(y)=g(y)$.
+Also, there exists $x_1\in X$ such that $g(x_1)<h(x_1)$ and $(\forall y\in X)y\mathrel S x_1\implies g(y)=h(y)$.
+There are three cases to check.
+\begin{enumerate}
+    \item $x_0 = x_1$. Then $f(x_0) < g(x_0) = g(x_1) < h(x_1) = h(x_0)$, and
+    $(\forall y\in X)y\mathrel S x_0\implies f(y)=g(y)=h(y)$, whence $f\prec h$.
+
+    \item $x_0 \mathrel S x_1$.  Then $f(x_0)<g(x_0)=h(x_0)$, and for any $y\in Y$ such that
+    $y\mathrel S x_0\mathrel S x_1$, we have $f(y)=g(y)=h(y)$. Hence $f\prec h$.
+
+    \item $x_1 \mathrel S x_0$.  Then $f(x_1)=g(x_1)<h(x_1)$, and for any $y\in Y$ such that
+    $y\mathrel S x_1\mathrel S x_0$, we have $f(y)=g(y)=h(y)$. Hence $f\prec h$.
+\end{enumerate}
+
+Finally, we prove that $\prec$ is linear. Let $g,h\in P$ with $g\neq h$.
+Then the set $B=\setb{x\in X}{g(x)\neq h(x)}$ is nonempty. Let $x_0$ be the least element of $B$
+so that $g(x_0)\neq h(x_0)$.
+Since $F(x)$ is linear, either $g(x_0)<h(x_0)$ or $h(x_0)<g(x_0)$.
+Assume without loss of generalization that $g(x_0)<h(x_0)$.
+Let $y\in X$ be arbitrary, and suppose $y\mathrel S x_0$. Since $x_0$ is the least element of $B$, it follows
+that $y\nin B$ and so $g(y)=h(y)$.
+Thus $g\prec h$. If $h(x_0)<g(x_0)$, then $h\prec g$.
+Therefore $\prec$ is a linear order relation.
+\end{solution}
+
+

@@ -1,0 +1,710 @@
+\chapter{The Set-Theoretic Machinery}
+\section{Binary set combinations}
+Prove the following set-theoretic identities. Do each one twice, once using Venn
+diagrams and once by formal manipulation using the identities in the text.
+
+\begin{exercise}
+$(A\cup B\cup C)\cap(B\cup D) = (A\cap D)\cup B\cup (C\cap D)$.
+
+Write and prove the dual identity also.
+\end{exercise}
+
+\begin{solution}
+Applying the distributive law twice to the left-hand side gives
+\[
+    (A\cup B\cup C)\cap(B\cup D)
+    = (A\cap B)\cup (A\cap D)\cup (B\cap B)\cup (B\cap D)\cup (C\cap B)\cup (C\cap D).
+\]
+All intersections of involving $B$ are absorbed by by term $B\cap B=B$, so the result is
+$(A\cap D)\cup B \cup (C\cap D)$.
+\end{solution}
+
+\begin{exercise}
+$(A\cup B)\cap(B\cup C)\cap(C\cup A) = (A\cap B)\cup(B\cap C)\cup(C\cap A)$.
+
+Show that this identity is its own dual.
+\end{exercise}
+
+\begin{solution}
+Applying the distributive law three times to the left-hand side gives
+\[
+    (A\cap B\cap C)\cup(A\cap B\cap A)\cup(A\cap C\cap C)\cup(A\cap C\cap A)
+    \cup(B\cap B\cap C)\cup(B\cap B\cap A)\cup(B\cap C\cap C)\cup(B\cap C\cap A).
+\]
+Removing duplicate sets from each term gives
+\[
+    (A\cap B\cap C)\cup(A\cap B)\cup(A\cap C)\cup(A\cap C)\cup(B\cap C)\cup(B\cap A)
+    \cup(B\cap C)\cup(B\cap C\cap A).
+\]
+Removing duplicate terms gives
+\[(A\cap B\cap C)\cup(A\cap B)\cup(A\cap C)\cup(B\cap C).\]
+Finally, $A\cap B\cap C$ is absorbed by $A\cap B$ to give
+\[(A\cap B)\cup(A\cap C)\cup(B\cap C) = (A\cap B)\cup(B\cap C)\cup(C\cap A).\]
+
+To find the dual identity, interchange the $\cup$ and $\cap$ signs. That gives
+the same equation but reversed, so this identity is its own dual.
+\end{solution}
+
+\begin{exercise}
+$\prn{A\cup B\cup C}^{\sim}= \widetilde{A}\cap \widetilde{B}\cap \widetilde{C}$.
+
+This is an extended form of (19). To give a formal proof from the identities in the text,
+one must agree on a definite interpretation of $A\cup B\cup C$ in terms of the binary
+combination $\cup$, and similarly for $\cap$.
+\end{exercise}
+
+\begin{solution} 
+Let us agree that $A\cup B\cup C$ means $(A\cup B)\cup C$ and similarly for $\cap$.
+We compute
+\[
+\begin{aligned}
+    \prn{A\cup B\cup C}^{\sim} &= \prn{(A\cup B)\cup C}^{\sim} \\
+    &= \prn{A\cup B}^{\sim} \cap \widetilde{C} \\
+    &= \prn{\widetilde{A}\cap \widetilde{B}} \cap \widetilde{C} \\
+    &= \widetilde{A}\cap \widetilde{B} \cap \widetilde{C}.
+\end{aligned}
+\]
+\end{solution}
+
+\begin{exercise} \label{ex:test}
+$(A - B)\cup C = (A\cup C) - (B-C)$.
+\end{exercise}
+
+\begin{solution}
+We compute
+\[
+\begin{aligned}
+    (A - B)\cup C &= (A\cap \widetilde{B})\cup C \\
+    &= (A\cup C)\cap(\widetilde{B}\cup C) \\
+    &= (A\cup C)\cap\prn{B\cap \widetilde{C}}^{\sim} \\
+    &= (A\cup C)-\prn{B - C}.
+\end{aligned}
+\]
+\end{solution}
+
+\begin{exercise}
+If $A\cap B\cap C = \eset$, then $(A-B)\cup(B-C)\cup(C-A)=A\cup B\cup C$.
+\end{exercise}
+
+\begin{solution}
+We have
+\[
+\begin{aligned}
+    (A-B)\cup(B-C)\cup(C-A) &= (A\cap \comp{B})\cup(B\cap \comp{C})\cup(C\cap\comp{A})\\
+    &= \prn{(A\cup B) \cap (A\cup\comp C)\cap (\comp B \cup B)\cap (\comp B \cup \comp C)}\cup(C\cap\comp A)\\
+    &= \prn{(A\cup B\cup C) \cap (A\cup\comp C\cup C)\cap (\comp B \cup B\cup C)\cap (\comp B \cup \comp C\cup C)}\\
+    & \quad \cap\prn{(A\cup B\cup\comp A) \cap (A\cup\comp C\cup\comp A)\cap (\comp B \cup B\cup\comp A)\cap (\comp B \cup \comp C\cup\comp A)}\\
+\end{aligned}
+\]
+Since $A\cup\comp A = B\cup\comp B =C\cup\comp C= U$, the universal set, this reduces to
+$(A\cup B\cup C) \cap (\comp B \cup \comp C\cup\comp A)$.
+If $A\cap B\cap C=\eset$,  then $\comp A\cup\comp B\cup\comp C = \prn{A\cap B\cap C}^{\sim}=\comp\eset=U$,
+so $(A\cup B\cup C) \cap (\comp B \cup \comp C\cup\comp A) = (A\cup B\cup C)\cap U = A\cup B\cup C$, as desired.
+\end{solution}
+
+\begin{exercise}
+$(A-B)\cup(B-C)\cup(C-A)=(A-C)\cup(C-B)\cup(B-A)$.
+\end{exercise}
+
+\begin{solution}
+In the previous exercise we showed that
+$(A-B)\cup(B-C)\cup(C-A)=(A\cup B\cup C) \cap (\comp A\cup \comp B \cup \comp C)$.
+By interchanging $B$ and $C$, we also get
+$(A-C)\cup(C-B)\cup(B-A)=(A\cup C\cup B) \cap (\comp A\cup \comp C \cup \comp B)$.
+The right-hand side of both equations are equal, and the result follows.
+\end{solution}
+
+\begin{exercise}
+$\prn{A\cup (\comp B\cap C)}^{\sim} = (B-A)\cup(\widetilde A-C)$.
+\end{exercise}
+
+\begin{solution}
+We have $\prn{A\cup (\comp B\cap C)}^{\sim} = \comp A \cap \prn{\comp B \cap C}^{\sim}
+=\comp A \cap (B \cup \comp C)
+=(\comp A \cap B)\cup(\comp A \cap \comp C)
+=(B-A)\cup(\comp A - C)$.
+\end{solution}
+
+\begin{exercise}
+The \textit{symmetric difference} of two sets, often denoted by $A\oplus B$, is defined
+as $(A-B)\cup(B-A)$. Show that for all $A$, $B$, $C$,
+\begin{gather*}
+    A\oplus A=\eset, \qquad A\oplus\eset = A, \qquad A\oplus B = B\oplus A,\\
+    A\oplus(B\oplus C) = (A\oplus B)\oplus C, \qquad A\cap(B\oplus C)=(A\cap B)\oplus(A\cap C).
+\end{gather*}
+\end{exercise}
+
+\begin{solution}
+The first three identifies are straightforward.
+We have $A\oplus A = (A-A)\cup(A-A)=\eset\cup\eset=\eset$.
+We have $A\oplus\eset = (A-\eset)\cup(\eset-A)=A\cup\eset=A$.
+We have $A\oplus B=(A-B)\cup(B-A)=(B-A)\cup(A-B)=B\oplus A$.
+
+Now note that for any $A,B$, we have $A\oplus B=(A\cap\comp B)\cup (B\cap\comp A)$ and
+$(A\oplus B)^{\sim}=(\comp A\cup B)\cap(\comp B\cup A)
+=(\comp A\cap\comp B)\cup(\comp A\cap A)\cup(B\cap\comp B)\cup(B\cap A)=(\comp A\cap\comp B)\cup (B\cap A)$.
+
+For the fourth identity, the left-hand side is
+\[
+\begin{aligned}
+A\oplus(B\oplus C) &= (A\cap (B\oplus C)^{\sim})\cup((B\oplus C)\cap\comp A)\\
+&=(A\cap\comp B\cap\comp C)\cup(A\cap C\cap B)\cup(B\cap\comp C\cap\comp A)\cup(C\cap \comp B\cap\comp A).
+\end{aligned}
+\]
+An analogous computation shows that $(A\oplus B)\oplus C=C\oplus(A\oplus B)
+=(C\cap\comp A\cap\comp B)\cup(C\cap B\cap A)\cup(A\cap\comp B\cap\comp C)\cup(B\cap \comp A\cap\comp C)$.
+By commutativity, we see that $A\oplus(B\oplus C) = (A\oplus B)\oplus C$.
+
+For the fifth identity, the left-hand side is $(A\cap B\cap\comp C)\cup (A\cap C\cap\comp B)$ and
+the right-hand side is
+\[
+\begin{aligned}
+(A\cap B\cap (A\cap C)^{\sim})\cup(A\cap C\cap(A\cap B)^{\sim})
+&=(A\cap B\cap(\comp A\cup\comp C))\cup(A\cap C\cap(\comp A\cup\comp B))\\
+&=(\eset \cup A\cap B\cap\comp C)\cup(\eset\cup A\cap C\cap\comp B)\\
+&=(A\cap B\cap\comp C)\cup(A\cap C\cap\comp B).
+\end{aligned}
+\]
+
+The result shows that the subsets of a set form a ring with $\oplus$ as the addition
+and $\cap$ as the multiplication.
+\end{solution}
+
+
+\section{The power set }
+\begin{exercise}
+Prove: If $A\sse B$, then $\power(A)\sse\power(B)$.
+\end{exercise}
+
+\begin{solution}
+Suppose $A\sse B$. Let $X\in\power(A)$. Then $X\sse A\sse B$, so $X\sse B$. Hence $X\in\power(B)$.
+Since $X$ was arbitrary, we have $\power(A)\sse\power(B)$.
+\end{solution}
+
+\begin{exercise}
+Prove: $(\forall n\in N)\power^{n}(\eset)\sse\power^{n+1}(\eset)$.
+\end{exercise}
+
+\begin{solution}
+We use the previous exercise and induction on $n$.
+
+For $n=1$, the assertion reduces to $\power(\eset)\sse\power\power((\eset))$.
+Since $\eset\sse\power(\eset)$, we have $\power(\eset)\sse\power(\power(\eset))$, so the base case holds.
+
+Now let $n\in N$ and assume $\power^{n}(\eset)\sse\power^{n+1}(\eset)$.
+We show that $\power^{n+1}(\eset)\sse\power^{n+2}(\eset)$.
+Let $X\in \power^{n+1}(\eset)$. Then $X\sse \power^{n}(\eset)\sse \power^{n+1}(\eset)$.
+Then $X\in \power(\power^{n+1}(\eset))=\power^{n+2}(\eset)$, as desired.
+\end{solution}
+
+\begin{exercise}
+How many elements are there in $\power^n(\eset)$?
+\end{exercise}
+
+\begin{solution}
+In general, if $A$ has $k$ elements, then $\power(A)$ has $2^k$ elements.
+Hence $\power(\eset)$ has $2^0=1$ element, $\power^2(\eset)$ has $2^{2^0}=2$ elements,
+$\power^3(\eset)$ has $2^{2^{2^0}}=4$ elements
+and the number of elements in $\power^n(\eset)$ is
+\[2^{2^{\iddots^{2^0}}},\]
+an exponential tower of $n$ 2's and a zero.
+As $2^0=1$ and an exponent of $1$ has no effect, this is equivalent to an exponential tower of
+$(n-1)$ 2's, for $n>1$.
+\end{solution}
+
+\begin{exercise}
+Suppose that $A$ is a set which can be built up from $\eset$ using the list notation
+repeatedly, as in Section 1-6. Show that for some $n$, $A \in\power^n(\eset)$.
+\end{exercise}
+
+\begin{solution}
+If there are braces $n$ deep when $A$ is written out in full, then $A\in\power^{n+1}(\eset)$.
+\end{solution}
+
+\section{Ordered pairs and direct products}
+\begin{exercise}
+Why do we not define $\aprn{a,b} = \set{a, \set{a,b}}$ instead of 3-3.1?
+\end{exercise}
+
+\begin{solution}
+If $\set{a, \set{a,b}} = \set{c, \set{c,d}}$, we could not eliminate the possibility that $a = \set{c,d}$
+and $\set{a, b} = c$ on the basis of membership arguments alone. It is true that in this case
+both $a\in c$ and $c\in a$, and often it is assumed that such circular chains of membership
+are impossible, but we can prove Theorem 3.3.2 under the other definition without this
+assumption.
+\end{solution}
+
+\begin{exercise}
+Would it be appropriate to define $\aprn{a,b,c} = \set{\set{a},\set{a,b},\set{a,b,c}}$ instead of 3-3.4?
+\end{exercise}
+
+\begin{solution}
+    No, because then $\aprn{x,y,y}=\aprn{x,x,y}$.
+\end{solution}
+
+\begin{exercise}
+Show that $A\times B\sse\power^2(A\cup B)$.
+\end{exercise}
+
+\begin{solution}
+Suppose $x\in A\times B$. Then $x=\aprn{a,b}=\set{\set{a},\set{a,b}}$ for some $a\in A$ and $b\in B$.
+Now $x$ is a set of subsets of $A\cup B$, i.e. $x\in\power^2(A\cup B)$.
+Hence $A\times B\sse \power^2(A\cup B)$.
+\end{solution}
+
+\begin{exercise}
+Prove the following identities:
+\begin{itemize}
+    \item $(A\cup B)\times C = (A\times C)\cup (B\times C)$
+    \item $(A\cap B)\times C = (A\times C)\cap (B\times C)$
+    \item $(A\times B)\cap (C\times D) = (A\cap C)\times (B\cap D)$
+\end{itemize}
+\end{exercise}
+
+\begin{solution}
+We have six inclusions to prove, two for each of the identities.
+
+Suppose $x\in (A\cup B)\times C$. Then $x=\aprn{w, c}$ for some $w\in A\cup B$ and some $c\in C$.
+If $w\in A$, then $x=\aprn{w, c}\in A\times C$. If $w\in B$, then $x=\aprn{w, c}\in B\times C$.
+In either case, we have $x\in (A\times C)\cup (B\times C)$.
+Hence $(A\cup B)\times C \sse (A\times C)\cup (B\times C)$.
+
+Conversely, suppose $x\in (A\times C)\cup (B\times C)$. Assume $x\in A\times C$ (the argument for $B\times C$ is the same).
+Then $x=\aprn{a,c}$ for some $a\in A\sse A\cup B$ and $c\in C$.
+Hence $x\in (A\cup B)\times C$ and we have $(A\times C)\cup (B\times C) \sse (A\cup B)\times C$.
+
+Suppose $x\in (A\cap B)\times C$. Then $x=\aprn{w, c}$ for some $w\in A\cap B$ and some $c\in C$.
+Since $w\in A$, we have $x=\aprn{w, c}\in A\times C$. Similarly, we have $x\in B\times C$.
+Therefore $x\in (A\times C)\cap (B\times C)$ and so $(A\cap B)\times C \sse (A\times C)\cap (B\times C)$.
+
+Conversely, suppose $x\in (A\times C)\cap (B\times C)$. Since $x\in A\times C$ we have $x=\aprn{a,c}$ for
+some $a\in A$ and $c\in C$.
+Similarly, we have $x=\aprn{b,c_2}$ for some $b\in B$ and $c_2\in C$.
+Then $\aprn{a,c}=\aprn{b,c_2}$, which implies $a=b\in A\cap B$.
+Therefore $x=\aprn{a,c}\in (A\cap B)\times C$ and so $(A\times C)\cap (B\times C)\sse (A\cap B)\times C$.
+
+Suppose $\aprn{x, y} \in (A \times B)\cap (C \times D)$. Then $\aprn{x, y}\in A\times B$,
+so $x\in A$ and $y \in B$. Similarly, $x \in C$ and $y\in D$.
+Therefore, $x\in A\cap C$ and $y\in B\cap D$.
+This shows that $\aprn{x, y}\in(A\cap C)\times (B\cap D)$.
+Hence $(A \times B)\cap (C \times D) \sse (A\cap C)\times (B\cap D)$.
+
+Conversely, suppose $\aprn{u,v}\in (A\cap C)\times (B\cap D)$.
+Then $u\in A$ and $v\in B$, so $\aprn{u,v}\in A\times B$. Similarly, $\aprn{u,v}\in C\times D$.
+Hence $\aprn{u,v}\in (A\times B)\cap (C\times D)$ and so
+$(A\cap C)\times (B\cap D)\sse (A\times B)\cap (C\times D)$.
+\end{solution}
+
+\begin{exercise}
+Prove: $A\times B = \eset$ if and only if $A=\eset$ or $B=\eset$.
+\end{exercise}
+
+\begin{solution}
+If both $A$ and $B$ are not void, choose $a \in A$ and $b\in B$. Then $\aprn{a,b}\in A \times B$,
+and the latter is not void. Thus $(A\neq\eset \land B\neq\eset)\implies A\times B\neq\eset$.
+This is the contrapositive of $A\times B = \eset\implies (A=\eset\lor B=\eset)$.
+The reverse implication is trivial. If $A\times B\neq \eset$, then there exists $a\in A$
+and $b\in B$ such that $\aprn{a,b}\in A\times B$. In particular, both $A$ and $B$ are not void.
+
+\end{solution}
+
+\begin{exercise}
+The following cancellation law is invalid. If $X \times Y = X \times Z$, then $Y = Z$.
+Prove a corrected statement.
+\end{exercise}
+
+\begin{solution}
+The cancellation law is invalid when $X=\eset$ since $\eset\times Y = \eset=\eset\times Z$
+for any sets $Y$ and $Z$.
+However, if $X\neq\eset$ and $X \times Y = X \times Z$, then $Y = Z$.
+
+\textit{Proof}. Suppose $X\neq\eset$ and $X \times Y = X \times Z$. Choose some $x\in X$.
+Let $y\in Y$ be arbitrary. Then $\aprn{x, y}\in X \times Y = X \times Z$, so $y\in Z$.
+Hence $Y\sse Z$. Similarly, $Z\sse Y$, and we have $Y=Z$.
+\end{solution}
+
+
+\section{Functions}
+\begin{exercise}
+The following sets are all functions:
+\begin{gather*}
+f_1 = \set{\aprn{1,1},\aprn{2,1},\aprn{3,2},\aprn{4,0}},\qquad f_2 = \set{\aprn{2,1},\aprn{4,1},\aprn{1,2},\aprn{4,1}},\\
+f_3 = \set{\aprn{0,2},\aprn{2,2},\aprn{1,4},\aprn{3,0}},\qquad f_4 = \set{\aprn{4,1},\aprn{1,2},\aprn{2,1},\aprn{0,5}}.
+\end{gather*}
+Write out the domain and range of each of them. Which of them are injective? Is any
+one a restriction of another? Compute $f_1\circ f_2$ and $f_2\circ f_3$. Then compute
+$(f_1\circ f_2)\circ f_3$ and $f_1\circ(f_2\circ f_3)$.
+
+If $f$ stands for $f_3$ restricted to $\set{0,1}$, what is the map $\overbar f$ induced by $f$
+on $\power(\set{0,1})$?
+\end{exercise}
+
+\begin{solution}
+We have the following domains and ranges:
+\begin{align*}
+\dom f_1 &= \set{1, 2, 3, 4} & \ran f_1 &= \set{1,2,0} \\
+\dom f_2 &= \set{2, 4, 1} & \ran f_2 &= \set{1,2} \\
+\dom f_3 &= \set{0, 2, 1, 3} & \ran f_3 &= \set{2,4,0} \\
+\dom f_4 &= \set{4,1,2,0} & \ran f_4 &= \set{1,2,5}
+\end{align*}
+None are injective (the range of an injective function with a finite domain must be the same size).
+The function $f_2$ is a restrction of $f_4$.
+
+We compute $f_1\circ f_2=\set{\aprn{2,1},\aprn{4,1},\aprn{1,1}}$
+and $f_2\circ f_3=\set{\aprn{0,1},\aprn{2,1},\aprn{1,1}}$.
+Then $(f_1\circ f_2)\circ f_3=\set{\aprn{0,1},\aprn{2,1},\aprn{1,1}}=f_1\circ (f_2\circ f_3)$.
+
+$\overbar f=\set{\aprn{\eset,\eset},\aprn{\set{0},\set{2}},\aprn{\set{1},\set{4}},\aprn{\set{0,1},\set{2,4}}}$.
+\end{solution}
+
+\begin{exercise}
+Are the coordinate projections of a direct product $A\times B$ injective? surjective?
+\end{exercise}
+
+\begin{solution}
+Let $f$ from $A\times B$ to $A$ be the first coordinate projection.
+Then $f$ is injective if and only if $B$ has at most one element.
+And $f$ is surjective if and only if $B$ is not void or $A$ is void.
+\end{solution}
+
+\begin{exercise}
+Using the notation of 3-4.12, we find that $f\mapsto \overbar f$
+is a map from the set of all functions
+from $A$ to $B$ to the set of all functions from $\power(A)$ to $\power(B)$.
+Is it injective? surjective?
+\end{exercise}
+
+\begin{solution}
+It is always injective. It is surjective if and only if $A$ and $B$ are both empty.
+\end{solution}
+
+\begin{exercise}
+Let $f$ be a map from $A$ to $B$. Let $f^*$ be the induced map from $A\times A$ to $B\times B$ as
+in 3-4.14. Let $\overbar f$ be the induced map from $\power(A)$ to $\power(B)$ as in 3-4.12
+and let $\overbar{\overbar{f}}$ be the
+induced map from $\power^2(A)$ to $\power^2(B)$.
+Show that $f^*$ is $\overbar{\overbar{f}}$ restricted to $A \times A$. 
+\end{exercise}
+
+\begin{solution}
+Let $\aprn{a_1,a_2}\in A\times A$.
+Then we have 
+\[
+\begin{aligned}
+\overbar{\overbar{f}}(\aprn{a_1,a_2})
+&=\overbar{\overbar{f}}(\set{\set{a_1},\set{a_1,a_2}})\\
+&=\set{\overbar{f}(\set{a_1}), \overbar{f}(\set{a_1,a_2})}\\
+&=\set{\set{f(a_1)}, \set{f(a_1),f(a_2)}}\\
+&=\aprn{f(a_1),f(a_2)}\\
+&=f^*(\aprn{a_1,a_2}).
+\end{aligned}
+\]
+Hence $f^*$ is $\overbar{\overbar{f}}$ restricted to $A \times A$.
+\end{solution}
+
+\begin{exercise}
+Let $\mc F$ be the set of all functions from $A$ to $B$.
+Let $\mc G$ be the set of all functions from
+$\mc F$ to $B$. Explain fully how the formula $\phi(a)(f)=f(a)$
+defines a function $\phi$ from $A$ to $\mc G$.
+Is $\phi$ injective? surjective?
+\end{exercise}
+
+\begin{solution}
+We can define a function $\phi$ from $A$ to $\mc G$ by defining, for each $a\in A$,
+a member $\phi(a)$ of $\mc G$. Since a member of $\mc G$ is itself a function from $\mc F$
+to $B$, we may define $\phi(a)$ by giving its values at each point of $\mc F$.
+So we put $\phi(a)(f) = f(a)$ for all $f\in \mc F$. Now, $f\in\mc F$
+and $a\in A$ imply that $f(a)\in B$, so $\phi(a)$ is a function from $\mc F$ to $B$---that is, a member of $\mc G$.
+In symbols, $\phi = \setb{\aprn{a, \setb{\aprn{f, f(a)}}{f\in \mc F}}}{a\in A}$.
+
+We show that $\phi$ is injective if and only if $B$ has more than one element or $A$ has at most one element.
+
+Suppose $\phi$ is not injective. Then there exist $a_1,a_2\in A$ such that $a_1\neq a_2$ and
+$\phi(a_1)= \phi(a_2)$. In particular, $A$ has more than one element.
+Also, since $\phi(a_1)= \phi(a_2)$, for all $f\in\mc F$, $f(a_1)=\phi(a_1)(f)=\phi(a_2)(f)=f(a_2)$.
+Now suppose $b_1,b_2\in B$. Define $f_1\in\mc F$ by $f_1(a_1)=b_1$ and $f_1(x)=b_2$ for $x\neq a_1$.
+Since $f_1\in\mc F$, we have $b_1=f_1(a_1)=f_1(a_2)=b_2$. Hence $B$ has at most one element.
+
+Conversely, suppose $B$ has at most one element and $A$ has more than one element.
+Choose $a_1,a_2\in A$ with $a_1\neq a_2$.
+If $\phi$ were injective, then we would have $\phi(a_1)\neq\phi(a_2)$, which means
+there exists $f\in\mc F$ such that $f(a_1)=\phi(a_1)(f)\neq\phi(a_2)(f)=f(a_2)$.
+In particular, $f(a_1)$ and $f(a_2)$ would be distinct elements of $B$.
+But this contradicts the assumption that $B$ has at most one element. Therefore $\phi$ is not injective.
+
+Now we show that $\phi$ is surjective only if $B$ has at most one element.
+
+Suppose $\phi$ is surjective. Then for every $g\in \mc G$, there is some $a\in A$
+such that $\phi(a) = g$, i.e. $f(a)=\phi(a)(f)=g(f)$ for all $f\in\mc F$.
+Let $b_1,b_2\in B$.
+Let $g_1\in\mc G$ be defined by $g_1(f)=b_1$ for all $f\in\mc F$.
+Then since $g_1\in\mc G$, there exists $a_1\in A$ such that $f(a_1)=g_1(f)=b_1$ for all $f\in \mc F$.
+In particular, if $f_1$ is the constant function from $A$ to $B$ with value $b_2$,
+we have $b_2=f_1(a_1)=b_1$. This shows that $B$ has at most one element.
+
+Now we show that if $A\neq\eset$ and $B$ has at most one element, then $\phi$ is surjective.
+
+Suppose $B$ has at most one element and choose $a_1\in A$. Let $g\in\mc G$ be arbitrary.
+Then for any $f\in\mc F$, we have $\phi(a_1)(f)=f(a_1)\in B$ and $g(f)\in B$.
+Since $B$ has at most one element, we must have $\phi(a_1)(f)=g(f)$.
+Since $\phi(a_1)$ and $g$ are equal on all $f\in\mc F$, we have $\phi(a_1)=g$.
+Therefore $\phi$ is surjective.
+
+Finally, suppose $A=B=\eset$.
+Then $\mc F=\set{\eset}$.
+Then $\mc G=\eset$, since there are no functions from $\mc F\neq\eset$ to $B=\eset$.
+Therefore $\phi$ is trivially surjective.
+\end{solution}
+
+\begin{exercise}
+Let $f$ be a function from $A$ to $B$. Show that
+\begin{enumerate}[label=(\alph*)]
+    \item $f$ is injective if and only if (2) is an equality for every subset $X$ of $A$;
+    \item $f$ is surjective if and only if (3) is an equality for every subset $Y$ of $B$;
+    \item $f$ is injective if and only if (5) is an equality for every two subsets $X_1$ and $X_2$ of $A$.
+\end{enumerate}
+\end{exercise}
+
+\begin{solution}
+We prove (a).
+
+Let us first prove (2) which is $X\sse f^{-1}(f(X))$ for all $X\sse A$.
+Suppose $x\in X$. Then $f(x)\in f(X)$,
+which means $x\in f^{-1}(f(X))$.
+
+Now suppose $f$ is injective, and let $X$ be any subset of $A$. We must show $f^{-1}(f(X)) \sse X$.
+Suppose $z\in f^{-1}(f(X))$. Then $f(z)\in f(X)$, so $f(z)=f(x)$ for some $x\in X$.
+Since $f$ is injective, this implies $z=x\in X$. Therefore $f^{-1}(f(X)) \sse X$. Combined with (2)
+we get $X = f^{-1}(f(X))$.
+Conversely, suppose $X = f^{-1}(f(X))$ for all $X\sse A$. Suppose $f(a)=f(b)$.
+Then $a\in f^{-1}f(\set{b})$ since $f(a)=f(b)\in f(\set{b})$.
+But $f^{-1}f(\set{b})=\set{b}$, so $a\in\set{b}$ and $a=b$.
+Therefore $f$ is injective. This proves (a).
+
+We prove (b).
+
+Let us first prove (3) which is $f(f^{-1}(Y))\sse Y$ for all $Y\sse B$.
+Suppose $z\in f(f^{-1}(Y))$. Then $z=f(x)$ for some $x\in f^{-1}(Y)$.
+Then $z=f(x)\in Y$, as desired.
+
+Now suppose $f$ is surjective. Let $Y$ be any subset of $B$.
+We must show that $Y\sse f(f^{-1}(Y))$. Let $y\in Y$.
+Since $f$ is surjective, there exists $a\in A$ with $f(a)=y$.
+Then $f(a)\in Y$, so $a\in f^{-1}(Y)$. Then $y=f(a)\in f(f^{-1}(Y))$.
+Thus $Y\sse f(f^{-1}(Y))$. Combined with (3) we get $Y= f(f^{-1}(Y))$.
+Conversely, suppose $Y= f(f^{-1}(Y))$ for all $Y\sse B$.
+Let $b\in B$ be given. Then $f(f^{-1}(\set{b}))=\set{b}$.
+Hence $f^{-1}(\set{b})$ is not empty, i.e. there exists $a\in A$ such that $f(a)=b$.
+Therefore, $b\in\ran f$, and $f$ is surjective.
+
+We prove (c).
+
+Let us prove (5) which is $f(X_1\cap X_2)\sse f(X_1)\cap f(X_2)$ for all $X_1,X_2\sse A$.
+Suppose $b\in f(X_1\cap X_2)$. Then $b=f(x)$ for some $x\in X_1\cap X_2$.
+Since $x\in X_1$, we have $b=f(x)\in f(X_1)$. Similarly we have $b\in f(X_2)$.
+Hence $b\in f(X_1)\cap f(X_2)$ and we get $f(X_1\cap X_2)\sse f(X_1)\cap f(X_2)$.
+
+Now suppose $f$ is injective, and let $X_1$ and $X_2$ be subsets of $A$.
+Let $y\in f(X_1)\cap f(X_2)$ be given.
+Since $y\in f(X_1)$, there exists $x_1\in X_1$ such that $y=f(x_1)$.
+Similarly, there exists $x_2\in X_2$ such that $y=f(x_2)$.
+Since $f$ is injective, this means $x_1=x_2$. Then $x_1\in X_1\cap X_2$.
+So $y=f(x_1)\in f(X_1\cap X_2)$. Combined with (5) we get $f(X_1\cap X_2)= f(X_1)\cap f(X_2)$.
+Conversely, suppose $f(X_1\cap X_2)= f(X_1)\cap f(X_2)$ for all $X_1,X_2\sse A$.
+Assume $f(a)=f(b)$. Then $a\in f(\set{a})\cap f(\set{b})=f(\set{a}\cap\set{b})$.
+Then $\set{a}\cap\set{b}\neq\eset$, so $a=b$. Therefore $f$ is injective.
+\end{solution}
+
+\begin{exercise}
+Suppose that $f$ is a function from $A$ to $B$. If $X\sse A$ and $Y\sse B$, show that
+$f(X\cap f^{-1}(Y)) = f(X)\cap Y$.
+\end{exercise}
+
+\begin{solution}
+By (5) we have $f(X\cap f^{-1}(Y)) \sse f(X)\cap f(f^{-1}(Y))$.
+Using (3) we get $f(X)\cap f(f^{-1}(Y))\sse f(X)\cap Y$.
+Thus $f(X\cap f^{-1}(Y)) \sse f(X)\cap Y$.
+
+Conversely, let $b\in f(X)\cap Y$. Since $b\in f(X)$, we have $b=f(x)$ for some $x\in X$.
+Since $f(x)=b\in Y$, we have $x\in f^{-1}(Y)$. Therefore $x\in X\cap f^{-1}(Y)$ and we have
+$b=f(x)\in f(X\cap f^{-1}(Y))$.
+This shows that $f(X\cap f^{-1}(Y)) \Sse f(X)\cap Y$.
+\end{solution}
+
+\section{Relations}
+\begin{exercise}
+If $R$ and $S$ are relations, then
+\[R\circ S = \setb{\aprn{x,y}}{(\exists z)\aprn{x,z}\in S\land\aprn{z,y}\in R}\]
+is a relation, called the composition of $R$ and $S$. If $R$ and $S$ should be functions, show
+that this definition coincides with the previous definition of the composition of functions.
+Show also that the composition of relations is associative; that is,
+\[(R\circ S)\circ T=R\circ (S\circ T).\]
+\end{exercise}
+
+\begin{solution}
+Suppose $R$ and $S$ are functions and let $Q$ be their composition in the sense of 3-4.7.
+Let $\aprn{x,y}\in R\circ S$. Choose $z$ so that $\aprn{x,z}\in S$ and $\aprn{z,y}\in R$.
+Then $y=R(z)$ and $z=S(x)$, so $y=R(S(x))=Q(x)$. Therefore $\aprn{x,y}\in Q$.
+Conversely, if $\aprn{x,y}\in Q$, then $y=R(S(x))$, so $\aprn{x,S(x)}\in S$ and $\aprn{S(x),y}\in R$.
+Therefore, $\aprn{x,y}\in R\circ S$. Thus $R\circ S=Q$.
+
+Suppose $\aprn{x, y}\in (R\circ S)\circ T$. Then there exists $z_1$ with $\aprn{x,z_1}\in T$
+and $\aprn{z_1, y}\in R\circ S$.
+Since $\aprn{z_1, y}\in R\circ S$, there exists $z_2$ with $\aprn{z_1,z_2}\in S$ and $\aprn{z_2, y}\in R$.
+Now $\aprn{x,z_1}\in T$ and $\aprn{z_1,z_2}\in S$ together imply $\aprn{x,z_2}\in S\circ T$.
+Then combined with $\aprn{z_2, y}\in R$, we get $\aprn{x, y}\in R\circ(S\circ T)$.
+Thus $(R\circ S)\circ T\sse R\circ(S\circ T)$.
+The reverse inclusion can be shown similarly.
+\end{solution}
+
+\begin{exercise}
+If $R$ is a relation and $X$ is any set, define $\overbar{R}(X) = \setb{y}{(\exists x \in X) \aprn{x, y} \in R}$.
+Show that $\overbar{R}(\overbar{S}(X))=\overbar{(R\circ S)}(X)$ for any relations $R$ and $S$ and any set $X$.
+Restricting our attention to sets $X$ which are subsets of the domain of $R$, we can regard $\overbar R$ as a function
+from $\power(\dom R)$ to $\power(\ran R)$. If $\overbar R = \overbar S$, must $R = S$?
+\end{exercise}
+
+\begin{solution}
+Let $R$ and $S$ be relations and $X$ be a set.
+
+Suppose $z\in \overbar{R}(\overbar{S}(X))$. Then there exists $x\in \overbar{S}(X)$ such that
+$\aprn{x, z}\in R$. Then there exists $x_2\in X$ such that $\aprn{x_2,x}\in S$.
+Now $\aprn{x_2, z}\in R\circ S$ and $x_2\in X$, so $z\in\overbar{(R\circ S)}(X)$.
+Thus $\overbar{R}(\overbar{S}(X))\sse \overbar{(R\circ S)}(X)$.
+
+Conversely, suppose $z\in \overbar{(R\circ S)}(X)$. Then there exists $x\in X$ such that
+$\aprn{x, z}\in R\circ S$. Then there exists $x_2$ such that $\aprn{x,x_2}\in S$ and
+$\aprn{x_2,z}\in R$.
+Since $\aprn{x,x_2}\in S$ and $x\in X$, we have $x_2\in\overbar{S}(X)$.
+Since $\aprn{x_2,z}\in R$ and $x_2\in\overbar{S}(X)$, we have $z\in\overbar{R}(\overbar{S}(X))$.
+Thus $\overbar{R}(\overbar{S}(X))\Sse \overbar{(R\circ S)}(X)$.
+
+Suppose $\overbar R=\overbar S$. We show that $R=S$.
+Let $\aprn{x,y}\in R$ be given. We have $y\in \overbar R(\set{x})=\overbar S(\set{x})$, which means
+$\aprn{x,y}\in S$. THus $R\sse S$ and the reverse inclusion follows by symmetry.
+\end{solution}
+
+\section{Indexed unions and intersections}\
+\begin{exercise}
+Prove the following theorem which concerns a construction of frequent applicability.
+
+\textbf{Theorem.} Suppose $\setb{f_i}{i\in I}$ is a family of functions and $A_i=\dom f_i$.
+Then $\bigcup_i f_i$ is a function if and only if
+\[(\forall i,j\in I)(\forall x\in A_i\cap A_j) f_i(x)=f_j(x).\tag{11} \]
+When (11) holds it is appropriate to call $\bigcup_i f_i$ the
+\textit{least common extension} of the functions $f_i$. Why? What is its domain? its range?
+\end{exercise}
+
+\begin{solution}
+Let $g=\bigcup_i f_i$. Suppose $g$ is a function. Let $i,j\in I$ and let $x\in A_i\cap A_j$.
+Then $\aprn{x, f_i(x)}\in f_i\sse g$ and $\aprn{x, f_j(x)}\in f_j\sse g$.
+Since $g$ is a function, we have $f_i(x)=f_j(x)$.
+
+Conversely, suppose (11) holds. Obviously, $g$ is a set of ordered pairs.
+Suppose $\aprn{x,y},\aprn{x,z}\in G$.
+Then there exists $i\in I$ such that $\aprn{x,y}\in f_i$.
+Similarly, there exists $j\in I$ such that $\aprn{x,z}\in f_j$.
+Then $x\in A_i\cap A_j$ and from (11) we have $y=f_i(x)=f_j(x)=z$.
+Therefore $g$ is a function.
+
+Clearly $g$ is an extension of the functions $f_i$ since $f_i\sse g$.
+If $h$ is also a function which is an extension of the functions $f_i$, then $g\sse h$.
+Thus $g$ is appropriately called
+the least common extension of the functions $f_i$.
+Clearly, $\dom g = \bigcup\dom{f_i}$ and $\ran g = \bigcup \ran f_i$;
+\end{solution}
+
+\section{Indexed direct products}
+We shall use the symbol $\prod$ for a direct product of a family of sets.
+
+\begin{exercise}
+Let $\setb{A_i}{i\in I}$ and $\setb{B_i}{i\in I}$ be families of sets with the same index set.
+Prove $\prn{\prod_i A_i}\cap\prn{\prod_i B_i} = \prod_i (A_i\cap B_i)$.
+\end{exercise}
+
+\begin{solution}
+Suppose $f\in \prn{\prod_i A_i}\cap\prn{\prod_i B_i}$.
+Since $f\in \prod_i A_i$, $f$ is a function with domain $I$ such that $(\forall i\in I)f(i)\in A_i$.
+Similarly, we have $(\forall i\in I)f(i)\in B_i$.
+But that means $(\forall i\in I)f(i)\in A_i\cap B_i$.
+Thus $\prod_i (A_i\cap B_i)$, and $\prn{\prod_i A_i}\cap\prn{\prod_i B_i} \sse \prod_i (A_i\cap B_i)$.
+Since the previous argument is reversible, we obtain also the opposite inclusion.
+\end{solution}
+
+\begin{exercise}
+Suppose that $\set{A_i}$, $\set{B_i}$, and $\set{C_i}$ are families with the same index set I.
+Let $j\in I$ and suppose that $A_i=B_i=C_i$ for all $i\in I$ except $j$. Given
+$A_j=B_j\cup C_j$, prove $\prod_i A_i = \prn{\prod_i B_i} \cup \prn{\prod C_i}$.
+\end{exercise}
+
+\begin{solution}
+Suppose $f\in prod_i A_i$. Then $f(j)\in A_j=B_j\cup C_j$. Assume $f(j)\in B_j$.
+Now, for all $i\in I$ with $i\neq j$, we have $f(i)\in A_i=B_i$.
+Thus, for all $i\in I$, we have $f(i)\in B_i$, so $f\in\prod B_i$.
+A similar argument applies if $f(j)\in C_j$.
+In either case, $f\in \prn{\prod_i B_i} \cup \prn{\prod C_i}$.
+Thus $\prod_i A_i \sse \prn{\prod_i B_i} \cup \prn{\prod C_i}$.
+
+Conversely, suppose $f\in \prn{\prod_i B_i} \cup \prn{\prod C_i}$.
+Without loss of generalization, assume $f\in \prn{\prod_i B_i}$.
+Then $f(i)\in B_i$ for all $i\in I$.
+For $i\neq j$ we have $f(i)\in B_i=A_i$.
+And we have $f(j)\in B_j\sse B_j\cup C_j = A_j$.
+Thus, for all $i\in I$, we have $f(i)\in A_i$, so $f\in \prod_i A_i$.
+This shows that $\prod_i A_i \Sse \prn{\prod_i B_i} \cup \prn{\prod C_i}$.
+\end{solution}
+
+\begin{exercise}
+Suppose that $\setb{A_{i,j}}{\aprn{i,j}\in I\times J}$ is a family of sets indexed on
+a direct product. Define a natural bijection from $\prod_{I\times J} A_{i,j}$
+to $\prod_i\prn{\prod_j A_{i,j}}$.
+\end{exercise}
+
+\begin{solution}
+For a given $f\in \prod_{I\times J} A_{i,j}$, let $\phi(f)$ be the function defined on $I$
+by $\phi(f)(i)=h(i)$, where $h(i)$ is the function with domain $J$ defined
+by $h(i)(j)=f(i,j)$.
+Since $f(i,j)\in A_{i,j}$, $\phi(f)(i)=h(i)\in \prod_j A_{i,j}$ for all $i\in I$.
+This shows that
+\[\phi(f)\in\prod_i\prn{\prod_j A_{i,j}}.\]
+Thus $\phi$ defined by $f\mapsto \phi(f)$ is a function from $\prod_{I\times J} A_{i,j}$
+to $\prod_i\prn{\prod_j A_{i,j}}$.
+
+Suppose $\phi(f_1)=\phi(f_2)$.
+Let $\aprn{i,j}\in I\times J$ be given.
+Since $\phi(f_1)=\phi(f_2)$, we have $f_1(i,j)=\phi(f_1)(i)(j)=\phi(f_2)(i)(j)=f_2(i,j)$.
+Hence $f_1=f_2$ and $\phi$ is injective.
+
+Now let $g\in \prod_i\prn{\prod_j A_{i,j}}$.
+Then $f(i,j)=g(i)(j)$ defines a function $f$ with domain $I\times J$ such that $(\forall i,j)f(i,j)\in A_{i,j}$.
+Then $f\in \prod_{I\times J} A_{i,j}$ and $\phi(f)=g$.
+Thus $\phi$ is surjective.
+\end{solution}
+
+\begin{exercise}
+Let $\setb{A_i}{i\in I}$ be a family of sets and suppose that $K\sse I$.
+Show that
+\[f\mapsto \aprn{f\text{ restricted to }K, f\text{ restricted to }I - K}\]
+is a bijection from $\prod_i A_i$ to $\prn{\prod_K A_i}\times\prn{\prod_{I-K} A_i}$.
+\end{exercise}
+
+\begin{solution}
+Let $\phi$ denote the function $f\mapsto \aprn{f\text{ restricted to }K, f\text{ restricted to }I - K}$.
+If $f\in \prod_i A_i$, then ($f$ restricted to $K$) is a member of $\prod_K A_i$ and
+($f$ restricted to $I-K$) is a member of $\prod_{I-K} A_i$. Thus $\phi$ is a function from
+$\prod_i A_i$ to $\prn{\prod_K A_i}\times\prn{\prod_{I-K} A_i}$.
+
+Suppose $\phi(f_1)=\phi(f_2)$. Then
+\[\aprn{f_1\text{ restricted to }K, f_1\text{ restricted to }I - K} = \aprn{f_2\text{ restricted to }K, f_2\text{ restricted to }I - K}.\]
+Then for all $i\in I-K$, we have $f_1(i)=(f_1\text{ restricted to }I - K)(i)=(f_2\text{ restricted to }I - K)(i)=f_2(i)$.
+Similarly, $f_1(i)=f_2(i)$ for all $i\in K$.
+Thus $(\forall i\in I)f_1(i)=f_2(i)$, which means $f_1 = f_2$.
+Therefore $\phi$ is injective.
+
+Let $\aprn{g,h}$ be any element of $\prn{\prod_K A_i}\times\prn{\prod_{I-K} A_i}$.
+Let $f=g\cup h$. Then $f$ is a function with domain $I$ since $\dom g = K$ and $\dom h=I-K$.
+Also, $f(i)$ is equal to either $g(i)$ or $h(i)$, both of which are in $A_i$.
+Thus $f\in\prod_I A_i$. Obviously, $(f\text{ restricted to }K)=g$
+and $(f\text{ restricted to }I-K)=h$, so $\phi(f)=\aprn{g, h}$. Therefore $\phi$ is surjective.
+\end{solution}

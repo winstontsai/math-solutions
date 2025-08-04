@@ -1,0 +1,284 @@
+\chapter{Logic}
+\section{Propositions and logical connectives}
+\section{Tautologies}
+\section{The conditional}
+\begin{exercise}
+Assume that the following propositions are true: $x\in A$, $x\nin B$, $x\in C$, $y\in A$,
+$y\in B$, $y\nin C$, $z\nin A$, $z\nin B$, and $z\in C$. Which of the following are true?
+\begin{enumerate}[label=(\alph*)]
+    \item $y\nin B\lor z\in A$.
+    \item $x\nin C\land y\in B$.
+    \item $x\in C$ implies $z\in A$.
+    \item $(x\in A\lor y\in B)$ implies $z\nin C$.
+    \item $x\nin A$ if and only if $y\in C$.
+    \item If $x\in A$ implies $z\in C$, then $y\nin A$ implies $z\in B$.
+    \item If $z\in A$ implies $x\in B$, then $y\in B$.
+    \item If $x\nin B$, then $y\in C$, $z\in B$, and $x\nin A$.
+    \item $x\nin A$ only if $y\nin B$.
+    \item $z\in C$ is a necessary condition for $y\in C$.
+    \item $z\in C$ is a sufficient condition for $x\in A$.
+    \item In order that $z\nin C$, it is necessary and sufficient that $x\in A$ imply $y\in B$.
+\end{enumerate}
+\end{exercise}
+
+\begin{solution}
+We can replace each basic (non)membership proposition with $T$ or $F$ based on
+the propositions assumed to be true. That will make it easier to determine whether
+each proposition as a whole is true.
+\begin{enumerate}[label=(\alph*)]
+    \item $F\lor F$.
+    \item $F\land T$.
+    \item $T$ implies $F$.
+    \item ($T\lor T$) implies $F$.
+    \item $F$ if and only if $F$.
+    \item If $T$ implies $T$, then $F$ implies $F$.
+    \item If $F$ implies $F$, then $T$.
+    \item If $T$, then $F$, $F$, and $F$.
+    \item $F$ only if $F$.
+    \item $T$ is a necessary condition for $F$.
+    \item $T$ is a sufficient condition for $T$.
+    \item In order that $F$, it is necessary and sufficient that $T$ imply $T$.
+\end{enumerate}
+The propositions (e), (f), (g), (i), (j), (k), and (l) are true.
+\end{solution}
+
+\begin{exercise}
+Suppose it is known that one of the following cases is true:
+
+Case I. $x\in A$, $x\in B$, $x\nin C$, $y\in A$, $y\nin B$, and $y\in C$;
+
+Case II. $x\nin A$, $x\in B$, $x\in C$, $y\nin A$, $y\nin B$, and $y\in C$.
+
+Which of the following propositions are certainly true? Which are certainly false?
+
+\begin{enumerate}[label=(\alph*)]
+    \item $x\in C$ if and only if $y\in C$.
+    \item ($x\in B\land y\in A$) if and only if ($x\in A\lor y\in B$).
+    \item If $x\in A\land y\in C$, then $x\in C\lor y\in A$.
+    \item ($x\in B\land y\in B$) or ($x\in C\land y\in C$).
+    \item not-(if $x\in A$, then $y\in B$) implies ($x\in C\land y\in B$).
+\end{enumerate}
+\end{exercise}
+
+\begin{solution}
+This is like the previous exercise, except we need to determine which of the propositions is true
+for each of the two cases. Then the propositions which are certainly true are those that are true for both cases,
+and the propositions which are certainly false are those that are false for both cases.
+
+For Case I, the propositions simplify to the following.
+
+\begin{enumerate}[label=(\alph*)]
+    \item $F$ if and only if $T$.
+    \item ($T\land T$) if and only if ($T\lor F$).
+    \item If $T\land T$, then $F\lor T$.
+    \item ($T\land F$) or ($F\land T$).
+    \item not-(if $T$, then $F$) implies ($F\land F$).
+\end{enumerate}
+
+For Case I, propositions (b) and (c) are true.
+
+For Case II, the propositions simplify to the following.
+
+\begin{enumerate}[label=(\alph*)]
+    \item $T$ if and only if $T$.
+    \item ($T\land F$) if and only if ($F\lor F$).
+    \item If $F\land T$, then $T\lor F$.
+    \item ($T\land F$) or ($T\land T$).
+    \item not-(if $F$, then $F$) implies ($T\land F$).
+\end{enumerate}
+
+For Case II, propositions (a), (b), (c), (d), and (e) are true.
+
+Therefore, knowing that Case I or Case II is true,
+the propositions (b) and (c) are certainly true. None of the others are certainly false.
+\end{solution}
+
+\begin{exercise}
+Suppose that the following propositions are true:
+\begin{align*}
+    &\text{if $x\in A\land y\in B$, then $y\in A$;}\\
+    &\text{if $x\nin A\lor y\in A$, then $y\nin B$.}
+\end{align*}
+What simple conclusion can we draw?
+\end{exercise}
+
+\begin{solution}
+We can conclude $y\nin B$. For suppose that $y\in B$. Either $x\in A\lor x\nin A$.
+If $x\in A$, then the first hypothesis gives $y\in A$, from which the second hypothesis gives
+$y\nin B$.
+If $x\nin A$, then the second hypothesis again gives $y\nin B$.
+In both cases we have a contradiction.
+Therefore $y\nin B$.
+
+In fact, if we assume $y\nin B$, then the first hypothesis is true because the antecedent is false,
+and the second hypothesis is true because the consequent is true.
+Therefore $y\nin B$ is true if and only if both hypotheses are true, so $y\nin B$ is the
+best conclusion we can draw.
+
+This result can also be derived with a truth table.
+If $p$ stands for $x\in A$, $q$ for $y\in B$, and $r$ for $y\in A$, the hypotheses are
+$(p\land q)\implies r$ and $(\lnot p\lor r)\implies\lnot q$.
+We then have the following truth table.
+\[
+\begin{array}{ @{\makebox[2em][c]{\rownumber\space}} ccccc } 
+p & q & r & (p\land q)\implies r & (\lnot p\lor r)\implies\lnot q 
+\gdef\rownumber{\stepcounter{magicrownumbers}(\arabic{magicrownumbers})} \\
+\hline
+T & T & T & T & F \\ 
+T & T & F & F & T \\ 
+T & F & T & T & T \\ 
+T & F & F & T & T \\ 
+F & T & T & T & F \\ 
+F & T & F & T & F \\ 
+F & F & T & T & T \\ 
+F & F & F & T & T \\ 
+\end{array}
+\]
+If we consider only the rows for which both hypotheses are true, we are left with
+exactly the rows for which $q$ is false: (3), (4), (7), and (8).
+\end{solution}
+
+
+\section{Propositional schemes and quantifiers}
+
+\begin{exercise}
+Express in terms of the ordinary quantifiers:
+\begin{enumerate}[label=(\alph*)]
+    \item There are at most two $x$'s such that $P(x)$.
+    \item There are at least two $x$'s such that $P(x)$.
+\end{enumerate}
+\end{exercise}
+
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+    \item $(\forall x,y,z)\prn{P(x)\land P(y)\land P(z)}\implies (x=y\lor x=z\lor y=z)$
+    \item $(\exists x,y)\prn{x\neq y \land P(x)\land P(y)}$
+\end{enumerate}
+\end{solution}
+
+\begin{exercise}
+Let $\phi(x, y)$ mean $x$ is a parent of $y$. Let $M$ be the set of all men (living or dead)
+and $W$ be the set of all women.
+
+The proposition, \textit{$a$ is the mother of $b$}, can be written \textit{$a\in W$ and $\phi(a, b)$}, while \textit{$a$ is the
+brother (possibly half-brother) of $b$} can be written \textit{$a\in M$ and $a\neq b$ and $(\exists x) (\phi(x, a)$ and
+$\phi(x, b))$}.
+
+Because ordinary language is less precise than the language of quantified statements
+and because there are different ways the biological facts can enter the interpretations of
+the problems, the answers to the following problems are not all unique.
+
+Express with quantifiers
+\begin{enumerate}[label=(\alph*)]
+    \item $a$ is the grandfather of $b$.
+    \item $a$ is the grandson of $b$.
+    \item $a$ is the aunt of $b$. 
+    \item $a$ and $b$ are sisters.
+    \item $a$ and $d$ are first cousins. 
+    \item $a$ has neither brothers nor sisters.
+    \item $a$ is the full brother of $b$.
+    \item Every person has a father.
+    \item Every person has at most one father.
+    \item Every person has exactly two parents.
+    \item Some person has at least two children.
+    \item Every person has a grandfather.
+    \item No one is his own grandfather.
+\end{enumerate}
+
+Let $\psi(x, y)$ mean \textit{$x$ is the ancestor of $y$}. Express $\phi(a,b)$ in terms of $\psi(x,y)$ and
+quantifiers. Can you express $\psi(a, b)$ in terms of $\phi(x,y)$ and quantifiers?
+\end{exercise}
+
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+    \item $a\in M\land (\exists x)\prn{\phi(a,x)\land \phi(x, b)}$
+    \item $a\in M\land (\exists x)\prn{\phi(b,x)\land \phi(x, a)}$
+    \item $a\in W\land (\exists x, y)\prn{\phi(x,b)\land \phi(y, x)\land \phi(y,a)\land x\neq a}$
+    \item $a,b\in W\land a\neq b\land (\exists x)\prn{\phi(x, a)\land \phi(x, b)}$
+    \item $a\neq b\land (\exists x, y, z)\prn{x\neq y\land \phi(x,a)\land \phi(y,b)\land \phi(z, x)\land \phi(z,y)}$
+    \item $(\forall x)\prn{(\exists y)(\phi(y,x)\land \phi(y, a))\implies x = a}$
+    \item $a\in M\land a\neq b\land (\exists x,y)(x\neq y\land \phi(x,a)\land \phi(x,b)\land \phi(y,a)\land \phi(y,b))$
+    \item $(\forall x)(\exists y\in M)\phi(y, x)$
+    \item $(\forall x)(\forall y,z\in M)(\phi(y, x)\land \phi(z,x) \implies y = z)$
+    \item $(\forall x)(\exists y,z)(y\neq z\land \phi(y, x)\land \phi(z,x)
+    \land (\forall w)(\phi(w,x)\implies (w=y\lor w=z)))$
+    \item $(\exists x,y,z)(y\neq z\land \phi(x,y)\land \phi(x,z))$
+    \item $(\forall x)(\exists z\in M)(\exists y)(\phi(y, x)\land \phi(z,y))$
+    \item $(\forall x,y,z)((\phi(y, x)\land \phi(z,y)\land z\in M) \implies x\neq z)$
+\end{enumerate}
+
+$\phi(a,b)$ can be expressed as $\psi(a,b)\land \lnotd(\exists x)(\psi(a,x)\land \psi(x,b))$.
+
+It is impossible to express $\psi(a, b)$ in terms of $\phi(x, y)$ and quantifiers.
+\end{solution}
+
+
+\section{Proof and inference}
+
+\begin{exercise}
+Refer to Exercise 2, Section 2-4. Prove formally that (h) implies (l).
+\end{exercise}
+
+\begin{solution}
+The hypothesis is $(\forall x)(\exists y\in M)\phi(y, x)$.
+
+\begin{enumerate}[label=(\roman*)]
+    \item Let $a$ be any person.
+    \item \quad $(\exists y\in M)\phi(y, a)$ \hfill by hypothesis;
+    \item \quad choose $b$ so that $\phi(b,a)$ \hfill by (ii);
+    \item \quad $(\exists y\in M)\phi(y, b)$ \hfill by hypothesis;
+    \item \quad choose $c$ so that $c\in M$ and $\phi(c,b)$ \hfill by (iv);
+    \item \quad $c\in M\land (\exists y)(\phi(c, y)\land \phi(y, a))$ \hfill by (iii) and (v);
+    \item \quad $(\exists z\in M)(\exists y)(\phi(z,y)\land \phi(y, a))$ \hfill by (vi);
+    \item $(\forall x)(\exists z\in M)(\exists y)(\phi(z,y)\land \phi(y, x))$ \hfill by (i) through (vii).
+\end{enumerate}
+\end{solution}
+
+\section{Set formation}
+
+\begin{exercise}
+Which of the following sets are the same? What inclusion relations hold among
+these sets? (All variables have domain $\R$.)
+
+\begin{tasks}[label=](2)
+    \task $A_1=\setb{x}{0 < x <2}$
+    \task $A_2=\setb{x}{\abs{x} < 1}$
+    \task $A_3=\setb{x}{x < x^2}$
+    \task $A_4=\setb{x}{(\exists y)x=y^2}$
+    \task $A_5=\setb{x}{(\exists y)x=1/y}$
+    \task $A_6=\setb{x}{(\exists y)x=3y}$
+    \task $A_7=\setb{x}{(\exists y,z)x=y^2 \land y+z^2 < 1}$
+    \task $A_8=\setb{x}{(\forall y)\abs{x-y} = x - y}$
+    \task $A_9=\setb{x}{(\forall y)\abs{x-y} = \abs{y} - \abs{x}}$
+    \task $A_{10}=\setb{x}{(\exists y)y^2 + xy + x = 1}$
+\end{tasks}
+\end{exercise}
+
+\begin{solution}
+We have the following equalities:
+\begin{tasks}[label=](2)
+    \task $A_1=\setb{x}{0 < x <2}$
+    \task $A_2=\setb{x}{-1 < x < 1}$
+    \task $A_3=\setb{x}{x < 0}\cup \setb{x}{x > 1}$
+    \task $A_4=\setb{x}{x\geq 0}$
+    \task $A_5=\setb{x}{x\neq 0}$
+    \task $A_6=\R$
+    \task $A_7=\setb{x}{x\geq 0}$
+    \task $A_8=\eset$
+    \task $A_9=\set{0}$
+    \task $A_{10}=\R$
+\end{tasks}
+
+So we have the following set equalities and inclusions:
+\begin{itemize}
+    \item $\eset = A_8 \sss A_9 \sss A_1 \sss A_4 = A_7 \sss A_6 = A_{10} = \R$
+    \item $\eset \sss A_3 \sss A_5 \sss \R$
+    \item $A_9 \sss A_2 \sss \R$
+\end{itemize}
+\end{solution}
+
+
+
+
+\section{The set-theoretic paradoxes}
+\section{Dummy variables}

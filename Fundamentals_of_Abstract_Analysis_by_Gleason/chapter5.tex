@@ -1,0 +1,244 @@
+\chapter{Equivalence}
+\section{Equivalence relations and partitions}
+
+\begin{exercise}
+    Consider the relation, ``is a brother of.'' Is it reflexive? symmetric? transitive?
+\end{exercise}
+
+\begin{solution}
+It is not reflexive, since you would not say that Bob is a brother of himself.
+
+It is not symmetric, since Bob being a brother of Sarah does not imply Sarah is a brother of Bob.
+
+It is not transitive, since Bob could have the same father but not the same mother as Joe,
+and Jack could have the same mother but not the same father as Joe. Then Bob is a brother of Joe,
+and Joe is a brother of Jack, but Bob is not a brother of Jack.
+\end{solution}
+
+\begin{exercise}
+Give an example of a relation in a set which is symmetric and transitive but not
+reflexive.
+\end{exercise}
+
+\begin{solution}
+If $A=\set{1,2}$, then $R=\set{\aprn{1,1}}$ is symmetric and transitive but not reflexive.
+
+In general, if $A$ is not void, then $\eset$ is a relation in $A$ which is both
+symmetric and transitive but not reflexive.
+\end{solution}
+
+\begin{exercise}
+Let $E$ be an equivalence relation in the set $A$ and let $\phi$ be the corresponding quotient
+map. Prove that
+\[a\Erel b\iff \phi(a)\cap\phi(b)\neq\eset.\]
+\end{exercise}
+
+\begin{solution}
+Suppose $a\Erel b$. Then $\phi(a)=\phi(b)$ by Proposition 5-1.3. Since $a\in\phi(a)=\phi(a)\cap\phi(b)$,
+we have $\phi(a)\cap\phi(b)\neq\eset$.
+Conversely, suppose $\phi(a)\cap\phi(b)\neq\eset$. Choose $x\in \phi(a)\cap\phi(b)$.
+Then $a\Erel x$ and $b\Erel x$, so $a\Erel b$.
+\end{solution}
+
+\begin{exercise}
+List the partitions of the set $\set{1, 2,3}$. These fall into equivalence classes under the
+relation of isomorphism (for configurations consisting of a basic set and a partition of it).
+Exhibit this division into classes.
+\end{exercise}
+
+\begin{solution}
+There are five partitions of $\set{1,2,3}$, shown here grouped into three isomorphism classes:
+\[
+\set{\set{1,2,3}}\qquad
+\set{\set{1},\set{2},\set{3}}\qquad
+\set{\set{1},\set{2,3}},\thickspace\set{\set{2},\set{1,3}},\thickspace\set{\set{3},\set{2,1}}
+\]
+\end{solution}
+
+\begin{exercise}
+Write out the omitted parts of the proof of Theorem 5-1.5 in the detailed fashion
+of Section 2-5.
+\end{exercise}
+
+\begin{solution}
+To give a formal proof we must translate the hypotheses into formally quantified statements.
+$\mc P$ \textit{is a partition of} $A$ becomes
+\begin{enumerate}[label=(\arabic*)]
+    \item $\mc P\sse \power(A)-\set{\eset}$ and
+    \item $(\forall x\in A)(\exists Y\in\mc P)(x\in Y\land (\forall Z\in\mc P)x\in Z\implies Z=Y)$.
+\end{enumerate}
+The definition of $F$ is
+\begin{enumerate}[label=(\arabic*)]
+    \setcounter{enumi}{2}
+    \item $F\sse A\times A$ and
+    \item $(\forall x,y\in A)(x\mathrel{F}y \iff (\exists Z\in\mc P)x\in Z\land y\in Z)$.
+\end{enumerate}
+What we want to prove is
+\begin{enumerate}[label=(\arabic*)]
+    \setcounter{enumi}{4}
+    \item $F\sse A\times A$,
+    \item $(\forall x\in A)x\mathrel F x$,
+    \item $(\forall x, y\in A)x\mathrel F y \implies y \mathrel F x$, and
+    \item $(\forall x,y,z\in A)(x\mathrel F y\land y\mathrel F z)\implies x\mathrel F z$.
+\end{enumerate}
+The proof of (5) is trivial since (5) is (3). Let us prove (8).
+\begin{enumerate}[label=(\arabic*)]
+    \setcounter{enumi}{8}
+    \item Let $a$, $b$, $c$ be given in $A$.
+    \item \quad Assume $a\mathrel F b$ and $b\mathrel F c$.
+    \item \quad\quad $a\mathrel F b\iff (\exists Z\in\mc P)a\in Z\land b\in Z$ \hfill by (4)
+    \item \quad\quad $(\exists Z\in\mc P)a\in Z\land b\in Z$ \hfill by (10) and (11)
+    \item \quad\quad Choose $D\in\mc P$ so that $a\in D\land b\in D$ \hfill by (12)
+    \item \quad\quad Choose $E\in\mc P$ so that $b\in E\land c\in E$ \hfill Similar to (11), (12), (13)
+    \item \quad\quad $(\exists Y\in\mc P)(b\in Y\land (\forall Z\in\mc P)b\in Z\implies Z=Y)$ \hfill by (2)
+    \item \quad\quad Choose $G\in\mc P$ so that $b\in G$ and $(\forall Z\in\mc P)b\in Z\implies Z=G$ \hfill by (15)
+    \item \quad\quad $b\in D \implies D=G$ \hfill by (16)
+    \item \quad\quad $D=G$ \hfill by (13) and (17)
+    \item \quad\quad $E=G$ \hfill Similar to the derivation of (18)
+    \item \quad\quad $c\in D$ \hfill by (18), (19), and (14)
+    \item \quad\quad $(\exists Z\in\mc P)a\in Z\land c\in Z$ \hfill by (20) and (13)
+    \item \quad\quad $a\mathrel F c \iff (\exists Z\in\mc P) a\in Z\land c\in Z$ \hfill by (4)
+    \item \quad\quad $a\mathrel F c$ \hfill by (22) and (21)
+    \item \quad $a\mathrel F b\land b\mathrel F c \implies a\mathrel F c$ \hfill by (10) through (23)
+    \item $(\forall x,y,z\in A)(x\mathrel F y\land y\mathrel F z)\implies x\mathrel F z$ \hfill by (9) through (24)
+\end{enumerate}
+Now let us prove (6).
+\begin{enumerate}[label=(\arabic*)]
+    \setcounter{enumi}{25}
+    \item Let $a$ be given in $A$.
+    \item \quad $a\mathrel F a \iff (\exists Z\in\mc P)a\in Z\land a\in Z)$ \hfill by (4)
+    \item \quad $(\exists Y\in\mc P)(a\in Y\land (\forall Z\in\mc P)a\in Z\implies Z=Y)$ \hfill by (2)
+    \item \quad Choose $G\in\mc P$ so that $a\in G\land (\forall Z\in\mc P)a\in Z\implies Z=G)$ \hfill by (28)
+    \item \quad $(\exists Z\in\mc P)a\in Z\land a\in Z)$ \hfill by (29)
+    \item \quad $a\mathrel F a$ \hfill by (30) and (27)
+    \item $(\forall x\in A)x\mathrel F x$ \hfill by (26) through (31)
+\end{enumerate}
+Now let us prove (7).
+\begin{enumerate}[label=(\arabic*)]
+    \setcounter{enumi}{32}
+    \item Let $a,b$ be given in $A$.
+    \item \quad Assume $a\mathrel F b$.
+    \item \quad\quad $a\mathrel F b\iff (\exists Z\in\mc P)a\in Z\land b\in Z$ \hfill by (4)
+    \item \quad\quad $b\mathrel F a\iff (\exists Z\in\mc P)b\in Z\land a\in Z$ \hfill by (4)
+    \item \quad\quad $(\exists Z\in\mc P)a\in Z\land b\in Z$ \hfill by (34) and (35)
+    \item \quad\quad Choose $G\in\mc P$ so that $a\in G\land b\in G$ \hfill by (37)
+    \item \quad\quad $(\exists Z\in\mc P)b\in Z\land a\in Z$ \hfill by (38)
+    \item \quad\quad $b\mathrel F a$ \hfill by (39) and (36)
+    \item \quad $a\mathrel F b \implies b\mathrel F a$ \hfill by (34) through (40)
+    \item $(\forall x, y\in A)x\mathrel F y \implies y \mathrel F x$ \hfill by (33) through (41)
+\end{enumerate}
+\end{solution}
+
+\begin{exercise}
+Choose a definite integer $m$. For integers $a$ and $b$ let ``$a\equiv b$'' mean
+``$a - b$ is divisible by $m$ (that is, there is an integer $x$ such that $a-b=mx$)''.
+Prove that $\equiv$ is an equivalence relation. How many equivalence classes are there?
+\end{exercise}
+
+\begin{solution}
+Since $a-a=0m$, we have $a\equiv a$. Thus $\equiv$ is reflexive.
+
+Suppose $a\equiv b$. Then $a-b=xm$ for some integer $x$. But then $b-a=(-x)m$,
+so $b\equiv a$. Thus $\equiv$ is symmetric.
+
+Suppose $a\equiv b$ and $b\equiv c$. Then there exist integers $x_1,x_2$ such that
+$a-b=x_1m$ and $b-c=x_2m$.
+Then $a-c=(a-b)+(b-c)=x_1m+x_2m=(x_1+x_2)m$, so $a\equiv c$. Thus $\equiv$ is transitive.
+
+There are $\abs{m}$ equivalence classes if $m\neq 0$. If $m=0$, then each integer is
+the sole element of its equivalence class.
+\end{solution}
+\section{Factoring functions}
+
+\begin{exercise}
+Suppose that $f$ is a function with domain $A$. Prove that
+\[\setb{\aprn{x,y}}{f(x)=f(y)}\]
+is an equivalence relation in $A$. Let $\phi$ be the corresponding quotient map.
+If $f = g\circ \phi$,
+as in 5-2.1, prove that $g$ is injective.
+\end{exercise}
+
+\begin{solution}
+Let $E=\setb{\aprn{x,y}}{f(x)=f(y)}$. Let $a,b,c\in A$ be given. Then $f(a)=f(a)$, so $a\Erel a$ and $E$
+is reflexive.
+If $a\Erel b$, then $f(a)=f(b)$. But then $f(b)=f(a)$ and so $b\Erel a$. Thus $E$ is symmetric.
+Finally, if $a\Erel b$ and $b\Erel c$, then $f(a)=f(b)=f(c)$, so $a\Erel c$. Thus $E$ is transitive.
+
+Suppose $f=g\circ \phi$ as in 5-2.1. Assume $g(q_1)=g(q_2)$, where $q_1$ and $q_2$ are equivalence
+classes of $E$. Then $q_1=\phi(a_1)$ and $q_2=\phi(a_2)$ for some $a_1,a_2\in A$.
+Then $f(a_1)=g(\phi(a_1))=g(\phi(a_2))=f(a_2)$, which means $a_1\Erel a_2$.
+Then by Proposition 5-1.3 we have $q_1=\phi(a_1)=\phi(a_2)=q_2$. Therefore $g$ is injective.
+\end{solution}
+
+\begin{exercise}
+Let $D$ and $E$ be equivalence relations in the sets $A$ and $B$, respectively.
+Let the corresponding quotient maps and sets be $\phi$, $\psi$, $\mc Q$, and $\mc R$.
+\begin{enumerate}[label=(\alph*)]
+    \item Define an equivalence relation $F$ in $A\times B$ in terms of $D$ and $E$ so
+        that the corresponding quotient set $\mc S$ has a natural bijection to $\mc Q\times\mc R$.
+    \item Suppose that $g$ is a function from $A\times B$ to a set $T$ such that
+        \[(\forall a_1,a_2\in A)(\forall b\in B)\quad a_1\mathrel{D} a_2\implies g(a_1,b)=g(a_2,b)\]
+        and
+        \[(\forall a\in A)(\forall b_1,b_2\in B)\quad b_1\mathrel E b_2\implies g(a,b_1)=g(a,b_2).\]
+        Prove that there exists a unique function $h$ from $\mc Q\times \mc R$ to $T$ such that
+        \[(\forall a\in A)(\forall b\in B)\quad g(a,b)=h(\phi(a),\psi(b)).\]
+\end{enumerate}
+\end{exercise}
+
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+    \item Define $F$ to be $\setb{\aprn{\aprn{a_1,b_1},\aprn{a_2,b_2}}}{\aprn{a_1,a_2}\in D\land \aprn{b_1,b_2}\in E}$.
+
+    We show that $F$ is reflexive. For any $\aprn{a,b}\in A\times B$, we have $a\mathrel D a$ and $b\mathrel E b$
+    since $D$ and $E$ are reflexive. Hence $\aprn{a,b}\mathrel F \aprn{a,b}$.
+
+    We show that $F$ is symmetric. Suppose
+    $\aprn{a_1,b_1}\mathrel F \aprn{a_2,b_2}$. Then $a_1\mathrel D a_2$ and $b_1\mathrel E b_2$.
+    Then since $D$ and $E$ are symmetric, we have $a_2\mathrel D a_1$ and $b_2\mathrel E b_1$.
+    Hence $\aprn{a_2,b_2}\mathrel F \aprn{a_1,b_1}$.
+
+    We show that $F$ is transitive. Suppose
+    $\aprn{a_1,b_1}\mathrel F \aprn{a_2,b_2}$ and $\aprn{a_2,b_2}\mathrel F \aprn{a_3,b_3}$.
+    Then $a_1\mathrel D a_2$, $b_1\mathrel E b_2$, $a_2\mathrel D a_3$, and $b_2\mathrel E b_3$.
+    Then since $D$ and $E$ are transitive, we have $a_1\mathrel D a_3$ and $b_1\mathrel E b_3$.
+    Hence $\aprn{a_1,b_1}\mathrel F \aprn{a_3,b_3}$.
+
+    Let $\lambda$ be the quotient map of $F$.
+    Let $H=\setb{\aprn{\lambda(\aprn{a,b}),\aprn{\phi(a),\psi(b)}}}{a\in A\land b\in B}$.
+    We show that $H$ is a bijection
+    from $\mc S$ to $\mc Q\times \mc R$.
+
+    First we show that $H$ is a function.
+    
+    Let $\aprn{\lambda(\aprn{a,b}),\aprn{\phi(a),\psi(b)}}\in H$ and
+    $\aprn{\lambda(\aprn{a_2,b_2}),\aprn{\phi(a_2),\psi(b_2)}}\in H$,
+    and assume $\lambda(\aprn{a,b})=\lambda(\aprn{a_2,b_2})$.
+    Then since $\lambda$ is the quotient map of $F$, we have $\aprn{a,b}\mathrel F \aprn{a_2,b_2}$.
+    That means $a\mathrel D a_2$ and $b\mathrel E b_2$, which means $\phi(a)=\phi(a_2)$ and $\psi(b)=\psi(b_2)$.
+    Hence $\aprn{\phi(a),\psi(b)}=\aprn{\phi(a_2),\psi(b_2)}$. Thus $H$ is a function.
+
+    The domain of $H$ is clearly $\ran\lambda=\mc S$. And the range of $H$ is clearly $\mc Q\times \mc R$, i.e.
+    $H$ is surjective on $\mc Q\times \mc R$. It remains to prove that $H$ is injective.
+
+    Suppose $H(\lambda(\aprn{a,b}))=H(\lambda(\aprn{a_2,b_2}))$, that is, $\aprn{\phi(a),\psi(b)}=\aprn{\phi(a_2),\psi(b_2)}$.
+    Then $\phi(a)=\phi(a_2)$ and $\psi(b)=\psi(b_2)$.
+    Then $a\mathrel D a_2$ and $b\mathrel E b_2$.
+    Then $\aprn{a,b}\mathrel F \aprn{a_2,b_2}$.
+    Then $\lambda(\aprn{a,b})=\lambda(\aprn{a_2,b_2})$. Hence $H$ is injective.
+
+    \item Define $h$ from $\mc Q\times \mc R$ to $T$ by $h(\phi(a),\psi(b))=g(a,b)$.
+    In symbols, \[h=\setb{\aprn{\aprn{\phi(a),\psi(b)}, g(a,b)}}{a\in A\land b\in B}.\]
+    We show that $h$ is a function.
+    Suppose $\aprn{\phi(a_1),\psi(b_1)} = \aprn{\phi(a_2),\psi(b_2)}$.
+    Then $\phi(a_1)=\phi(a_2)$ and $\psi(b_1)=\psi(b_2)$.
+    Then $a_1\mathrel D a_2$ and $b_1\mathrel E b_2$.
+    Since $a_1\mathrel D a_2$, we have $g(a_1,b_1)=g(a_2,b_1)$.
+    Similarly, since $b_1\mathrel E b_2$, we have $g(a_2,b_1)=g(a_2,b_2)$.
+    Then $h(\phi(a_1),\psi(b_1))=g(a_1,b_1)=g(a_2,b_1)=g(a_2,b_2)=h(\phi(a_2),\psi(b_2))$.
+    Thus $h$ is a function.
+
+    This function $h$ is unique, for if $h_2$ is another such function and
+    $\aprn{\phi(a),\psi(b)}\in \mc Q\times \mc R$, then
+    $h_2(\phi(a),\psi(b))=g(a,b)=h(\phi(a),\psi(b))$. Thus $h_2=h$.
+\end{enumerate}
+\end{solution}

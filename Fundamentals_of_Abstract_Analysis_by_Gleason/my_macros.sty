@@ -21,6 +21,9 @@
 \tcbuselibrary{breakable}
 \DeclareExerciseEnvironmentTemplate{tcolorbox}
 {
+    \IfInsideSolutionTF
+    {\label{sol:\GetExerciseProperty{counter}}}
+    {\label{ex:\GetExerciseProperty{counter}}}
     \begin{tcolorbox}[
         breakable,
         parbox = false,

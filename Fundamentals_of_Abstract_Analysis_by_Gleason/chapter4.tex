@@ -1,0 +1,306 @@
+\chapter{Mathematical Configurations}
+\section{Structures and configurations}
+
+In the following exercises find the pairs of configurations which are isomorphic. For
+each pair, either find an explicit bijection which effects the isomorphism or give reasons
+why there is none. Assume that distinct symbols in the basic sets represent distinct
+objects. (Exercise 4 is offered primarily as a puzzle.)
+
+\begin{exercise}
+\[
+\begin{array}{ll}
+    \text{Basic set} & \text{Structural set}\\
+    \set{a,b,c,d,e} & \set{\set{a},\set{a,b},\set{b,c},\set{b,d,e}}\\
+    \set{f,g,h,i,j} & \set{\set{f,g},\set{f,h},\set{g,i},\set{h,j}}\\
+    \set{p,q,r,s,t} & \set{\set{p,q,r},\set{p,s},\set{p,t},\set{s}}
+\end{array}
+\]
+\end{exercise}
+
+\begin{solution}
+Since no singleton appears in the structural set for $\set{f, g, h,i,j}$, it is not isomorphic
+to either of the others.
+
+Let us try to produce an isomorphism $\phi$ from the first configuration to the third.
+The singleton $\set{a}$ must be mapped to $\set{s}$, so we have $\phi(a)=s$.
+We set $\phi(b)=p$ to preserve the single common element among the non-singleton sets.
+We set $\phi(c)=t$ as we must have $\set{b,c}$ mapped to $\set{p,t}$ ($\set{a,b}$ is already mapped to $\set{p,s}$).
+Finally $d$ and $e$ must be mapped to $q$ and $r$, and there are two ways to do this.
+So $\set{\aprn{a,s},\aprn{b,p},\aprn{c,t},\aprn{d,q},\aprn{e,r}}$ is an isomorphism from the
+first configuration to the third.
+\end{solution}
+
+\begin{exercise}
+\[
+\begin{array}{ll}
+    \text{Basic set} & \text{Structural set}\\
+    \set{a,b,c,d,e} & \set{\set{a,b,c},\set{a,c,e},\set{b,c},\set{b,d}}\\
+    \set{f,g,h,i,j} & \set{\set{f,g},\set{f,h,j},\set{g,h},\set{g,h,i}}\\
+    \set{p,q,r,s,t} & \set{\set{p,r},\set{p,r,s},\set{p,t},\set{q,r,t}}
+\end{array}
+\]
+\end{exercise}
+
+\begin{solution}
+Since the triplets in the first configuration intersect in a pair while those in the second
+and third configurations intersect in a singleton, only the second and third configurations
+can be isomorphic.
+
+Let us try to produce an isomorphism $\phi$ from the second configuration to the third.
+The two pairs have a single element in common, so we set $\phi(g)=p$ to preserve that common element.
+This common element belongs to only one of the triplets, so $\set{g,h,i}$ must map to $\set{p,r,s}$.
+In particular, $h$ must map to $r$ or $s$. But also, $\set{g,h}$ must map to $\set{p,t}$ or $\set{p,r}$,
+so $h$ must map to $t$ or $r$. Therefore $\phi(h)=r$, and then $\phi(i)=s$.
+Then $\set{f,g}$ must map to $\set{p,t}$, so $\phi(f)=t$. Finally, $\phi(j)=q$.
+So $\set{\aprn{f,t},\aprn{g,p},\aprn{h,r},\aprn{i,s},\aprn{j,q}}$ is an isomorphism
+from the second configuration to the third, and in fact it is the only isomorphism.
+\end{solution}
+
+\begin{exercise}
+\[
+\begin{array}{ll}
+    \text{Basic set} & \text{Structural set}\\
+    \set{a,b,c,d,e} & \set{\set{a,b,c},\set{a,c,d},\set{a,d,e},\set{b,c,d}}\\
+    \set{f,g,h,i,j} & \set{\set{f,g,j},\set{f,h,j},\set{g,h,i},\set{h,i,j}}\\
+    \set{p,q,r,s,t} & \set{\set{p,q,r},\set{p,q,t},\set{p,s,t},\set{q,r,s}}
+\end{array}
+\]
+\end{exercise}
+
+\begin{solution}
+In the first configuration there is only one member of the structural set containing $e$.
+In the other two configurations each member of the basic set appears as an element in
+at least two members of the structural set. Therefore the first configuration is not isomorphic
+to any of the others.
+
+In the second configuration, both $h$ and $j$ appear in 3 members of the structural set.
+In the third configuration, it is $p$ and $q$ that appear in 3 members of the structural set.
+So we must have $h$ and $j$ mapped to $p$ and $q$, and there are two ways to do this.
+Now note that $h$ and $j$ appear together in $\set{f,h,j}$ and $\set{h,i,j}$, while $p$ and $q$
+appear together in $\set{p,q,r}$ and $\set{p,q,t}$.
+So $f$ and $i$ must be mapped to $r$ and $t$, and there are two ways to do this.
+That leaves $g$ to be mapped to $s$.
+
+So $\set{\aprn{g,s},\aprn{f,r},\aprn{i,t},\aprn{h,p},\aprn{j,q}}$ is an isomorphism
+from the second configuration to the third. Indeed, applying the bijection to
+the second structural set results in the third.
+\end{solution}
+
+
+\begin{exercise}
+\[
+\begin{array}{ll}
+    \text{Basic set} & \text{Structural set}\\
+    \set{a,b,c,d,e,f,g,h} & \Bigl\{ \bigl\{ \set{a,b}, \set{c,d}, \set{e,f}, \set{g,h} \bigr\},\\
+               & \hphantom{\Bigl\{} \bigl\{ \set{a,c}, \set{b,d}, \set{e,g}, \set{f,h} \bigr\},\\
+               & \hphantom{\Bigl\{} \bigl\{ \set{a,d}, \set{b,c}, \set{e,h}, \set{f,g} \bigr\},\\
+               & \hphantom{\Bigl\{} \bigl\{ \set{a,e}, \set{b,f}, \set{c,g}, \set{d,h} \bigr\},\\
+               & \hphantom{\Bigl\{} \bigl\{ \set{a,f}, \set{b,h}, \set{c,e}, \set{d,g} \bigr\},\\
+               & \hphantom{\Bigl\{} \bigl\{ \set{a,g}, \set{b,e}, \set{c,h}, \set{d,f} \bigr\},\\
+               & \hphantom{\Bigl\{} \bigl\{ \set{a,h}, \set{b,g}, \set{c,f}, \set{d,e} \bigr\} \Bigr\}\\
+    \set{s,t,u,v,w,x,y,z} & \Bigl\{ \bigl\{ \set{s,t}, \set{u,w}, \set{v,y}, \set{x,z} \bigr\},\\
+               & \hphantom{\Bigl\{} \bigl\{ \set{s,u}, \set{t,w}, \set{v,x}, \set{y,z} \bigr\},\\
+               & \hphantom{\Bigl\{} \bigl\{ \set{s,v}, \set{t,y}, \set{u,x}, \set{w,z} \bigr\},\\
+               & \hphantom{\Bigl\{} \bigl\{ \set{s,w}, \set{t,x}, \set{u,y}, \set{v,z} \bigr\},\\
+               & \hphantom{\Bigl\{} \bigl\{ \set{s,x}, \set{t,z}, \set{u,v}, \set{w,y} \bigr\},\\
+               & \hphantom{\Bigl\{} \bigl\{ \set{s,y}, \set{t,v}, \set{u,z}, \set{w,x} \bigr\},\\
+               & \hphantom{\Bigl\{} \bigl\{ \set{s,z}, \set{t,u}, \set{u,w}, \set{x,y} \bigr\} \Bigr\}\\
+\end{array}
+\]
+\end{exercise}
+
+\begin{solution}
+They are isomorphic. There are 64 different isomorphisms. Eight contain the pair
+$\aprn{a, s}$, eight contain $\aprn{a, t}$, etc.
+One is $\set{\aprn{a,s},\aprn{b,t},\aprn{c,y},\aprn{d,v},\aprn{e,u},\aprn{f,w},\aprn{g,z},\aprn{h,x}}$.
+\end{solution}
+
+\section{Definitions, postulates, and theorems}
+\begin{exercise}
+Find all ordered sets $\aprn{A,B}$, where $A = \set{1, 2, 3}$.
+\end{exercise}
+
+\begin{solution}
+There are 19 possible values for $B$ which make $\aprn{A,B}$ an ordered set.
+One is the empty set.
+Six are $\set{\aprn{a,b}}$ where $a$ and $b$ are distinct.
+Six are $\set{\aprn{a,b},\aprn{b,c},\aprn{a,c}}$ where $a$, $b$, and $c$ are distinct.
+Three are $\set{\aprn{a,b},\aprn{a,c}}$ where $a$, $b$, and $c$ are distinct.
+Three are $\set{\aprn{a,c},\aprn{b,c}}$ where $a$, $b$, and $c$ are distinct.
+\end{solution}
+
+\begin{exercise}
+A \textit{Steiner triple system} is a configuration $\aprn{A, B}$ such that $B\in\power^2(A)$ and
+\begin{enumerate}[label=(\alph*)]
+    \item every member of $B$ has three members;
+    \item every two-element subset of $A$ is a subset of exactly one member of $B$.
+\end{enumerate}
+Find a Steiner triple system in which $A$ has seven members.
+\end{exercise}
+
+\begin{solution}
+Let $A=\set{a,b,c,d,e,f,g}$.
+Let us try to construct a Steiner triple system $B$ piece by piece.
+First we add the triplet $\set{a,b,c}$ to $B$.
+This contains the two-element subsets $\set{a,b}$ and $\set{a,c}$ of which $a$ is a member.
+Next we add $\set{a,d,e}$ and $\set{a,f,g}$ to $B$ handle the rest of the two-element subsets
+of which $a$ is a member.
+
+We have so far $B=\set{\set{a,b,c}, \set{a,d,e}, \set{a,f,g}}$.
+
+Moving on to $b$, we still need the two-element subsets $\set{b,d}$, $\set{b,e}$, $\set{b,f}$, and $\set{b,g}$
+included in exactly one triplet.
+We cannot use $\set{b,d,a}$ or $\set{b,d,c}$ because $\set{a,b,c}$ is already in $B$.
+We cannot use $\set{b,d,e}$ since $\set{d,e}$ is already included in $\set{a,d,e}$.
+Let us add the triplets $\set{b,d,f}$ and $\set{b,e,g}$ to $B$.
+
+We have so far $B=\set{\set{a,b,c}, \set{a,d,e}, \set{a,f,g}, \set{b,d,f}, \set{b,e,g}}$.
+
+Moving on to $c$, we still need the two-element subsets $\set{c,d}$, $\set{c,e}$,
+$\set{c,f}$, and $\set{c,g}$ included in exactly one triplet.
+We cannot use $\set{c,d,a}$ or $\set{c,d,b}$ because $\set{a,b,c}$ is already in $B$.
+We cannot use $\set{c,d,e}$ since $\set{d,e}$ is already included in $\set{a,d,e}$.
+We also cannot use $\set{c,d,f}$ since $\set{d,f}$ is already included in $\set{b,d,f}$.
+Let us add the triplets $\set{c,d,g}$ and $\set{c,e,f}$ to $B$.
+
+We have so far $B=\set{\set{a,b,c}, \set{a,d,e}, \set{a,f,g}, \set{b,d,f}, \set{b,e,g}, \set{c,d,g}, \set{c,e,f}}$.
+
+We have now included all two-element subsets with $a$, two-element subsets with $b$, and two-element subsets with $c$
+in exactly one triplet. One can verify the two-element subsets with $d$, $e$, $f$, and $g$, respectively,
+are also included in exactly one triplet. Hence
+\[B=\set{\set{a,b,c}, \set{a,d,e}, \set{a,f,g}, \set{b,e,f}, \set{b,g,d}, \set{c,d,f}, \set{c,e,g}}\]
+is a Steiner triple system for $A$.
+In fact, every Steiner triple system with 7 elements in its basic set is isomorphic to $\aprn{A, B}$.
+\end{solution}
+
+\begin{exercise}
+Either of the configurations of Exercise 4, p. 59 might appropriately be called a
+schedule for a round-robin tournament. Find an appropriate set of postulates for the
+class of schedules for round-robin tournaments.
+\end{exercise}
+
+\begin{solution}
+Let $\aprn{A,\mc T}$ be a configuration where $\mc T \in \power^3(A)$. Think of members of T as days,
+members of a day as matches, and members of $A$ as players. We write $\exists 1$ for the quantifier
+\textit{There exists exactly one}, which can be expressed with the usual quantifiers as we noted
+on page 18. The postulates for a round-robin tournament are as follows.
+\begin{enumerate}[label=(\roman*)]
+    \item Every day consists of matches only, and matches are between two players.\\
+        $(\forall D\in\mc T)(\forall m\in D)(\exists a,b\in A)a\neq b\land m=\set{a,b}$.
+    \item Every two distinct players play exactly one match.\\
+        $(\forall a,b\in A)a\neq b\implies(\exists 1\thinspace D\in\mc T)\set{a,b}\in D$.
+    \item Each player plays exactly one match on each day.\\
+        $(\forall a\in A)(\forall D\in\mc T)(\exists 1\thinspace b\in A)\set{a,b}\in D$.
+\end{enumerate}
+\end{solution}
+
+\begin{exercise}
+Using the fundamental relation, ``$x$ is a parent of $y$'', try to write a system of
+postulates for genealogy which reflects the actual biological facts. (This is not easy.)
+\end{exercise}
+
+\begin{solution}
+The obvious first postulate is that every person has exactly two parents, one a man
+and the other a woman. To rule out the possibility that anyone is his own parent, his own
+grandparent, his own great-grandparent, etc., we need a much more sophisticated postulate.
+If we attempt this directly with quantifiers having domain P, we will need infinitely
+many postulates. However, this difficulty can be avoided by considering that people can
+be ordered by age. This leads to the following definition.
+
+A genealogy is a configuration $\aprn{P,\aprn{M, W,\phi}}$ where
+\begin{enumerate}[label=(\roman*)]
+    \item $M$ and $W$ are complementary subsets of $P$.
+    \item $\phi$ is a subset of $P\times P$. (We shall write $\phi(p,q)$ instead of $\aprn{p,q}\in\phi$.)
+    \item $(\forall p\in P)(\exists m\in M)(\exists w\in W)$
+        \[\phi(m, p),\quad \phi(w,p),\quad\text{and}\quad (\forall q\in P)\phi(q,p)\implies(q=m\lor q=w).\]
+    \item There exists an ordering of the set $P$ (i.e., a subset $B$ of $P \times P$ such that $\aprn{P,B}$
+        is an ordered set in the sense of page 59) such that $(\forall p,q\in P)\phi(p,q)\implies\aprn{p,q}\in B$
+        (more concisely, $\phi\sse B$).
+\end{enumerate}
+Note that the last postulate involves quantification over $\power(P\times P)$ instead of merely
+over $P$.
+\end{solution}
+\section{Consistency}
+
+\section{The classification problem}
+\begin{exercise}
+Show that if we adjoin the postulate,
+\[\text{$A$ has seven members},\]
+to those for a Steiner triple system (Exercise 2, p. 62), the resulting postulate system is
+categorical.
+\end{exercise}
+
+\begin{solution}
+We can letter the members of some triple in the system $\set{a, b, c}$. Choose a fourth
+element and call it $d$. The system must contain triples
+$\set{a,d,\enspace}$, $\set{b,d,\enspace}$, and $\set{c,d,\enspace}$.
+The blanks must be filled with new names, and we can take them as $e$, $f$, and $g$, respectively.
+Since there are only seven elements altogether and $a$ must be involved in a triple
+with $f$ and a triple with $g$, we must have the triple $\set{a, f, g}$. Similarly, the triples $\set{b,e,g}$
+and $\set{c,e,f}$ are forced. Thus we see that every Steiner triple system with seven members
+is isomorphic to the system
+\[\aprn{\set{a,b,c,d,e,f,g},\set{\set{a,b,c},\set{a,d,e},\set{b,d,f},\set{c,d,g},\set{a,f,g},\set{b,e,g},\set{c,e,f}}}.\]
+\end{solution}
+
+\begin{exercise}
+Show that if we adjoin the postulate,
+\[\text{$A$ has six members},\]
+to those for a schedule for a round-robin tournament (Exercise 3, p. 62), the resulting
+postulate system is categorical.
+\end{exercise}
+
+\begin{solution}
+Choose any two days.
+The players can be so lettered that these days are $\set{\set{a, b},\set{c, d},\set{e, f}}$
+and $\set{\set{a, c},\set{b, e},\set{d, f}}$.
+Some third day must contain the match
+$\set{a, d}$, and on this day $e$ must play against $c$ since he cannot play $a$ or $d$ and
+he has already played $b$ and $f$.
+This day must be $\set{\set{a,d},\set{c,e},\set{b,f}}$.
+Similarly, the days containing
+the matches $\set{a, e}$ and $\set{a, f}$ are uniquely determined.
+Thus all five days are determined.
+It is important to check that the resulting set of five days is indeed a round-robin
+tournament. A round-robin tournament can be found for any even number of players.
+\end{solution}
+
+\begin{exercise}
+Classify configurations $\aprn{A, R}$, where $A$ has two elements and $R$ is a binary relation
+in $A$.
+\end{exercise}
+
+\begin{solution}
+If $A=\set{a,b}$ has 2 elements, then $A\times A$ has 4 elements and there are $2^4=16$ subsets
+of $A\times A$. So there are 16 possible configurations. They fall into 10 classes under isomorphism.
+
+One is the empty set.
+Two are isomorphic to $\set{\aprn{a,a}}$.
+Two are isomorphic to $\set{\aprn{a,b}}$.
+One is $\set{\aprn{a,b},\aprn{b,a}}$.
+One is $\set{\aprn{a,a},\aprn{b,b}}$.
+Two are isomorphic to $\set{\aprn{a,a},\aprn{b,b},\set{a,b}}$.
+Two are isomorphic to $\set{\aprn{a,a},\aprn{a,b}}$.
+Two are isomorphic to $\set{\aprn{a,a},\aprn{b,a}}$.
+Two are isomorphic to $\set{\aprn{a,a},\aprn{b,a},\aprn{a,b}}$.
+One is $A\times A$.
+\end{solution}
+
+\begin{exercise}
+Classify configurations $\aprn{A,B}$, where $B \in\power^2(A)$ and
+\begin{enumerate}[label=(\alph*)]
+    \item $A$ has five members,
+    \item $B$ has three members,
+    \item every member of $B$ has three members.
+\end{enumerate}
+\end{exercise}
+
+\begin{solution}
+For a fixed basic set $\set{1,2,3,4,5}$, there are 120 structures satisfying the given conditions.
+Of these
+\begin{center}
+    20 are isomorphic to $\set{\set{1,2,3},\set{2,3,4},\set{3,4,1}}$,\\
+    60 are isomorphic to $\set{\set{1,2,3},\set{2,3,4},\set{3,4,5}}$,\\
+    30 are isomorphic to $\set{\set{1,2,3},\set{3,4,5},\set{1,2,4}}$,\\
+    10 are isomorphic to $\set{\set{1,2,3},\set{1,2,4},\set{1,2,5}}$.
+\end{center}
+\end{solution}
