@@ -1,5 +1,207 @@
 \chapter{Mathematical Induction}
 \section{Chains}
+\begin{exercise}
+Suppose that $S = \set{1, 2,3,4,5, 6}$ and
+$f = \set{\aprn{1,2},\aprn{2,3},\aprn{3,4},\aprn{4,5}, \aprn{5,6},\aprn{6,4}}$.
+Then $\aprn{S, f}$ is a chain. Find all the subchains of $S$.
+\end{exercise}
+
+\begin{solution}
+From the definition of $f$, one notes that if a subchain $T$ contains $n$,
+then it must contain all $n,n+1,\dots,6$. But if $T$ contains 6, it must contain the
+successors 4 and 5 as well.
+
+Therefore we have the following basic sets of subchains: 
+\begin{enumerate}[label=(\roman*)]
+    \item $\set{1, 2,3,4,5, 6}$,
+    \item $\set{2,3,4,5, 6}$,
+    \item $\set{3,4,5, 6}$,
+    \item $\set{4,5, 6}$, and
+    \item $\eset$.
+\end{enumerate}
+\end{solution}
+
+\begin{exercise}
+Let $T =\set{1, 2,3, 4,5}$ and $g = \set{\aprn{1,3},\aprn{2,5},\aprn{3,4}, \aprn{4,1},\aprn{5,2}}$.
+Then $\aprn{T,g}$ is a chain. Find all subchains of $T$ which are isomorphic to a
+subchain of $S$ (cf. Exercise 1).
+\end{exercise}
+
+\begin{solution}
+We have the following basic sets of subchains of $T$: 
+\begin{enumerate}[label=(\roman*)]
+    \item $\set{1,2,3,4,5}$,
+    \item $\set{1,3,4}$,
+    \item $\set{2,5}$, and
+    \item $\eset$.
+\end{enumerate}
+Two subchains of $T$ are isomorphic to a subchain of $S$: $\eset$ is isomorphic to $\eset$, and $\set{1,3,4}$
+is isomorphic to $\set{4,5, 6}$. 
+\end{solution}
+
+\begin{exercise}
+Show that the chain $\aprn{S, f}$, defined by $S = \set{1, 2,3,4}$,
+$f=\set{\aprn{1,2},\aprn{2,3},\aprn{3,2}, \aprn{4,3}}$,
+is nontrivially isomorphic to itself; i.e., there is an isomorphism which is not the
+identity function of $S$.
+\end{exercise}
+
+\begin{solution}
+Let $\phi=\set{\aprn{1,4},\aprn{2,3},\aprn{3,2}, \aprn{4,1}}$.
+Then $\phi$ is a bijection from $S$ to $S$ and $\phi(f)=f$.
+\end{solution}
+
+
 \section{Inductive proof}
+\begin{exercise}
+Let $\aprn{S, f}$ be a chain. Show that the union of any family of subchains of $S$ is itself
+a subchain. Let $E$ be any subset of $S$. Show that among the subchains of $S$ disjoint
+from $E$ there is a largest. Suppose that $E$ is a subchain of $S$, and let $T$ be the largest
+subchain of $S$ disjoint from $E$. Prove that $S -  T$ is a subchain.
+\end{exercise}
+
+\begin{solution}
+Let $\mc C$ be a family of subchains of $S$. Let $D=\bigcup_{C\in\mc C}C$.
+We show that $D$ is a subchain of $S$.
+Clearly $D\sse S$. We just need to show that $f(d)\in D$ for all $d\in D$.
+If $d\in D$, then there exists $C\in \mc C$ with $d\in C$. Since $C$ is a subchain,
+we have $f(d)\in C\sse D$.
+Thus $D$ is a subchain.
+
+Let $E$ be any subset of $S$, and let $\mc H$ be the set of all subchains of $S$ disjoint from $E$.
+Then $\bigcup_{H\in \mc H} H$ is also a subchain of $S$ disjoint from $E$, and is clearly the largest.
+
+Suppose that $E$ is a subchain of $S$, and let $T$ be the largest subchain of $S$ disjoint from $E$.
+We prove that $S-T$ is a subchain.
+Let $x\in S-T$ be given. We must show that $f(x)\in S-T$, that is, $f(x)\nin T$.
+Assume for contradiction that $f(x)\in T$. Then $x\nin E$, otherwise since $E$ is a subchain
+we would have $f(x)\in E\cap T=\eset$. But then $T\cup\set{x}$
+is a subchain of $S$ disjoint from $E$ and $T\sss T\cup\set{x}$. Contradiction.
+Therefore $f(x)\nin T$, and $S-T$ is a subchain.
+\end{solution}
+
+\begin{exercise}
+Let $A$ be any set and let $R$ be a relation in $A$. Show that among the transitive
+relations in $A$ which contain $R$ there is a smallest.
+\end{exercise}
+ 
+\begin{solution}
+Let $\mc B$ be a family of transitive relations in $A$. We show that $V=\bigcap_{B\in\mc B}B$
+is also a transitive relation in $A$.
+Clearly $V$ is a relation in $A$.
+Suppose $\aprn{x,y},\aprn{y,z}\in V$.
+Then $\aprn{x,y},\aprn{y,z}\in B$ for all $B\in\mc B$.
+Then $\aprn{x,z}\in B$ for all $B\in\mc B$, so $\aprn{x,z}\in V$.
+Thus $V$ is transitive, and by definition $V$ is smaller than every member of $\mc B$.
+
+Now if $\mc B$ is the family of transitive relations containing $R$, then $V=\bigcap_{B\in\mc B}B$
+is a transitive relation. Also, $R\sse V$ since $R\sse B$ for all $B\in\mc B$.
+Therefore $V$ is the smallest member of $\mc B$.
+\end{solution}
+
+\begin{exercise}
+Let $R$ be a symmetric relation in the set $A$. Let $S$ be the least transitive relation in
+$A$ which contains $R$. Prove that $S$ is symmetric.
+\end{exercise}
+
+\begin{solution}
+Assume for contradiction that $S$ is not symmetric.
+Then there exist $a,b\in A$ such that $\aprn{a,b}\in S$ and $\aprn{b,a}\nin S$.
+Define $S'=S-\setb{\aprn{x,y}}{\aprn{y,x}\nin S}$.
+Then $\aprn{x,y}\in S'$ if and only if both $\aprn{x,y}$ and $\aprn{y,x}$ are members of $S$.
+In particular, $\aprn{a,b}\nin S'$.
+
+We claim that $S'$ is transitive.
+Suppose $\aprn{x,y},\aprn{y,z}\in S'$. Then $\aprn{x,z}\in S$ since $S$ is transitive.
+Also, $\aprn{y,x},\aprn{z,y}\in S$, so $\aprn{z,x}\in S$.
+Then $\aprn{x,z}\in S'$.
+Therefore $S'$ is transitive.
+
+But $S'$ is a proper subset of $S$ since $\aprn{a,b}\in S-S'$. And $S'$ contains $R$ since
+$R$ is symmetric. This contradicts the fact that $S$ is the least transitive relation containing $R$.
+
+Therefore $S$ must be symmetric.
+
+The solution given by Gleason is to show that the reverse $T$ of $S$ is equal to $S$, and hence
+$S$ is symmetric. This uses the fact that the reverse of a transitive relation is also transitive,
+and the reverse of any relation containing $R$ also contains $R$ since $R$ is symmetric.
+\end{solution}
+
+\begin{exercise}
+Let $A$ be any set and let $R$ be a relation in $A$. Show that among the equivalence
+relations in $A$ which contain $R$ there is a smallest.
+\end{exercise}
+
+\begin{solution}
+In \hyperref[ex:6-5.3]{Exercise 6-5.3} we showed that the intersection of any family
+of equivalence relations is also an equivalence relation.
+
+Now if $\mc B$ is the family of equivalence relations which contain $R$,
+then $V=\bigcap_{B\in\mc B}B$ is an equivalence relation. Also $R\sse V$ since
+$R\sse B$ for all $B\in\mc B$. Therefore $V$ is the smallest member of $\mc B$.
+\end{solution}
+
+\begin{exercise}
+Let $\aprn{S,<,\leq}$ be a well-ordered set with no greatest element. For each $s \in S$,
+let $f(s)$ be the least element greater than $s$. Show that the chain $\aprn{S,f}$ is generated by
+the set $E = S- \ran f$. Show also that $E$ is the least subset of $S$ which generates $S$.
+Write out the propositional scheme that defines the function $f$.
+\end{exercise}
+
+\begin{solution}
+We must show that $S$ is the least subchain which contains $E$.
+Suppose $T$ is a subchain containing $E$. Assume for contradiction that $S-T$ is nonempty.
+Since $S$ is well-ordered, $S-T$ has a least element, say $s_0$.
+Since $s_0\nin T$, we have $s_0\nin E=S-\ran f$. Then $s_0\in\ran f$.
+So there exists $s_1$ such that $f(s_1)=s_0$.
+By definition of $f$, we have $s_1<s_0$.
+Note that $s_1\nin T$ since $f(s_1)=s_0\nin T$.
+But this contradicts the fact that $s_0$ is the least element of $S-T$.
+Therefore $S-T$ is empty, i.e. $S\sse T$.
+Thus $S$ is generated by $E$.
+
+Suppose $D$ is any subset of $S$ which generates $S$.
+Since $D$ generates $S$, from Proposition 7-2.1 we have $S\sse D\cup f(S)=D\cup\ran f$.
+Since $E$ and $\ran f$ are disjoint, we have $E\sse D$.
+
+We have $f=\setb{\aprn{s,t}}{s<t\land (\forall u\in S) s < u \implies t\leq u}$.
+\end{solution}
+
 \section{The natural numbers and inductive definitions}
 
+\begin{exercise}
+Let $\aprn{S,f}$ be a chain such that $f$ is injective and $f(S) \sss S$. Prove that $S$ contains a
+simple subchain.
+\end{exercise}
+
+\begin{solution}
+Choose $a\in S-f(S)$, and consider the subchain $U$ generated by $a$.
+Then $U$ is simple since $f$ is injective and $a\nin\ran f$.
+\end{solution}
+
+\begin{exercise}
+Let $\aprn{S,<,\leq}$ be a nonvoid, well-ordered set with no greatest element. Suppose also
+that every nonempty subset of $S$ bounded above contains its supremum. For each $s\in S$
+let $f(s)$ be the least element greater than $s$. Prove that $\aprn{S,f}$ is a simple chain.
+\end{exercise}
+
+\begin{solution}
+We show that $f$ is injective. Suppose $s,t\in S$ and $s\neq t$. Either $s<t$ or $t<s$.
+By symmetry, we may assume $s<t$. Then by definition of $f$, $s<f(s)\leq t$. Hence $s\neq t$.
+Therefore $f$ is injective.
+
+Since $S$ is a nonvoid, well-ordered set, it contains a least element $a$. We have $a\nin\ran f$
+since $a$ is the least element.
+Let $U$ be the subchain generated by $a$.
+We show that $U=S$.
+
+Let $s\in S$ be given. 
+If $s=a$, then $s\in U$. Assume $s\neq a$.
+Consider $B=\setb{x\in U}{x < s}$.
+Then $a\in B$ since $a$ is the least element of $S$.
+Therefore $B$ is nonempty and has a maximum element $u\in U$.
+Now $f(u)$ satisfies $u< f(u) \leq s$ by definition of $f$.
+But $u<f(u)$ implies $f(u)\nin B$, that is, $f(u) \geq s$.
+Hence $s=f(u)$. But $f(u)\in U$ since $u\in U$.
+Therefore $S\sse U$. Since $U\sse S$, we have $S=U$.
+\end{solution}

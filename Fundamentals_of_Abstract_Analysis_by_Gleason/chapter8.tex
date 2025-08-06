@@ -1,8 +1,171 @@
 \chapter{Fields}
 \section{Binary operations}
+\begin{exercise}
+Restate the definition of isomorphism for configurations consisting of a set and a
+binary operation in that set, using terms adapted to this class of configurations. Let the
+binary operation in both configurations be denoted by some medial symbol.
+\end{exercise}
 
+\begin{solution}
+Let $\aprn{A,\oplus}$ and $\aprn{B,\otimes}$ be configurations consisting of basic sets
+$A$ and $B$ and binary operations $\oplus$ and $\otimes$ on $A$ and $B$, respectively.
+
+Then an isomorphism from $A$ to $B$ is a bijection $\phi$ from $A$ to $B$ such that
+$\phi(a_1\oplus a_2)=\phi(a_1)\otimes\phi(a_2)$ for all $a_1,a_2\in A$.
+\end{solution}
+
+\begin{exercise}
+Suppose that $b$ is a binary operation in the set $S$. Prove that if $b$ has both a
+left-identity and a right-identity then it has just one of each kind and these are the same.
+Give examples to prove that it is possible that $b$ has
+\begin{enumerate}[label=(\alph*)]
+    \item more than one left-identity and more than one left-zero,
+    \item more than one left-identity and more than one right-zero,
+    \item more than one left-identity and a zero,
+    \item an identity and more than one left-zero,
+    \item a left-identity which is also a right-zero ($S$ having more than one element).
+\end{enumerate}
+\end{exercise}
+
+\begin{solution}
+If $l$ is a left-identity and $r$ is a right identity, then we have $b(l,r)=r$ since $l$ is a
+left-identity and $b(l,r)=l$ since $r$ is a right identity. So $b$ has an identity $u=l=r$,
+and any left or right-identity is equal to $u$.
+
+For the following examples, we give tables which give the elements of $S$ and define
+the binary operation $b$ on $S$. Note that the values in a row for a left-identity must match value
+for the corresponding column, and the values in a row for a left-zero are just the left-zero.
+The same applies to right-identites and right-zeros, except the roles of row and column are swapped.
+
+\begin{enumerate}[label=(\alph*)]
+    \item
+    \[\begin{array}{c|cccc}
+          & a & b & c & d\\
+        \hline
+        a & a & b & c & d\\
+        b & a & b & c & d\\
+        c & c & c & c & c\\
+        d & d & d & d & d
+    \end{array}\]
+    Here $a$ and $b$ are left-identities while $c$ and $d$ are left-zeros.
+
+    \item
+    \[\begin{array}{c|cccc}
+          & a & b & c & d\\
+        \hline
+        a & a & b & c & d\\
+        b & a & b & c & d\\
+        c & c & c & c & d\\
+        d & d & d & c & d
+    \end{array}\]
+    Here $a$ and $b$ are left-identities while $c$ and $d$ are right-zeros.
+
+    \item
+    \[\begin{array}{c|ccc}
+          & a & b & c\\
+        \hline
+        a & a & b & c\\
+        b & a & b & c\\
+        c & c & c & c
+    \end{array}\]
+    Here $a$ and $b$ are left-identities while $c$ is a zero.
+
+    \item
+    \[\begin{array}{c|ccc}
+          & a & b & c\\
+        \hline
+        a & a & b & c\\
+        b & b & b & b\\
+        c & c & c & c
+    \end{array}\]
+    Here $a$ is an identity while $b$ and $c$ are left-zeros.
+
+    \item
+    \[\begin{array}{c|cc}
+          & a & b\\
+        \hline
+        a & a & b\\
+        b & a & a
+    \end{array}\]
+    Here $a$ is a left-identity and a right-zero.
+\end{enumerate}
+\end{solution}
+
+\begin{exercise}
+Which of the following binary operations defined on the ordinary numbers are
+associative? commutative? have a left-identity? a right-identity? a left-zero? a right-
+zero?
+\begin{tasks}[label=(\alph*),label-width=1.4em](2)
+    \task $(x,y)\mapsto x$
+    \task $(x,y)\mapsto \abs{x-y}$
+    \task $(x,y)\mapsto x+y+xy$
+    \task $(x,y)\mapsto xy-2x-y+4$
+    \task $(x,y)\mapsto xy+y-1$
+    \task $(x,y)\mapsto \sqrt{x^2+y^2}$\quad (let $S$ be the nonnegative numbers)
+    \task $(x,y)\mapsto \max(x,y)$
+    \task $(x,y)\mapsto \max(x^2-y,y^2-x)$
+\end{tasks}
+\end{exercise}
+
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+    \item Associative because $b(x,b(y,z))=x=b(x,y)=b(b(x,y),z)$.
+    Not commutative because $b(2,1)=2\neq 1=b(1,2)$.
+    No left-identity because $b(x,x+1)=x\neq x+1$.
+    Any number $y$ is a right-identity because $b(x,y)=x$.
+    Any number $x$ is a left-zero because $b(x,y)=x$.
+    No right-zero because $b(y+1,y)=y+1\neq y$.
+
+    \item Not associative because $b(3,b(2,1)) = \abs{3-\abs{2-1}}=2\neq0=\abs{\abs{3-2}-1}=b(b(3,2),1)$.
+    Commutative because $b(x,y)=\abs{x-y}=\abs{y-x}=b(y,x)$.
+    No left-identity because $b(x,x)=\abs{x-x}=0\neq x$ if $x\neq 0$ and $b(0,-1)=\abs{0-1}=1\neq -1$.
+    No right-identity for a similar reason.
+    No left-zero because $b(x,x+1)=\abs{x-(x+1)}=1$ and $b(x,x+2)=\abs{x-(x+2)}=2$.
+    No right-zero for a similar reason.
+
+    \item Associative because $b(x,b(y,z))=x+b(y,z)+x\cdot b(y,z)=x+(y+z+yz)+x\cdot(y+z+yz)
+    =x+y+z+yz+xy+xz+xyz$ and $b(b(x,y),z)=b(x,y) + z + b(x,y)\cdot z=(x+y+xy) + z + (x+y+xy)\cdot z
+    =x + y + z + xy + xz + yz + xyz$.
+    Commutative because $b(x,y)=x+y+xy=y+x+yx=b(y,z)$.
+    Identity is 0 because $b(0,y)=0+y+0y=y$.
+    Zero is $-1$ because $b(-1,y)=-1+y-y=-1$.
+
+    \item Not associative because $b(b(1,0),0)=b(2,0)=0$ while $b(1,b(0,0))
+    =b(1,4)=2$.
+    Not commutative because $b(1,0)=2$ while $b(0,1)=3$.
+    Left-identity is 2 because $b(2,y)=2y-2\cdot 2 - y + 4 = y$.
+    No right-identity because $b(0,y)=0$ implies $-y+4=0$ which implies $y=4$, but $b(1,4)=4-2-4+4=2$.
+    No left-zero because $b(x,0)=x$ implies $x=4/3$ while $b(x,1)=x$ implies $x=3/2$.
+    Right-zero is 2 because $b(x,2)=2x-2x-2+4=2$.
+
+    \item Not associative because $b(1,b(0,0))=b(1,-1)=-3$ while $b(b(1,0),0)=b(-1,0)=-1$.
+    Not commutative because $b(1,0)=-1$ while $b(0,1)=0$.
+    No left-identity because $b(x,0)=-1\neq 0$.
+    Right identity is 1 because $b(x,1)=x+1-1=x$.
+    Left-zero is $-1$ because $b(-1,y)=-y+y-1=-1$.
+    No right-zero because $b(0,y)=y$ implies $y-1=y$ which is impossible.
+
+    \item Associative because
+    $b(x,b(y,z))=\sqrt{x^2+y^2+z^2}=b(b(x,y),z)$.
+    Clearly commutative.
+    Identity is 0 because $b(0,y)=\sqrt{y^2}=y$.
+    No zero element because $b(x,1)=x$ implies $\sqrt{x^2+1}=x$, which is impossible.
+
+    \item Clearly associative and commutative. No identity element since $\max(x,y)=y$ for all $y$
+    implies $x\leq y$ for all $y$, which is impossible.
+    No zero element since $\max(x,y)=x$ for all $y$ implies $y\leq x$ for all $y$, which is impossible. 
+
+    \item Not associative because $b(0,b(1,2))=b(0,3)=9$ while $b(b(0,1),2)=b(1,2)=3$.
+    Commutative because $b(x,y)=\max(x^2-y,y^2-x)=\max(y^2-x,x^2-y)=b(y,x)$.
+    No identity because $b(x,0)=0$ implies $\max(x^2,-x)=0$ which implies $x=0$, but $b(0,2)=4\neq 2$.
+    No zero element since $b(x,0)=x$ implies $x^2=x$ or $-x=x$, which implies $x=1$ or $x=0$.
+    But $b(1,1)=0\neq 1$ and $b(0,2)=4\neq 0$.
+\end{enumerate}
+\end{solution}
 
 \section{Fields}
+
+
 \section{The elementary arithmetic of fields}
 \section{Whole numbers and rational numbers}
 \section{Ordered fields}
