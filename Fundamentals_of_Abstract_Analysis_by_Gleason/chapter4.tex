@@ -131,10 +131,10 @@ Three are $\set{\aprn{a,c},\aprn{b,c}}$ where $a$, $b$, and $c$ are distinct.
 
 \begin{exercise}
 A \textit{Steiner triple system} is a configuration $\aprn{A, B}$ such that $B\in\power^2(A)$ and
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item every member of $B$ has three members;
     \item every two-element subset of $A$ is a subset of exactly one member of $B$.
-\end{enumerate}
+\end{enumalpha}
 Find a Steiner triple system in which $A$ has seven members.
 \end{exercise}
 
@@ -184,14 +184,14 @@ Let $\aprn{A,\mc T}$ be a configuration where $\mc T \in \power^3(A)$. Think of 
 members of a day as matches, and members of $A$ as players. We write $\exists 1$ for the quantifier
 \textit{There exists exactly one}, which can be expressed with the usual quantifiers as we noted
 on page 18. The postulates for a round-robin tournament are as follows.
-\begin{enumerate}[label=(\roman*)]
+\begin{enumroman}
     \item Every day consists of matches only, and matches are between two players.\\
         $(\forall D\in\mc T)(\forall m\in D)(\exists a,b\in A)a\neq b\land m=\set{a,b}$.
     \item Every two distinct players play exactly one match.\\
         $(\forall a,b\in A)a\neq b\implies(\exists 1\thinspace D\in\mc T)\set{a,b}\in D$.
     \item Each player plays exactly one match on each day.\\
         $(\forall a\in A)(\forall D\in\mc T)(\exists 1\thinspace b\in A)\set{a,b}\in D$.
-\end{enumerate}
+\end{enumroman}
 \end{solution}
 
 \begin{exercise}
@@ -208,7 +208,7 @@ many postulates. However, this difficulty can be avoided by considering that peo
 be ordered by age. This leads to the following definition.
 
 A genealogy is a configuration $\aprn{P,\aprn{M, W,\phi}}$ where
-\begin{enumerate}[label=(\roman*)]
+\begin{enumroman}
     \item $M$ and $W$ are complementary subsets of $P$.
     \item $\phi$ is a subset of $P\times P$. (We shall write $\phi(p,q)$ instead of $\aprn{p,q}\in\phi$.)
     \item $(\forall p\in P)(\exists m\in M)(\exists w\in W)$
@@ -216,7 +216,7 @@ A genealogy is a configuration $\aprn{P,\aprn{M, W,\phi}}$ where
     \item There exists an ordering of the set $P$ (i.e., a subset $B$ of $P \times P$ such that $\aprn{P,B}$
         is an ordered set in the sense of page 59) such that $(\forall p,q\in P)\phi(p,q)\implies\aprn{p,q}\in B$
         (more concisely, $\phi\sse B$).
-\end{enumerate}
+\end{enumroman}
 Note that the last postulate involves quantification over $\power(P\times P)$ instead of merely
 over $P$.
 \end{solution}
@@ -287,11 +287,11 @@ One is $A\times A$.
 
 \begin{exercise}
 Classify configurations $\aprn{A,B}$, where $B \in\power^2(A)$ and
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item $A$ has five members,
     \item $B$ has three members,
     \item every member of $B$ has three members.
-\end{enumerate}
+\end{enumalpha}
 \end{exercise}
 
 \begin{solution}

@@ -247,10 +247,10 @@ Prove the following theorem which is frequently invoked tacitly:
 
 Let $A$ be an ordered set with weak order relation $\prec$. Let $B$ and $C$ be subsets of $A$
 having least upper bounds. Then
-\begin{enumerate}[label=(\roman*)]
+\begin{enumroman}
     \item if $B\sse C$, then $\sup B \prec \sup C$;
     \item if $(\forall b\in B)(\exists c\in C)b\prec c$, then $\sup B\prec\sup C$.
-\end{enumerate}
+\end{enumroman}
 \end{exercise}
 
 \begin{solution}
@@ -435,17 +435,17 @@ a least upper bound.
 \begin{exercise}
 Let $A$ be any set and let $\mc W$ be the set of all weak order relations in $A$. Inclusion
 defines an order relation in $\mc W$. Prove the following facts:
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item The intersection of any nonvoid set of weak order relations is a weak order relation.
     \item $\mc W$ is a complete ordered set.
     \item An element $W \in\mc W$ is maximal (in the ordering of $\mc W$) if and only if it is a linear ordering of $A$.
     \item Suppose $\mc X$ is a nonvoid subset of $\mc W$ which is linearly ordered by inclusion.
     Then $\bigcup_{X\in\mc X} X\in\mc W$.
-\end{enumerate}
+\end{enumalpha}
 \end{exercise}
 
 \begin{solution}
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item Let $\mc X$ be a nonvoid subset of $\mc W$. Let $V=\bigcap_{X\in\mc X}X$. We show that $V$
     is a weak order relation. Let $a,b,c\in A$.
     For all $X\in\mc X$, we have $\aprn{a,a}\in X$ so $\aprn{a,a}\in V$. Therefore $V$ is reflexive.
@@ -465,7 +465,7 @@ defines an order relation in $\mc W$. Prove the following facts:
     since $W$ is reflexive. We show that $X$ is antisymmetric.
     Suppose $\aprn{a,b}\in X$ and $\aprn{b,a}\in X$.
     There are four cases to check:
-    \begin{enumerate}[label=(\roman*)]
+    \begin{enumroman}
         \item $\aprn{a,b}\in W$ and $\aprn{b,a}\in W$. Then $a=b$ since $W$ is antisymmetric.
         \item $\aprn{a,b}\in W$ and $\aprn{b,u}\in W$ and $\aprn{v,a}\in W$. Then $\aprn{v,u}\in W$ by transitivity.
         Contradiction.
@@ -473,11 +473,11 @@ defines an order relation in $\mc W$. Prove the following facts:
         Contradiction.
         \item $\aprn{a,u}\in W$ and $\aprn{v,b}\in W$ and $\aprn{b,u}\in W$ and $\aprn{v,a}\in W$.
         Then $\aprn{v,u}\in W$ by transitivity. Contradiction.
-    \end{enumerate}
+    \end{enumroman}
     Finally, we show that $X$ is transitive.
     Suppose $\aprn{a,b}\in X$ and $\aprn{b,c}\in X$.
     There are four cases to check:
-    \begin{enumerate}[label=(\roman*)]
+    \begin{enumroman}
         \item $\aprn{a,b}\in W$ and $\aprn{b,c}\in W$. Then $\aprn{a,c}\in W$ since $W$ is transitive.
         \item $\aprn{a,b}\in W$ and $\aprn{b,u}\in W$ and $\aprn{v,c}\in W$. Then $\aprn{a,u}\in W$ by transitivity.
         Since $\aprn{a,u}\in W$ and $\aprn{v,c}\in W$, we have $\aprn{a,c}\in X$.
@@ -485,7 +485,7 @@ defines an order relation in $\mc W$. Prove the following facts:
         Since $\aprn{a,u}\in W$ and $\aprn{v,c}\in W$, we have $\aprn{a,c}\in X$.
         \item $\aprn{a,u}\in W$ and $\aprn{v,b}\in W$ and $\aprn{b,u}\in W$ and $\aprn{v,c}\in W$.
         Since $\aprn{a,u}\in W$ and $\aprn{v,c}\in W$, we have $\aprn{a,c}\in X$.
-    \end{enumerate}
+    \end{enumroman}
     Therefore $X\in\mc W$. Since $\aprn{u,v}\in X-W$ and $W\sse X$, this shows that $W$ is not maximal.
 
     Conversely, suppose $W\in \mc W$ is not maximal. Then there exists $X\in\mc W$ such that $W\sss X$.
@@ -506,7 +506,7 @@ defines an order relation in $\mc W$. Prove the following facts:
     If $X_1\sse X_2$, then $\aprn{a,b},\aprn{b,c}\in X_2$, whence $\aprn{a,c}\in X_2\sse V$.
     The case $X_2\sse X_1$ is similar. So $V$ is transitive.
     Therefore $V\in\mc W$.
-\end{enumerate}
+\end{enumalpha}
 \end{solution}
 
 

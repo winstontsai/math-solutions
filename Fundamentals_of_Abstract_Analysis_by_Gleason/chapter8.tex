@@ -18,13 +18,13 @@ $\phi(a_1\oplus a_2)=\phi(a_1)\otimes\phi(a_2)$ for all $a_1,a_2\in A$.
 Suppose that $b$ is a binary operation in the set $S$. Prove that if $b$ has both a
 left-identity and a right-identity then it has just one of each kind and these are the same.
 Give examples to prove that it is possible that $b$ has
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item more than one left-identity and more than one left-zero,
     \item more than one left-identity and more than one right-zero,
     \item more than one left-identity and a zero,
     \item an identity and more than one left-zero,
     \item a left-identity which is also a right-zero ($S$ having more than one element).
-\end{enumerate}
+\end{enumalpha}
 \end{exercise}
 
 \begin{solution}
@@ -37,7 +37,7 @@ the binary operation $b$ on $S$. Note that the values in a row for a left-identi
 for the corresponding column, and the values in a row for a left-zero are just the left-zero.
 The same applies to right-identites and right-zeros, except the roles of row and column are swapped.
 
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item
     \[\begin{array}{c|cccc}
           & a & b & c & d\\
@@ -88,7 +88,7 @@ The same applies to right-identites and right-zeros, except the roles of row and
         b & a & a
     \end{array}\]
     Here $a$ is a left-identity and a right-zero.
-\end{enumerate}
+\end{enumalpha}
 \end{solution}
 
 \begin{exercise}
@@ -108,7 +108,7 @@ zero?
 \end{exercise}
 
 \begin{solution}
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item Associative because $b(x,b(y,z))=x=b(x,y)=b(b(x,y),z)$.
     Not commutative because $b(2,1)=2\neq 1=b(1,2)$.
     No left-identity because $b(x,x+1)=x\neq x+1$.
@@ -160,15 +160,546 @@ zero?
     No identity because $b(x,0)=0$ implies $\max(x^2,-x)=0$ which implies $x=0$, but $b(0,2)=4\neq 2$.
     No zero element since $b(x,0)=x$ implies $x^2=x$ or $-x=x$, which implies $x=1$ or $x=0$.
     But $b(1,1)=0\neq 1$ and $b(0,2)=4\neq 0$.
-\end{enumerate}
+\end{enumalpha}
 \end{solution}
 
 \section{Fields}
+\begin{exercise}
+Determine which of the following systems endowed with the usual addition and
+multiplication operations are fields: the positive integers, the nonnegative integers, the
+integers, the positive rationals, the rationals, the nonnegative real numbers, the real
+numbers. In each case, find which postulates are valid and which fail.
+\end{exercise}
 
+\begin{solution}
+For the positive integers, there is no additive identity and only $1$ has a multiplicative
+inverse.
+
+For the nonnegative integers, only $0$ has an additive inverse and only $1$ has a multiplicate inverse.
+
+For the integers, only $1$ has a multiplicate inverse.
+
+For the positive rationals, there is no additive identity.
+
+The rationals are a field.
+
+For the nonnegative real numbers, only $0$ has an additive inverse.
+
+The real numbers are a field.
+\end{solution}
+
+\begin{exercise}
+Verify that $\aprn{F, a, m}$ of the Example on p. 96 is indeed a field.
+\end{exercise}
+
+\begin{solution}
+The following tables show that the commutative, associative, and distributive laws hold.
+
+Addition is commutative:
+\[
+\begin{array}{cccc}
+    x & y & x+y & y+x\\
+    \hline
+    q & q & p & p\\
+    q & p & q & q\\
+    p & q & q & q\\
+    p & p & p & p\\
+\end{array}
+\]
+Addition is associative:
+\[
+\begin{array}{ccccc}
+    w & x & y & (w+x)+y & w+(x+y)\\
+    \hline
+    q & q & q & q & q\\
+    q & q & p & p & p\\
+    q & p & q & p & p\\
+    q & p & p & q & q\\
+    p & q & q & p & p\\
+    p & q & p & q & q\\
+    p & p & q & q & q\\
+    p & p & p & p & p\\
+\end{array}
+\]
+Multiplication is commutative:
+\[
+\begin{array}{cccc}
+    x & y & xy & yx\\
+    \hline
+    q & q & q & q\\
+    q & p & p & p\\
+    p & q & p & p\\
+    p & p & p & p\\
+\end{array}
+\]
+Multiplication is associative:
+\[
+\begin{array}{ccccc}
+    w & x & y & (wx)y & w(xy)\\
+    \hline
+    q & q & q & q & q\\
+    q & q & p & p & p\\
+    q & p & q & p & p\\
+    q & p & p & p & p\\
+    p & q & q & p & p\\
+    p & q & p & p & p\\
+    p & p & q & p & p\\
+    p & p & p & p & p\\
+\end{array}
+\]
+The distributive law holds:
+\[
+\begin{array}{ccccc}
+    w & x & y & w(x+y) & (wx) + (wy)\\
+    \hline
+    q & q & q & p & p\\
+    q & q & p & q & q\\
+    q & p & q & q & q\\
+    q & p & p & p & p\\
+    p & q & q & p & p\\
+    p & q & p & p & p\\
+    p & p & q & p & p\\
+    p & p & p & p & p\\
+\end{array}
+\]
+From the table for $a$, one checks that $p$ is the additive identity $z$ since $p+p=p$
+and $q+p=q$.
+Similarly, $q$ is the multiplicative identity $u$ since $pq=p$ and $qq=q$.
+We have $p+p=p$ and $q+q=p$, so additive inverses exist.
+Finally, we have $qq=q$, so multiplicative inverses exist for all elements besides the additive identity $p$.
+\end{solution}
+
+\begin{exercise}
+Show that the last part of postulate (iv) for fields can be replaced by
+\begin{center}
+    \textit{F contains at least two elements;}
+\end{center}
+that is, prove that this replacement leads to an equivalent system of postulates.
+\end{exercise}
+
+\begin{solution}
+Clearly postulate (iv) implies $F$ contains at least two elements.
+
+Suppose we replace the last part of posulate (iv) with another postulate (v) that
+says that $F$ contains at least two elements.
+Let $z$ and $u$ be elements of $F$ satisfying the first three parts of postulate (iv).
+Assume for contradiction that $z=u$.
+Since $F$ has at least two elements, let $a$ be an element distinct from $z=u$.
+From postulate (iv), we have $z+z=z$.
+Then we have $a(z+z)=az$. Applying the distributive law, we have $az+az=az$.
+Since $z=u$, we have $au+au=au$. Applying postulate (iv), we have $a+a=a$.
+From postulate (iv), there exists $c$ such that $a+c=z$.
+So we have $a=a+z=a+(a+c)=(a+a)+c=a+c=z$, contradicting the fact that $a$ is distinct from $z$.
+Therefore $z\neq u$.
+\end{solution}
+
+\begin{exercise}
+Rephrase the definition of isomorphism for fields using terms appropriate to this
+class of configurations.
+\end{exercise}
+
+\begin{solution}
+Let $\aprn{F,+,\cdot}$ and $\aprn{G,+,\cdot}$ be fields.
+Then an isomorphism from $F$ to $G$ is a bijective function $\phi$ from $F$ to $G$ such that
+$\phi(x+y)=\phi(x) + \phi(y)$ and $\phi(x\cdot y)=\phi(x)\cdot\phi(y)$ for all $x,y\in F$.
+\end{solution}
+
+\begin{exercise}
+Let $G$ be a subfield of the field $F$. Show that the additive identity of $G$ must coincide
+with the additive identity of $F$ and the multiplicative identity of $G$ must coincide with
+the multiplicative identity of $F$. (If this were not true, we could not afford to denote the
+additive identity in any field by 0 and the multiplicative identity by 1. Observe that the
+second statement would be false if we allowed a field to have only one element.)
+\end{exercise}
+
+\begin{solution}
+Let $0_G$ be the additive identiy of $G$. Let $0_F$ be the additive identity of $F$.
+Then we have $0_F+0_G=0_G=0_G+0_G$. There exists $x\in F$ such that $0_G+x=0_F$.
+Then $0_G=0_G+0_F=0_G+0_G+x=0_F+0_G+x=0_F+0_F=0_F$.
+
+Let $1_G$ be the multiplicative identiy of $G$. Let $1_F$ be the multiplicative identity of $F$.
+Then we have $1_F1_G=1_G=1_G1_G$. Since $1_G\neq 0_G=0_F$, there exists $x\in F$ such that $1_Gx=1_F$.
+Then $1_G=1_G1_F=1_G1_Gx=1_F1_Gx=1_F1_F=1_F$.
+\end{solution}
 
 \section{The elementary arithmetic of fields}
+\begin{exercise}
+Supply the proofs not given in the text.
+\end{exercise}
+
+\begin{solution}
+We prove 8-3.1(c). Let $a\neq 0$ and $b$ be given. Choose $c$ so that $ac=1$. Then
+$a(cb)=(ac)b=1b=b$, hence we may choose $x=cb$.
+
+We prove 8-3.1(d). Let $a\neq 0$ and $x$ and $y$ be given such that $ax=ay$.
+Choose $c$ so that $ca=1$. Then $x=1x=(ca)x=c(ax)=c(ay)=(ca)y=1y=y$.
+
+We prove 8-3.3(a). Since $(b-c)+c=b$ by definition of $b-c$, we have $(a+(b-c))+c=a+((b-c)+c)=a+b$.
+The result follows from the definition of $(a+b)-c$.
+
+We prove 8-3.3(b). We have $(b+c)+((a-b)-c)=((b+c)+(a-b))-c=(c+(b+(a-b)))-c=(c+a)-c=c+(a-c)=a$.
+The result follows from the definition of $a-(b+c)$.
+
+We prove 8-3.3(c). By defintion, $-(-a)$ is the unique solution of the equation $(-a)+x=0$.
+But by definition of $-a$ we have $(-a)+a=0$. Hence $-(-a)=a$.
+
+We prove 8-3.3(e). By defintion, $-(ab)$ is the unique solution of the equation $ab+x=0$.
+But we have $ab+(-a)b=(a+(-a))b=0b=0$. Hence $(-a)b=-(ab)$.
+
+We prove 8-3.3(f). Applying (e) and (c), we have $(-a)(-b)=-(a(-b))=-((-b)a)=-(-(ba))=ba=ab$.
+
+We prove 8-3.3(g). Suppose $ab=0$. If $b\neq 0$, choose $c$ such that $bc=1$.
+Then $0=0c=(ab)c=a(bc)=a1=a$.
+
+We prove 8-3.3(i).  Let $a/b=x$ and $c/d=y$. Then $a=bx$ and $c=dy$. We must show that $x/y=ad/bc$.
+But $ad=bxd$ and $bc=bdy$. So we must show that $x/y=(bdx)/(bdy)$.
+Since $(bdy)(x/y)=(bd)(y(x/y))=bdx$, the result follows.
+
+We prove 8-3.3(j). We have $bd((a/b)+(c/d))=bd(a/b)+bd(c/d)=d(b(a/b))+b(d(c/d))=da+bc=ad+bc$.
+The result follows from the definition of $(ad+bc)/bd$.
+
+We prove 8-3.3(k). Using (d), we have $bd((a/b)-(c/d))=bd(a/b)-bd(c/d)=d(b(a/b))-b(d(c/d))=da-bc=ad-bc$.
+The result follows from the definition of $(ad-bc)/bd$.
+\end{solution}
+
+\begin{exercise}
+Let $S$ be a subset of a field $F$. Prove that the following conditions are necessary and
+sufficient for $S$ to be a subfield:
+\begin{enumalpha}
+    \item if $s,t\in S$, then $s-t\in S$;
+    \item if $s,t\in S$ and $t\neq0$, then $s/t\in S$; and
+    \item $S$ has at least two elements.
+\end{enumalpha}
+On the other hand, show that if (b) is replaced by
+\begin{enumalpha}
+    \item[(b')] if $s,t\in S$, then $st\in S$,
+\end{enumalpha}
+then (a), (b'), and (c) are not sufficient for $S$ to be a subfield.
+\end{exercise}
+
+\begin{solution}
+Suppose $S$ is a subfield. Let $s,t\in S$.
+Since $S$ is a subfield, choose $c\in S$ such that $c+t=s$.
+Now $s-t=(c+t)-t=c+(t-t)=c+0=c\in S$. Thus (a) holds.
+If $t\neq 0$, choose $d\in S$ such that $td=s$.
+Then $s/t=(td)/(t1)=(t/t)\cdot(d/1)=1d=d\in S$. Thus (b) holds.
+Finally, (c) holds by definition of a field.
+
+Conversely, suppose (a), (b), and (c) hold for a subset $S$ of $F$.
+Let $a$ be the restriction of $+$ to $S\times S$ and let $m$ be the restriction of $\cdot$ to $S\times S$.
+We show that $\aprn{S,a,m}$ is a field.
+We first show that $\ran a\sse S$ and $\ran m\sse S$. Let $s,t\in S$.
+Then $0=t-t\in S$, $-t=0-t\in S$, and $s+t=s-(-t)\in S$ by successive applications of (a).
+Thus $\ran a\sse S$. If $t=0$, then $st=0\in S$. If $t\neq 0$, then $1=t/t\in S$, $1/t\in S$,
+and $st=s/(1/t)\in S$ by successive applications of (b). Hence $\ran m\sse S$.
+
+Now, note that the associative, commutative, and distributive laws automatically hold in $S$.
+Since $S$ contains at least two elements, it contains at least one element $t\neq 0$.
+The previous argument then shows that $0\in S$ and $1\in S$. Then the first and
+last parts of postulate (iv) for a field hold automatically.
+THe second and third parts are satisfied because we showed previously that $t\in S\implies -t\in S$
+and $0\neq t\in S\implies 1/t\in S$.
+
+The the integers are a subset of the real numbers which satisfy (a), (b'), and (c), but integers
+are not a subfield of $\R$.
+\end{solution}
+
+\begin{exercise}
+Suppose that $F$ and $G$ are fields and that $\phi$ is a function from $F$ to $G$ such that
+\[\phi(a+b)=\phi(a)+\phi(b) \qquad \text{and} \qquad \phi(ab)=\phi(a)\phi(b).\]
+Prove:
+\begin{enumalpha}
+    \item $\phi(a-b)=\phi(a)-\phi(b)$ and $\phi(0)=0$;
+    \item either $\ran \phi=\set{0}$ or $\phi$ is injective and $\ran\phi$ is a subfield of $G$;
+    \item in the latter case, $\phi(1)=1$ and $\phi(a/b)=\phi(a)/\phi(b)$ if $b\neq 0$.
+\end{enumalpha}
+(Note that the operation signs on the left refer to $F$ and those on the right to $G$. Universal
+quantification over $F$ is understood.)
+\end{exercise}
+
+\begin{solution}
+\begin{enumalpha}
+    \item We have $\phi(a-b)+\phi(b)=\phi((a-b)+b)=\phi(a)$, so $\phi(a)-\phi(b) = \phi(a-b)$.
+    We have $\phi(0)+\phi(0)=\phi(0+0)=\phi(0)=\phi(0)+0$, so $\phi(0)=0$.
+    
+    \item If $\phi$ is not injective, then choose $x,y\in F$ such that $x\neq y$ and
+    $\phi(x)=\phi(y)$. Then $\phi(x-y)=\phi(x)-\phi(y)=0$, and $x-y\neq 0$.
+    Let $c=x-y$, and choose $d\in F$ such that $cd=1$.
+    Let $z\in F$ be arbitrary. Then $\phi(z)=\phi(1z)=\phi(cdz)=\phi(c)\phi(d)\phi(z)=0\phi(d)\phi(z)=0$.
+    Thus $\ran\phi=\set{0}$.
+    
+    Now suppose $\ran\phi\neq\set{0}$. Then $\phi$ is injective. We use the previous exercise
+    to show that $\ran\phi$ is a subfield of $G$.
+    Suppose $p,q\in\ran\phi$. Choose $a,b\in F$ so that $\phi(a)=p$ and
+    $\phi(b)=q$. Then $p-q=\phi(a)-\phi(b)=\phi(a-b)$.
+    If $q\neq 0$, then $\phi(b)\neq 0$
+    which implies $b\neq 0$ since $\phi$ is injective.
+    Then we have $\phi(a/b)\phi(b)=\phi((a/b)b)=\phi(a)$,
+    whence $\phi(a/b)=\phi(a)/\phi(b)=p/q$. 
+    Finally, we have $\phi(1)=\phi(1/1)=\phi(1)/\phi(1)=1$. Since $0,1\in\ran\phi$, $\ran\phi$ has
+    at least two elements.
+    By the previous exercise, $\ran\phi$ is a subfield of $G$.
+
+    \item This was shown in (b).
+\end{enumalpha}
+\end{solution}
+
 \section{Whole numbers and rational numbers}
+\begin{exercise}
+If $F$ is a modular field, then $I(F) = N(F)$.
+\end{exercise}
+
+\begin{solution}
+Suppose $F$ is a modular field, meaning $0\in N(F)$.
+We must show that $I(F)=N(F)$. We already have $N(F)\sse I(F)$ by definition of $I(F)$.
+Suppose $x\in I(F)$.
+From Lemma 8-4.5, we can write $x=u-v$ for some $u,v\in N(F)$.
+Consider the set $B=\setb{z}{u-z\in N(F)}$. We show by induction that $N(F)\sse B$.
+We shall use the fact that for all $n\in N(F)$, $n-1=0$ or $n-1\in N(F)$, which was shown
+in the proof of Lemma 8-4.5.
+Since $u\in N(F)$, we have $u-1=0\in N(F)$ or $u-1\in N(F)$, whence $1\in B$.
+Suppose $z\in B$.
+We have $u-(z+1)=(u-z)-1$. We have $u-z\in N(F)$ since $z\in B$.
+But then $(u-z)-1=0\in N(F)$ or $(u-z)-1\in N(F)$. Hence $z+1\in B$.
+Therefore $N(F)\sse B$.
+Since $v\in N(F)\sse B$, we have $x=u-v\in N(F)$.
+Therefore $I(F)\sse N(F)$.
+\end{solution}
+
+\begin{exercise}
+If $F$ is a modular field, then $Q(F) = N(F)$.
+\end{exercise}
+
+\begin{solution}
+Suppose $a\in N(F)-\set{0}$. Then $x \mapsto ax$ is a function from $N(F)$ to $N(F)$ by
+8-4.3 and it is injective by 8-3.1(d). Since $N(F)$ is finite, this function must also be
+surjective, so we can choose $b\in N(F)$ so that $ab = 1$. In other words, $1/a \in N(F)$. We
+have proved $(\forall a\in N(F)-\set{0})1/a\in N(F)$. Now $Q(F) = N(F)$ follows from the
+result of \hyperref[ex:8-4.1]{Exercise 1}, 8-4.3, and the definition of $Q(F)$.
+
+The solution above relies on the fact that $N(F)$ is finite. To see this, consider the function
+$g$ that maps the natural numbers onto $N(F)$. In the text, it is shown that for a modular field,
+there is an $n$ such that $g(n)=1$. One can then prove by induction that
+for any $k\in N(F)$, we have $g(k)=g(m)$ for some $1\leq m < n$. Therefore $N(F)=\ran g$
+is the finite set $\setb{g(m)}{1\leq m < n}$.
+\end{solution}
+
+\begin{exercise}
+Prove the existence of a least subfield in any field by an argument analogous to the
+proof of 7-2.1. Be sure to note how the result of Exercise 5, p. 98, is involved.
+\end{exercise}
+
+\begin{solution}
+Let $\mc B$ be the family of all subfields of a field $F$. Note that $F$ itself is a subfield.
+Let $G=\bigcap_{B\in\mc B}B$. We show that $G$ is a subfield, in which case it is clearly
+the smallest subfield.
+
+Let $s,t\in G$. Then $s,t\in B$ for all $B\in\mc B$. Then $s-t\in B$ for all $B\in\mc B$.
+Hence $s-t\in G$.
+If $t\neq 0$, then $s/t\in B$ for all $B\in\mc B$.
+Hence $s/t\in G$.
+Finally, from Exercise 5, p. 98, we know that all subfields contain the same identity
+elements $0$ and $1$ as $F$. Therefore $0,1\in G$ and $G$ is a subfield.
+\end{solution}
+
+\begin{exercise}
+Suppose $F$ and $G$ are fields of characteristic 0.
+\begin{enumalpha}
+    \item Show that there exists a unique function $\phi$ from $N(F)$ to $N(G)$ such that
+    \begin{enumerate}
+        \item[(i)] $\phi(1)=1$
+        \item[(ii)] $(\forall x)\phi(x+1)=\phi(x)+1$.
+    \end{enumerate}
+    Furthermore, show that $\phi$ is a bijection,
+    \begin{enumroman}
+        \item[(iii)] $(\forall x,y)\phi(x+y)=\phi(x)+\phi(y)$, and
+        \item[(iv)] $(\forall x,y)\phi(xy)=\phi(x)\phi(y)$.
+    \end{enumroman}
+
+    \item Show that $\phi$ can be extended to be a bijection from $I(F)$ to $I(G)$ so that (iii) and
+    (iv) remain valid. (We keep the same symbol for the extended function. Since the
+    domain of the quantifiers is understood to be the domain of $\phi$, when $\phi$ is extended,
+    (iii) and (iv) become more inclusive.)
+
+    \item Show that $\phi$ can be further extended to be a bijection from $Q(F)$ to $Q(G)$ so that
+    (iii) and (iv) remain valid.
+
+    \item Finish the proof of Theorem 8-4.11.
+\end{enumalpha}
+\end{exercise}
+
+\begin{solution}
+\begin{enumalpha}
+    \item From Proposition 8-4.10 we know that $N(F)$ and $N(G)$ are simple chains with
+    successor functions $x\mapsto x+1$ and first elements $1$.
+    From Theorem 7-3.8, there is a unique isomorphism $\phi$
+    from $N(F)$ to $N(G)$, and in fact $\phi(1)=1$ and $\phi(x+1)=\phi(x)+1$ for all $x$.
+    We are left to prove (iii) and (iv).
+
+    Let $x\in N(F)$ be given. We show by induction on $y$ that $\phi(x+y)=\phi(x)+\phi(y)$
+    for all $y\in N(F)$. We already have $\phi(x+1)=\phi(x)+1$. Suppose
+    $\phi(x+z)=\phi(x)+\phi(z)$. Then $\phi(x+z+1)=\phi(x+z)+1=\phi(x)+\phi(z)+1=\phi(x)+\phi(z+1)$.
+    Therefore $\phi(x+y)=\phi(x)+\phi(y)$ for all $x$ and $y$.
+
+    Let $x\in N(F)$ be given. We show by induction on $y$ that $\phi(xy)=\phi(x)\phi(y)$
+    for all $y\in N(F)$. We already have $\phi(x1)=\phi(x)=\phi(x)1=\phi(x)\phi(1)$. Suppose
+    $\phi(xz)=\phi(x)\phi(z)$. Then $\phi(x(z+1))=\phi(xz+x)=\phi(xz)+\phi(x)=\phi(x)\phi(z)+\phi(x)
+    =\phi(x)(\phi(z)+1)=\phi(x)\phi(z+1)$.
+    Therefore $\phi(xy)=\phi(x)\phi(y)$ for all $x$ and $y$.
+
+    \item Let $h=\setb{\aprn{u-v,\phi(u)-\phi(v)}}{u,v\in N(F)}$.
+
+    First we show that $h$ is a function. Suppose
+    \[\aprn{u_1-v_1,\phi(u_1)-\phi(v_1)}\in h\qquad \text{and} \qquad
+    \aprn{u_2-v_2,\phi(u_2)-\phi(v_2)}\in h\] where $u_1,v_1,u_2,v_2\in N(F)$ and
+    $u_1-v_1=u_2-v_2$. Then $u_1+v_2=u_2+v_1$,
+    so $\phi(u_1)+\phi(v_2)=\phi(u_1+v_2)=\phi(u_2+v_1)=\phi(u_2)+\phi(v_1)$.
+    Then $\phi(u_1)-\phi(v_1)=\phi(u_2)-\phi(v_2)$. So $h$ is a function.
+    The previous argument can be reversed to show that $h$ is injective since $\phi$
+    is injective.
+    From Lemma 8-4.5 we have $\dom h=I(F)$. Also, $\ran h=I(G)$ since $\phi$ is bijective.
+    Therefore $h$ is a bijection from $I(F)$ to $I(G)$.
+
+    Now we compute $h(u_1-v_1)+h(u_2-v_2)=\phi(u_1)-\phi(v_1)+\phi(u_2)-\phi(v_2)
+    =\phi(u_1)+\phi(u_2)-(\phi(v_1)+\phi(v_2))=\phi(u_1+u_2)-\phi(v_1+v_2)=
+    h((u_1+u_2)-(v_1+v_2))=h((u_1-v_1)+(u_2-v_2))$. Hence (iii) holds.
+    We also compute $h(u_1-v_1)h(u_2-v_2)=(\phi(u_1)-\phi(v_1))(\phi(u_2)-\phi(v_2))
+    =\phi(u_1)\phi(u_2)-\phi(u_1)\phi(v_2)-\phi(v_1)\phi(u_2)+\phi(v_1)\phi(v_2)
+    =\phi(u_1u_2)-\phi(u_1v_2)-\phi(v_1u_2)+\phi(v_1v_2)
+    =h(u_1u_2-u_1v_2)+h(v_1v_2-v_1u_2)=h(u_1u_2-u_1v_2 + v_1v_2-v_1u_2)=h((u_1-v_1)(u_2-v_2))$.
+    Hence (iv) holds.
+
+    Finally $h$ is an extension of $\phi$ since $h(n)=h((n+1)-1)=\phi(n+1)-1=\phi(n)+1-1=\phi(n)$
+    for all $n\in N(F)$.
+    
+    \item Let $k=\setb{\aprn{r/s,h(r)/h(s)}}{r,s\in I(F)\land s\neq 0}$.
+    Note that $h(0)=h(1-1)=h(1)-h(1)=0$, so $h(s)\neq 0$ if $s\neq 0$.
+
+    First we show that $k$ is a function. Suppose
+    \[\aprn{u_1/v_1,h(u_1)/h(v_1)}\in h\qquad \text{and} \qquad
+    \aprn{u_2/v_2,h(u_2)/h(v_2)}\in h\]
+    where $u_1,v_1,u_2,v_2\in I(F)$, $v_1\neq 0$, $v_2\neq 0$, and $u_1/v_1=u_2/v_2$.
+    Then $u_1v_2=u_2v_1$. Then $h(u_1)h(v_2)=h(u_1v_2)=h(u_2v_1)=h(u_2)h(v_1)$.
+    Then $h(u_1)/h(v_1)=h(u_2)/h(v_2)$. Hence $k$ is a function.
+    The previous argument can be reversed to show that $k$ is injective since $h$ is injective.
+    It follows from the definition of $Q(F)$ and $Q(G)$ that $\dom k=Q(F)$ and $\ran k=Q(G)$
+    since $h$ is bijective.
+    Therefore $k$ is a bijection from $Q(F)$ to $Q(G)$.
+
+    Now we compute $k(u_1/v_1+u_2/v_2)=k((u_1v_2+u_2v_1)/(v_1v_2))=h(u_1v_2+u_2v_1)/h(v_1v_2)
+    =(h(u_1)h(v_2)+h(u_2)h(v_1))/(h(v_1)h(v_2))=h(u_1)/h(v_1) + h(u_2)/h(v_2)=k(u_1/v_1)+k(u_2/v_2)$.
+    So (iii) holds.
+    We also have $k(u_1/v_1)k(u_2/v_2)=(h(u_1)/h(v_1))(h(u_2)/h(v_2))=h(u_1u_2)/h(v_1v_2)$
+    and $k((u_1/v_1)(u_2/v_2))=k((u_1u_2)/(v_1v_2))=h(u_1u_2)/h(v_1v_2)$.
+    So (iv) holds.
+
+    Finally, $k$ is an extension of $h$ since $k(i)=k(i/1)=h(i)/h(1)=h(i)/1=h(i)$ for all $i\in I(F)$.
+
+    \item In (c) we showed that $Q(F)$ and $Q(G)$ are isomorphic with isomorphism $k$.
+    Let $\psi$ be any isomorphism from $Q(F)$ to $Q(G)$.
+    We use \hyperref[ex:8-3.3]{Exercise 8-3.3}.
+
+    First we use induction to show that $\psi$ is an extension of $\phi$.
+    We have $\psi(1)=1=\phi(1)$.
+    If $n\in N(F)$ and $\psi(n)=\phi(n)$, then $\psi(n+1)=\psi(n)+\psi(1)=\phi(n)+\phi(1)=\phi(n+1)$.
+    By induction, $\psi$ is an extension of $\phi$.
+
+    Now if $u,v\in N(F)$, then $\psi(u-v)=\psi(u)-\psi(v)=\phi(u)-\phi(v)=h(u-v)$.
+    Therefore $\psi$ is an extension of $h$. 
+
+    Finally, if $r,s\in I(F)$ and $s\neq 0$, then $\psi(r/s)=\psi(r)/\psi(s)=\phi(r)/\phi(s)
+    =k(r/s)$. Therefore $\psi=k$. So the isomorphism from $Q(F)$ to $Q(G)$ is unique.
+\end{enumalpha}
+\end{solution}
+
 \section{Ordered fields}
+\begin{exercise}
+Let $F$ be any field of characteristic $0$. Prove that $Q(F)$ can be ordered in exactly
+one way. Deduce that if $F$ and $G$ are ordered fields and $\phi$ is the isomorphism of $Q(F)$
+onto $Q(G)$ (Theorem 8-4.11), then $\phi$ is order-preserving. (Note. Although the prime
+subfield of a field of characteristic $0$ can always be ordered in exactly one way, the field
+itself may not be orderable or it may be orderable in several ways.)
+\end{exercise}
+
+\begin{solution}
+Suppose $P$ is the set of all positive elements in some ordering of $Q(F)$. Let
+\[S(F) = \setb{q}{(\exists x, y\in N(F))\thinspace q = x/y}.\]
+We shall prove $P = S$, hence that the set of positive
+elements of $Q(F)$ is uniquely determined, and thus $Q(F)$ can be ordered in only one way.
+Since $Q(F)$ is a subfield of $F$, it follows easily from the definition of $N(F)$ that $N(Q(F)) =
+N(F)$. By 8-5.6 $N(F) = N(Q(F)) \sse P$. By 8-5.5(k) and 8-5.1(d), if $x,y \in N(F)$,
+then $x/y \in P$. Hence $S\sse P$. Let $q\in P$. We can write $q = x/y$, where $x, y\in I(F)$.
+Now $y\neq 0$, so either $y \in N(F)$ or $-y\in N(F)$. Since we have also $q = (-x)/(-y)$
+we can arrange that $y\in N(F)$. If $x \nin N(F)$, then $-x\in N(F)$ ($x\neq 0$ because $q\in P$
+and therefore $q\neq 0$), so $-q \in S \sse P$; but we cannot have both $q\in P$ and $-q\in P$.
+Therefore $x\in N(F)$ and $q\in S$. This proves $P\sse S$.
+
+This proves that $Q(F)$ can be ordered in at most one way since $x < y$ iff $0<y-x$ iff $y-x\in P=S(F)$.
+
+Let $F$ and $G$ be ordered fields.
+Now, the isomorphism $\phi$ from $Q(F)$ to $Q(G)$ was unique, and the construction showed
+that it takes $N(F)$ onto $N(G)$. Hence it takes $S(F)$ onto $S(G)$. Since $S(F) = P(F)\cap Q(F)$
+as shown above and $S(G)= P(G) \cap Q(G)$, $\phi$ must be order-preserving. For if $x,y\in Q(F)$
+and $x<y$, then $y-x\in P(F)\cap Q(F)=S(F)$. But then
+$\phi(y)-\phi(x)=\phi(y-x)\in \phi(S(F))=S(G)\sse P(G)$, which means $\phi(x)<\phi(y)$.
+
+Note that we have not proved that $Q(F)$ can always be ordered for a field $F$ of characteristic 0.
+Once we construct an ordered field $G$ of characteristic 0 in Chapter 9,
+we can define an order for any prime subfield $Q(F)$ by $x<y$ iff $\phi(x)<\phi(y)$, where $\phi$ is the
+unique isomorphism from $Q(F)$ to $Q(G)$.
+\end{solution}
+
 \section{Archimedean ordered fields}
+
+\begin{exercise}
+Prove that if an ordered field has any one of the properties (a), (b), (c) of 8-6.2,
+then it is Archimedean.
+\end{exercise}
+
+\begin{solution}
+Let $F$ be an ordered field.
+
+Suppose $F$ has property (a), that is,
+$(\forall x > 0)(\forall y)(\exists n\in N(F)) nx > y$. Since $1>0$, we have
+$(\forall y)(\exists n\in N(F)) n = n1 > y$. Hence $F$ is Archimedean.
+
+Suppose $F$ has property (b), that is,
+$(\forall x > 0)(\exists n\in N(F)) 1/n > x$.
+Let $y\in F$ be given. Assume $y > 0$. Then $1/y > 0$, and there exists $n\in N(F)$
+such that $1/n < 1/y$. Then $n > y$. If $y\leq 0$, we can just choose $n=1$ so that $n > y$.
+We have shown $(\forall y)(\exists n\in N(F)) n > y$. Hence $F$ is Archimedean.
+
+Suppose $F$ has property (c), that is, $x<y$ implies $(\exists r\in Q(F))\thinspace x < r < y$.
+Let $z\in F$ be given.
+If $z < 1$, we can just choose $n=1$ to get $n>z$. So assume $z\geq 1$.
+Since $z < z + 1$, there exists $r\in Q(F)$ such that $z < r < z + 1$.
+Choose $s,t\in I(F)$ so that $t\neq 0$ and $r = s/t$. Since $r=(-s)/(-t)$, we may assume
+$t \in N(F)$. Then $1\leq t$, and since $1\leq z < r$, we have $1\leq z < r < rt = s$.
+Since $s$ is positive, we have $s\in N(F)$.
+Hence $F$ is Archimedean.
+\end{solution}
+
+\begin{exercise}
+Let $F$ be any field of characteristic $0$. Show that the unique order which can be
+imposed on $Q(F)$ (Exercise, p. 107) is Archimedean.
+\end{exercise}
+
+\begin{solution}
+Let $x\in Q(F)$. If $x< 1$, we can choose $n=1>x$. So assume $1\leq x$.
+Then there exists $s,t\in N(F)$ such that $x=s/t$.
+Now since $1\leq x$ and $1\leq t$, we have $x\leq xt=s < s + 1$.
+Note that $s+1\in N(F)$.
+\end{solution}
+
+\begin{exercise}
+Show that the ordered field of rational functions discussed in 8-5.1 is not Archimedean.
+\end{exercise}
+
+\begin{solution}
+Let $F$ be the field of rational functions ordered by the first order relation given in the text. The
+members of $N(F)$ are the constant functions with positive integral values. Evidently the
+identity function exceeds all of these, so $F$ is not Archimedean.
+\end{solution} 
+
 \section{Complete ordered fields}
 

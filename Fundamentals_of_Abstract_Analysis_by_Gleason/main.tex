@@ -43,10 +43,17 @@
 \preto\tabular{\setcounter{magicrownumbers}{0}}
 \def\rownumber{}
 
+\newlist{enumalpha}{enumerate}{1}
+\setlist[enumalpha]{label=(\alph*)}
+\newlist{enumroman}{enumerate}{1}
+\setlist[enumroman]{label=(\roman*)}
+\newlist{enumarabic}{enumerate}{1}
+\setlist[enumarabic]{label=(\arabic*)}
+
 % @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 % DOCUMENT
 % @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-% \includeonly{chapter8}
+% \includeonly{chapter5,chapter9}
 \begin{document}
 \begin{titlepage}
   \begin{center}

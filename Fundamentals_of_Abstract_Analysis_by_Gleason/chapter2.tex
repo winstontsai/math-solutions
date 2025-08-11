@@ -5,7 +5,7 @@
 \begin{exercise}
 Assume that the following propositions are true: $x\in A$, $x\nin B$, $x\in C$, $y\in A$,
 $y\in B$, $y\nin C$, $z\nin A$, $z\nin B$, and $z\in C$. Which of the following are true?
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item $y\nin B\lor z\in A$.
     \item $x\nin C\land y\in B$.
     \item $x\in C$ implies $z\in A$.
@@ -18,14 +18,14 @@ $y\in B$, $y\nin C$, $z\nin A$, $z\nin B$, and $z\in C$. Which of the following 
     \item $z\in C$ is a necessary condition for $y\in C$.
     \item $z\in C$ is a sufficient condition for $x\in A$.
     \item In order that $z\nin C$, it is necessary and sufficient that $x\in A$ imply $y\in B$.
-\end{enumerate}
+\end{enumalpha}
 \end{exercise}
 
 \begin{solution}
 We can replace each basic (non)membership proposition with $T$ or $F$ based on
 the propositions assumed to be true. That will make it easier to determine whether
 each proposition as a whole is true.
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item $F\lor F$.
     \item $F\land T$.
     \item $T$ implies $F$.
@@ -38,7 +38,7 @@ each proposition as a whole is true.
     \item $T$ is a necessary condition for $F$.
     \item $T$ is a sufficient condition for $T$.
     \item In order that $F$, it is necessary and sufficient that $T$ imply $T$.
-\end{enumerate}
+\end{enumalpha}
 The propositions (e), (f), (g), (i), (j), (k), and (l) are true.
 \end{solution}
 
@@ -51,13 +51,13 @@ Case II. $x\nin A$, $x\in B$, $x\in C$, $y\nin A$, $y\nin B$, and $y\in C$.
 
 Which of the following propositions are certainly true? Which are certainly false?
 
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item $x\in C$ if and only if $y\in C$.
     \item ($x\in B\land y\in A$) if and only if ($x\in A\lor y\in B$).
     \item If $x\in A\land y\in C$, then $x\in C\lor y\in A$.
     \item ($x\in B\land y\in B$) or ($x\in C\land y\in C$).
     \item not-(if $x\in A$, then $y\in B$) implies ($x\in C\land y\in B$).
-\end{enumerate}
+\end{enumalpha}
 \end{exercise}
 
 \begin{solution}
@@ -67,25 +67,25 @@ and the propositions which are certainly false are those that are false for both
 
 For Case I, the propositions simplify to the following.
 
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item $F$ if and only if $T$.
     \item ($T\land T$) if and only if ($T\lor F$).
     \item If $T\land T$, then $F\lor T$.
     \item ($T\land F$) or ($F\land T$).
     \item not-(if $T$, then $F$) implies ($F\land F$).
-\end{enumerate}
+\end{enumalpha}
 
 For Case I, propositions (b) and (c) are true.
 
 For Case II, the propositions simplify to the following.
 
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item $T$ if and only if $T$.
     \item ($T\land F$) if and only if ($F\lor F$).
     \item If $F\land T$, then $T\lor F$.
     \item ($T\land F$) or ($T\land T$).
     \item not-(if $F$, then $F$) implies ($T\land F$).
-\end{enumerate}
+\end{enumalpha}
 
 For Case II, propositions (a), (b), (c), (d), and (e) are true.
 
@@ -143,17 +143,17 @@ exactly the rows for which $q$ is false: (3), (4), (7), and (8).
 
 \begin{exercise}
 Express in terms of the ordinary quantifiers:
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item There are at most two $x$'s such that $P(x)$.
     \item There are at least two $x$'s such that $P(x)$.
-\end{enumerate}
+\end{enumalpha}
 \end{exercise}
 
 \begin{solution}
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item $(\forall x,y,z)\prn{P(x)\land P(y)\land P(z)}\implies (x=y\lor x=z\lor y=z)$
     \item $(\exists x,y)\prn{x\neq y \land P(x)\land P(y)}$
-\end{enumerate}
+\end{enumalpha}
 \end{solution}
 
 \begin{exercise}
@@ -169,7 +169,7 @@ and because there are different ways the biological facts can enter the interpre
 the problems, the answers to the following problems are not all unique.
 
 Express with quantifiers
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item $a$ is the grandfather of $b$.
     \item $a$ is the grandson of $b$.
     \item $a$ is the aunt of $b$. 
@@ -183,14 +183,14 @@ Express with quantifiers
     \item Some person has at least two children.
     \item Every person has a grandfather.
     \item No one is his own grandfather.
-\end{enumerate}
+\end{enumalpha}
 
 Let $\psi(x, y)$ mean \textit{$x$ is the ancestor of $y$}. Express $\phi(a,b)$ in terms of $\psi(x,y)$ and
 quantifiers. Can you express $\psi(a, b)$ in terms of $\phi(x,y)$ and quantifiers?
 \end{exercise}
 
 \begin{solution}
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item $a\in M\land (\exists x)\prn{\phi(a,x)\land \phi(x, b)}$
     \item $a\in M\land (\exists x)\prn{\phi(b,x)\land \phi(x, a)}$
     \item $a\in W\land (\exists x, y)\prn{\phi(x,b)\land \phi(y, x)\land \phi(y,a)\land x\neq a}$
@@ -205,7 +205,7 @@ quantifiers. Can you express $\psi(a, b)$ in terms of $\phi(x,y)$ and quantifier
     \item $(\exists x,y,z)(y\neq z\land \phi(x,y)\land \phi(x,z))$
     \item $(\forall x)(\exists z\in M)(\exists y)(\phi(y, x)\land \phi(z,y))$
     \item $(\forall x,y,z)((\phi(y, x)\land \phi(z,y)\land z\in M) \implies x\neq z)$
-\end{enumerate}
+\end{enumalpha}
 
 $\phi(a,b)$ can be expressed as $\psi(a,b)\land \lnotd(\exists x)(\psi(a,x)\land \psi(x,b))$.
 
@@ -222,7 +222,7 @@ Refer to Exercise 2, Section 2-4. Prove formally that (h) implies (l).
 \begin{solution}
 The hypothesis is $(\forall x)(\exists y\in M)\phi(y, x)$.
 
-\begin{enumerate}[label=(\roman*)]
+\begin{enumroman}
     \item Let $a$ be any person.
     \item \quad $(\exists y\in M)\phi(y, a)$ \hfill by hypothesis;
     \item \quad choose $b$ so that $\phi(b,a)$ \hfill by (ii);
@@ -231,7 +231,7 @@ The hypothesis is $(\forall x)(\exists y\in M)\phi(y, x)$.
     \item \quad $c\in M\land (\exists y)(\phi(c, y)\land \phi(y, a))$ \hfill by (iii) and (v);
     \item \quad $(\exists z\in M)(\exists y)(\phi(z,y)\land \phi(y, a))$ \hfill by (vi);
     \item $(\forall x)(\exists z\in M)(\exists y)(\phi(z,y)\land \phi(y, x))$ \hfill by (i) through (vii).
-\end{enumerate}
+\end{enumroman}
 \end{solution}
 
 \section{Set formation}

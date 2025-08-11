@@ -63,26 +63,26 @@ of Section 2-5.
 \begin{solution}
 To give a formal proof we must translate the hypotheses into formally quantified statements.
 $\mc P$ \textit{is a partition of} $A$ becomes
-\begin{enumerate}[label=(\arabic*)]
+\begin{enumarabic}
     \item $\mc P\sse \power(A)-\set{\eset}$ and
     \item $(\forall x\in A)(\exists Y\in\mc P)(x\in Y\land (\forall Z\in\mc P)x\in Z\implies Z=Y)$.
-\end{enumerate}
+\end{enumarabic}
 The definition of $F$ is
-\begin{enumerate}[label=(\arabic*)]
+\begin{enumarabic}
     \setcounter{enumi}{2}
     \item $F\sse A\times A$ and
     \item $(\forall x,y\in A)(x\mathrel{F}y \iff (\exists Z\in\mc P)x\in Z\land y\in Z)$.
-\end{enumerate}
+\end{enumarabic}
 What we want to prove is
-\begin{enumerate}[label=(\arabic*)]
+\begin{enumarabic}
     \setcounter{enumi}{4}
     \item $F\sse A\times A$,
     \item $(\forall x\in A)x\mathrel F x$,
     \item $(\forall x, y\in A)x\mathrel F y \implies y \mathrel F x$, and
     \item $(\forall x,y,z\in A)(x\mathrel F y\land y\mathrel F z)\implies x\mathrel F z$.
-\end{enumerate}
+\end{enumarabic}
 The proof of (5) is trivial since (5) is (3). Let us prove (8).
-\begin{enumerate}[label=(\arabic*)]
+\begin{enumarabic}
     \setcounter{enumi}{8}
     \item Let $a$, $b$, $c$ be given in $A$.
     \item \quad Assume $a\mathrel F b$ and $b\mathrel F c$.
@@ -101,9 +101,9 @@ The proof of (5) is trivial since (5) is (3). Let us prove (8).
     \item \quad\quad $a\mathrel F c$ \hfill by (22) and (21)
     \item \quad $a\mathrel F b\land b\mathrel F c \implies a\mathrel F c$ \hfill by (10) through (23)
     \item $(\forall x,y,z\in A)(x\mathrel F y\land y\mathrel F z)\implies x\mathrel F z$ \hfill by (9) through (24)
-\end{enumerate}
+\end{enumarabic}
 Now let us prove (6).
-\begin{enumerate}[label=(\arabic*)]
+\begin{enumarabic}
     \setcounter{enumi}{25}
     \item Let $a$ be given in $A$.
     \item \quad $a\mathrel F a \iff (\exists Z\in\mc P)a\in Z\land a\in Z)$ \hfill by (4)
@@ -112,9 +112,9 @@ Now let us prove (6).
     \item \quad $(\exists Z\in\mc P)a\in Z\land a\in Z)$ \hfill by (29)
     \item \quad $a\mathrel F a$ \hfill by (30) and (27)
     \item $(\forall x\in A)x\mathrel F x$ \hfill by (26) through (31)
-\end{enumerate}
+\end{enumarabic}
 Now let us prove (7).
-\begin{enumerate}[label=(\arabic*)]
+\begin{enumarabic}
     \setcounter{enumi}{32}
     \item Let $a,b$ be given in $A$.
     \item \quad Assume $a\mathrel F b$.
@@ -126,7 +126,7 @@ Now let us prove (7).
     \item \quad\quad $b\mathrel F a$ \hfill by (39) and (36)
     \item \quad $a\mathrel F b \implies b\mathrel F a$ \hfill by (34) through (40)
     \item $(\forall x, y\in A)x\mathrel F y \implies y \mathrel F x$ \hfill by (33) through (41)
-\end{enumerate}
+\end{enumarabic}
 \end{solution}
 
 \begin{exercise}
@@ -173,7 +173,7 @@ Then by Proposition 5-1.3 we have $q_1=\phi(a_1)=\phi(a_2)=q_2$. Therefore $g$ i
 \begin{exercise}
 Let $D$ and $E$ be equivalence relations in the sets $A$ and $B$, respectively.
 Let the corresponding quotient maps and sets be $\phi$, $\psi$, $\mc Q$, and $\mc R$.
-\begin{enumerate}[label=(\alph*)]
+\begin{enumalpha}
     \item Define an equivalence relation $F$ in $A\times B$ in terms of $D$ and $E$ so
         that the corresponding quotient set $\mc S$ has a natural bijection to $\mc Q\times\mc R$.
     \item Suppose that $g$ is a function from $A\times B$ to a set $T$ such that
@@ -182,7 +182,7 @@ Let the corresponding quotient maps and sets be $\phi$, $\psi$, $\mc Q$, and $\m
         \[(\forall a\in A)(\forall b_1,b_2\in B)\quad b_1\mathrel E b_2\implies g(a,b_1)=g(a,b_2).\]
         Prove that there exists a unique function $h$ from $\mc Q\times \mc R$ to $T$ such that
         \[(\forall a\in A)(\forall b\in B)\quad g(a,b)=h(\phi(a),\psi(b)).\]
-\end{enumerate}
+\end{enumalpha}
 \end{exercise}
 
 \begin{solution}
